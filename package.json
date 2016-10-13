@@ -1,0 +1,22 @@
+{
+  "name": "oneil",
+  "version": "0.0.1",
+  "description": "A custom WordPress theme for O'neil Printing",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/factor1/oneil.git"
+  },
+  "author": "Eric Stout (factor1)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/factor1/oneil/issues"
+  },
+  "homepage": "https://github.com/factor1/oneil#readme",
+  "dependencies": {
+    "prelude-wp": "^3.3.10"
+  }
+}

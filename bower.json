@@ -1,0 +1,22 @@
+{
+  "name": "oneil",
+  "description": "A custom WordPress theme for O'neil Printing",
+  "main": "index.php",
+  "authors": [
+    "Eric Stout (factor1)"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/factor1/oneil",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "font-awesome": "^4.6.3",
+    "slick-carousel": "^1.6.0"
+  }
+}
