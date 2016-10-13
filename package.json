@@ -18,6 +18,7 @@
   "homepage": "https://github.com/factor1/oneil#readme",
   "dependencies": {
     "ginger-grid": "github:erwstout/ginger#develop",
-    "prelude-wp": "^3.3.10"
+    "prelude-wp": "^3.3.10",
+    "styledown-redux": "github:volcanic-creations/styledown"
   }
 }
