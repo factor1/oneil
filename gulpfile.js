@@ -2,7 +2,7 @@
   Gulpfile.js
 ------------------------------------------------------------------------------*/
 // Name your theme - this is outputted only when packaging your project.
-var theme        = 'your-theme-name';
+var theme        = 'oneil';
 
 // Set the paths you will be working with
 var phpFiles     = ['./**/*.php', './*.php'],
