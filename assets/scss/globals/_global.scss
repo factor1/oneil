@@ -63,3 +63,41 @@ img{
     height: 100%;
   }
 }
+
+// Styleguide Styles
+.sg{
+  margin-top: 20px;
+}
+.sg-container{
+  @extend .container;
+  // make it visible
+  h4{background: black}
+}
+
+.sg-block{
+  @extend .row;
+  border-bottom: 2px solid black;
+}
+
+.sg-text{
+  @extend .col-4;
+}
+
+.sg-example{
+  @extend .col-8;
+}
+
+.sg-code{
+  display: none;
+  // background: #ffe;
+  // border-bottom: 2px solid black;
+  // border-top: 2px solid black;
+  // margin-bottom: 60px;
+  // padding: 20px;
+}
+
+.sg-section-forms{
+  div{
+    margin: 5px auto 10px;
+  }
+}

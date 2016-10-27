@@ -1,6 +1,21 @@
 /*------------------------------------------------------------------------------
   Typography
 ------------------------------------------------------------------------------*/
+/**
+ * Typography:
+ * `h1` thru `h6` inlcuding `p` - General heading and typography styles.
+ *
+ *     @example
+ *     div.typography
+ *       h1.headline Major Headline
+ *       h1 Heading 1
+ *       h2 Heading 2
+ *       h3 Heading 3
+ *       h4 Heading 4
+ *       h5 Heading 5
+ *       h6 Heading 6
+ *       p Lorem ipsum dolor sit amet paragraph text here. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+ */
 
 // Headings
 h1.headline{
@@ -57,4 +72,74 @@ h6{
   line-height: rem(36px);
   letter-spacing: 0;
   color: $black;
+}
+
+// General Typography
+p{
+  font-size: rem(16px);
+  font-weight: $book;
+  line-height: rem(22px);
+  letter-spacing: 0;
+  color: $black;
+}
+
+// Lists
+ul, ol{
+  color: $blue;
+}
+
+ol{
+  list-style: decimal;
+  ol{
+    list-style: lower-alpha;;
+  }
+}
+
+/**
+ * Lists:
+ * Default styling for ordered and unordered lists.
+ *
+ *     @example
+ *     div.lists
+ *      ul
+ *        li List Item
+ *        li List Item
+ *        li List Item
+ *          ul
+ *            li List Item
+ *            li List Item
+ *        li List Item
+ *        li List Item
+ *      ol
+ *        li List Item
+ *        li List Item
+ *        li List Item
+ *          ol
+ *            li List Item
+ *            li List Item
+ *        li List Item
+ *        li List Item
+ */
+ul{
+  list-style: none;
+  li{
+    position: relative;
+    &:before{
+      content: '+';
+      display: block;
+      position: absolute;
+      left: -15px;
+    }
+  }
+  ul{
+    li{
+      position: relative;
+      &:before{
+        content: '-';
+        display: block;
+        position: absolute;
+        left: -15px;
+      }
+    }
+  }
 }

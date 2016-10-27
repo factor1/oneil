@@ -32,6 +32,7 @@ var jshint       = require('gulp-jshint'),
     plumber      = require('gulp-plumber'),
     stylish      = require('jshint-stylish'),
     notify       = require('gulp-notify'),
+    exec         = require('gulp-exec'),
     zip          = require('gulp-zip');
 
 /*------------------------------------------------------------------------------
@@ -105,6 +106,7 @@ gulp.task('minify-css', ['sass'], function() {
       zindex: false
     }))
     .pipe(gulp.dest( './assets/css' ))
+    .pipe(exec('styledown assets/scss/**/*.scss config.md > styleguide.html'))
     .pipe(browserSync.reload({
       stream: true
     }));

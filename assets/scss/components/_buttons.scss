@@ -1,0 +1,42 @@
+// Button Styles
+
+/**
+ * Buttons:
+ * `.button .button--{$color}` - Button styles  found in the layout.
+ *
+ *     @example
+ *     div.typography
+ *      a.button.button--blue Learn More
+ */
+.button{
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 8px 30px 8px 31px;
+  text-align: center;
+  padding: 10px 0;
+  transition: all .3s ease;
+  font: rem(16px) $franklin;
+  font-weight: $heavy;
+  cursor: pointer;
+  &--blue{
+    border-image: url(../img/button-blue.svg) 8 30 8 31 fill stretch;
+    color: $blue;
+    &:hover{
+      color: $blue50;
+    }
+  }
+  &--yellow{
+    border-image: url(../img/button-yellow.svg) 8 30 8 31 fill stretch;
+    color: $yellow;
+    &:hover{
+      color: $yellow65;
+    }
+  }
+  &--white{
+    border-image: url(../img/button-white.svg) 8 30 8 31 fill stretch;
+    color: $white;
+    &:hover{
+      color: $ltGrey60;
+    }
+  }
+}
