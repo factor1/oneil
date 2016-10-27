@@ -2,8 +2,59 @@
   Typography
 ------------------------------------------------------------------------------*/
 
-// Links
-a,
-a:visited {
-  text-decoration : none;
+// Headings
+h1.headline{
+  font-size: rem(56px);
+  font-weight: $heavy;
+  line-height: rem(58px);
+  letter-spacing: 0;
+  color: white;
+}
+
+h1{
+  font-size: rem(48px);
+  font-weight: $heavy;
+  line-height: rem(48px);
+  letter-spacing: 0.02em;
+  color: $blue;
+}
+
+h2{
+  font-size: rem(36px);
+  font-weight: $heavy;
+  line-height: rem(40px);
+  letter-spacing: 0.02em;
+  color: $black;
+}
+
+h3{
+  font-size: rem(28px);
+  font-weight: $heavy;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  color: $blue;
+}
+
+h4{
+  font-size: rem(24px);
+  font-weight: $heavy;
+  line-height: 28px;
+  letter-spacing: 0;
+  color: $white;
+}
+
+h5{
+  font-size: rem(26px);
+  font-weight: $demi;
+  line-height: rem(32px);
+  letter-spacing: 0;
+  color: $black;
+}
+
+h6{
+  font-size: rem(28px);
+  font-weight: $book;
+  line-height: rem(36px);
+  letter-spacing: 0;
+  color: $black;
 }

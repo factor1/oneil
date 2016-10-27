@@ -53,7 +53,8 @@ gulp.task('sass', function() {
       .pipe(sass({
         includePaths: [
           './node_modules/normalize-scss/sass/',
-          './node_modules/ginger-grid/'
+          './node_modules/ginger-grid/',
+          './bower_components/sugar/'
         ]
       })
         .on('error', sass.logError))

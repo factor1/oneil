@@ -25,6 +25,11 @@
   <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
   <?php wp_head(); ?>
+
+  <?php // TypeKit ?>
+  <script src="https://use.typekit.net/eji2vat.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 </head>
 
 <body <?php body_class(); ?>>
