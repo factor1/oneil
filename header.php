@@ -36,7 +36,7 @@
 
   <?php // Header ?>
   <header>
-
+    
   </header>
 
   <?php // Main Content ?>
