@@ -5,8 +5,10 @@
  * `.button .button--{$color}` - Button styles  found in the layout.
  *
  *     @example
- *     div.typography
+ *     div.buttons
  *      a.button.button--blue Learn More
+ *      a.button.button--yellow Upload Artwork
+ *      a.button.button--white Read More
  */
 .button{
   box-sizing: border-box;
