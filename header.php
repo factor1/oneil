@@ -36,15 +36,10 @@
 
   <?php // Header ?>
   <header>
-
-    <h1>
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-    </h1>
-
-    <nav class="main-nav">
-      <?php wp_nav_menu( array('theme_location' => 'primary') ); ?>
-    </nav>
-
+    <?php
+    get_template_part('parts/nav-home');
+    get_template_part('parts/nav-global');
+    ?>
   </header>
 
   <?php // Main Content ?>

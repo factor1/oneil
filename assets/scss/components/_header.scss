@@ -1,3 +1,136 @@
 /*------------------------------------------------------------------------------
   Header
 ------------------------------------------------------------------------------*/
+header{
+  nav{
+    ul{
+      display: flex;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      justify-content: flex-end;
+      align-items: center;
+      flex-flow: row wrap;
+      li{
+        flex: 0 1 auto;
+        position: relative;
+        &:before{
+          display: none;
+        }
+        a{
+          display: block;
+          position: relative;
+          padding: 0 rem(17px);
+          font-size: rem(16px);
+          font-weight: $demi;
+          color: $ltGrey;
+          text-transform: uppercase;
+          text-decoration: none;
+          transition: all .2s ease-out;
+          &:hover{
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.home-nav{
+  padding: rem(20px) 0;
+  // Top Icon Row
+  .header--top-icons{
+    ul{
+      list-style: none;
+      width: 100%;
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+      flex-flow: row nowrap;
+      align-items: center;
+      padding-left: rem(187px);
+      li:before{
+        display: none;
+      }
+      li{
+        flex: 0 1 auto;
+        position: relative;
+        min-width: 0;
+        a{
+          text-decoration: none;
+          text-transform: uppercase;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-flow: row nowrap;
+          // hover states
+          &:hover{
+            div,span{
+              opacity: 0.65;
+            }
+          }
+        }
+        div{
+          width: 40px;
+          max-width: 100%;
+          flex: 0 1 auto;
+          height: auto;
+          opacity: 1;
+          transition: all .2s ease-out;
+          img{
+            max-width: 40px;
+            display: block;
+          }
+        }
+        span{
+          flex: 0 1 auto;
+          font: rem(14px) $franklin;
+          font-weight: $heavy;
+          color: $ltGrey;
+          display: block;
+          margin: 0 15px;
+          white-space: nowrap;
+          opacity: 1;
+          transition: all .2s ease-out;
+        }
+        // last li
+        &:last-of-type{
+          span{
+            margin-right: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.home-nav--bottom{
+  padding: rem(15px) 0;
+  background: $ltGrey30;
+}
+
+.global-nav{
+
+}
+
+.home .global-nav{
+  display: none;
+}
+
+// search icon
+.search-icon{
+  text-align: right;
+  cursor: pointer;
+  img{
+    max-width: rem(17px);
+    display: block;
+    margin: 0 0 0 auto;
+    transition: all .2s ease-out;
+  }
+  &:hover{
+    img{
+      filter: brightness(200%);
+    }
+  }
+}
