@@ -26,6 +26,10 @@ header{
           color: $ltGrey;
           text-transform: uppercase;
           text-decoration: none;
+          transition: all .2s ease-out;
+          &:hover{
+            color: white;
+          }
         }
       }
     }
@@ -117,9 +121,16 @@ header{
 // search icon
 .search-icon{
   text-align: right;
+  cursor: pointer;
   img{
     max-width: rem(17px);
     display: block;
     margin: 0 0 0 auto;
+    transition: all .2s ease-out;
+  }
+  &:hover{
+    img{
+      filter: brightness(200%);
+    }
   }
 }
