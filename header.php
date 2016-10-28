@@ -36,7 +36,10 @@
 
   <?php // Header ?>
   <header>
-    
+    <?php
+    get_template_part('parts/nav-home');
+    get_template_part('parts/nav-global');
+    ?>
   </header>
 
   <?php // Main Content ?>
