@@ -83,6 +83,16 @@ p{
   color: $black;
 }
 
+a{
+  color: $blue;
+  transition: all .2s ease-out;
+  text-decoration: none;
+  &:hover{
+    color: $blue50;
+    text-decoration: underline;
+  }
+}
+
 // Lists
 ul, ol{
   color: $blue;

@@ -42,5 +42,15 @@
     ?>
   </header>
 
+  <div class="nifty-panel">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <?php wp_nav_menu(array('theme_location' => 'primary'));?>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <?php // Main Content ?>
   <main>

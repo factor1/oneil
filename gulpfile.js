@@ -55,7 +55,8 @@ gulp.task('sass', function() {
         includePaths: [
           './node_modules/normalize-scss/sass/',
           './node_modules/ginger-grid/',
-          './bower_components/sugar/'
+          './bower_components/sugar/',
+          './bower_components/nifty-nav/'
         ]
       })
         .on('error', sass.logError))

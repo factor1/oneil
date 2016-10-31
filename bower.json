@@ -18,6 +18,7 @@
   "dependencies": {
     "font-awesome": "^4.6.3",
     "slick-carousel": "^1.6.0",
-    "sugar": "more-sugar#^1.0.5"
+    "sugar": "more-sugar#^1.0.5",
+    "nifty-nav": "^2.2.0"
   }
 }

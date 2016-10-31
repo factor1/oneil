@@ -1,12 +1,12 @@
 <?php // Home Navigation ?>
 <div class="container">
   <div class="row home-nav">
-    <div class="col-3">
+    <div class="sm-col-6 col-3">
       <a href="<?php echo get_home_url();?>/" title="O'Neil Printing">
         <img src="<?php bloginfo('template_url');?>/assets/img/logo.svg" alt="O'Neil Printing - Made to Impress">
       </a>
     </div>
-    <div class="col-9 text-right header--top-icons">
+    <div class="col-9 text-right header--top-icons sm-hide">
       <ul>
         <li>
           <a href="#">
@@ -34,11 +34,14 @@
         </li>
       </ul>
     </div>
+    <div class="sm-col-6 sm-only">
+      <a id="nifty-nav-toggle"><span></span></a>
+    </div>
   </div>
 </div>
 
 <?php // Bottom Nav Row ?>
-<div class="container home-nav--bottom">
+<div class="container home-nav--bottom sm-hide">
   <div class="row row--justify-content-end">
     <nav class="col-11">
       <?php wp_nav_menu(array('theme_location' => 'primary')); ?>

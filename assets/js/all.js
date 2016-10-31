@@ -8,5 +8,7 @@ jQuery( document ).ready(function( $ ) {
 	if( isTouchDevice ) {
 		$('body').removeClass('no-touch');
 	}
-  
+
+  niftyNav();
+
 });
