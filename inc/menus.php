@@ -6,6 +6,7 @@
     register_nav_menus(
       array(
         'primary' => __( 'Primary Menu', 'theme-slug' ),
+        'mobile' => __( 'Mobile Menu', 'theme-slug' ),
         'footer'  => __( 'Footer Menu', 'theme-slug' ),
         'social'  => __( 'Social Menu', 'theme-slug' ),
       )

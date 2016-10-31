@@ -1,3 +1,4 @@
+
 jQuery( document ).ready(function( $ ) {
   // Inside of this function, $() will work as an alias for jQuery()
   // and other libraries also using $ will not be accessible under this shortcut
@@ -9,6 +10,14 @@ jQuery( document ).ready(function( $ ) {
 		$('body').removeClass('no-touch');
 	}
 
-  niftyNav();
+  // Fire Nifty Nav
+  niftyNav({
+    subMenus: true
+  });
+
+  // hook into nifty nav and lock body when opened
+  $('#nifty-nav-toggle').on('click', function(){
+    $('body').toggleClass('nifty-locked');
+  });
 
 });

@@ -2,6 +2,9 @@
   Header
 ------------------------------------------------------------------------------*/
 header{
+  z-index: 9999 !important;
+  background: $white;
+  position: relative;
   nav{
     ul{
       display: flex;
@@ -137,19 +140,130 @@ header{
 
 // Nifty Nav Panel Styles
 .nifty-panel{
+  height: 100vh;
+  overflow-y: scroll;
+  padding-bottom: rem(111px);
   ul{
     width: 100%;
-    padding: 0;
+    padding: rem(15px) 0;
     margin: 0;
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
     flex-flow: column nowrap;
+    // top level nav
     li{
       flex: 1 1 100%;
+      width: 100%;
+      position: relative;
+      border-bottom: 1px solid $ltGrey60;
       &:before{
         display: none;
       }
+      a{
+        display: block;
+        //width: 100%;
+        position: relative;
+        padding: rem(10px) rem(5px);
+        font: rem(18px) $franklin;
+        font-weight: $demi;
+        text-transform: uppercase;
+        color: $ltGrey;
+        // border-bottom: 1px solid $ltGrey60;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+      // sub menu items
+      ul{
+        padding: 0;
+        display: none;
+        li{
+          border-bottom: none;
+          a{
+            color: $blue;
+          }
+        }
+      }
+      // opened class on nav item
+      .nifty-menu-opened{
+        color: $blue;
+        &:after{
+          content: ' -' !important;
+          display: inline-block;
+          position: relative;
+          margin-left: rem(7px);
+        }
+      }
     }
   }
+  // Classes for open/close icons
+  .menu-item-has-children{
+    > a{
+      &:after{
+        content: ' +';
+        display: inline-block;
+        position: relative;
+        margin-left: rem(7px);
+      }
+    }
+    // hide sub menu icons (nifty nav bug)
+    ul{
+      li{
+        a:after{
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Icons for Uploads, quotes, etc
+.mobile-icon-items{
+  a{
+    display: block;
+    position: relative;
+    margin-bottom: rem(15px);
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  div{
+    width: rem(25px);
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+  }
+  span{
+    display: inline-block;
+    position: relative;
+    margin-left: rem(10px);
+    vertical-align: middle;
+    font: rem(15px) $franklin;
+    font-weight: $heavy;
+    color: $ltGrey;
+    text-transform: uppercase;
+  }
+}
+
+// Mobile Contact Items
+.mobile-contact-items{
+  margin-bottom: rem(30px);
+  span{
+    display: inline-block;
+    font: rem(15px) $franklin;
+    font-weight: $heavy;
+    color: $ltGrey;
+  }
+  .contact-item{
+    font: rem(15px) $franklin;
+    font-weight: $book;
+    color: $ltGrey;
+  }
+}
+
+// Locking of Body Classes when mobile nav is opened
+.nifty-locked{
+  overflow: hidden;
+  height: 100vh;
 }

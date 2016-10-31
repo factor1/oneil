@@ -12,7 +12,12 @@ var phpFiles     = ['./**/*.php', './*.php'],
     styleFiles   = [cssFiles, sassFiles],
     jsFiles      = ['./assets/js/theme.js'],
     imageFiles   = ['./assets/img/*.{jpg,png,gif,svg}'],
-    concatFiles  = ['./assets/js/*.js', '!./assets/js/theme.min.js', '!./assets/js/all.js'],
+    concatFiles  = [
+      './assets/js/*.js',
+      './bower_components/nifty-nav/src/js/nifty-nav.js',
+      '!./assets/js/theme.min.js',
+      '!./assets/js/all.js'
+    ],
     url          = 'oneil:8888'; // See https://browsersync.io/docs/options/#option-proxy
 
 // Include gulp

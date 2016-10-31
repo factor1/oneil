@@ -46,7 +46,42 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <?php wp_nav_menu(array('theme_location' => 'primary'));?>
+          <?php wp_nav_menu(array('theme_location' => 'mobile'));?>
+
+          <div class="mobile-icon-items">
+            <a href="#">
+              <div>
+                <img src="<?php bloginfo('template_url');?>/assets/img/quote.svg" alt="Request a Quote">
+              </div>
+              <span>Request A Quote</span>
+            </a>
+            <a href="#">
+              <div>
+                <img src="<?php bloginfo('template_url');?>/assets/img/upload.svg" alt="Upload a File">
+              </div>
+              <span>Upload a File</span>
+            </a>
+            <a href="#">
+              <div>
+                <img src="<?php bloginfo('template_url');?>/assets/img/contact.svg" alt="Contact">
+              </div>
+              <span>Contact</span>
+            </a>
+          </div>
+
+          <div class="mobile-contact-items">
+            <span>
+              Call us today!
+            </span>
+            <br>
+            <span>
+              O
+            </span>
+            <span class="contact-item">
+              602.258.7789
+            </span>
+          </div>
+
         </div>
       </div>
     </div>

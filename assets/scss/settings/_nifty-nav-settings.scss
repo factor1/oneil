@@ -5,12 +5,12 @@ $header-index: 9999 !default;
 
 // panel options
 $panel-color: rgb(229, 229, 229);
-$panel-top-distance: 76px;
+$panel-top-distance: 100px;
 $panel-width: 100% !default;
 $panel-index: 9999 !default;
 
 // mask options
-$mask-color:	$ltGrey30;
+$mask-color:	rgba($ltGrey30, 0.5);
 $mask-index: 9998 !default;
 
 // hamburger options
