@@ -89,11 +89,6 @@ img{
 
 .sg-code{
   display: none;
-  // background: #ffe;
-  // border-bottom: 2px solid black;
-  // border-top: 2px solid black;
-  // margin-bottom: 60px;
-  // padding: 20px;
 }
 
 .sg-section-forms{
@@ -105,6 +100,11 @@ img{
 // Visibility Classes
 .sm-only{
   display: none !important;
+}
+
+::selection{
+  background: $blue;
+  color: $white;
 }
 
 @media screen and (max-width: $small-breakpoint){
