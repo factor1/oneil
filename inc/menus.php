@@ -7,7 +7,8 @@
       array(
         'primary' => __( 'Primary Menu', 'theme-slug' ),
         'mobile' => __( 'Mobile Menu', 'theme-slug' ),
-        'footer'  => __( 'Footer Menu', 'theme-slug' ),
+        'footer_left'  => __( 'Footer Menu Left', 'theme-slug' ),
+        'footer_right'  => __( 'Footer Menu Right', 'theme-slug' ),
         'social'  => __( 'Social Menu', 'theme-slug' ),
       )
     );
