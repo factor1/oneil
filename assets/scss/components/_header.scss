@@ -32,6 +32,73 @@ header{
           transition: all .2s ease-out;
           &:hover{
             color: white;
+            text-decoration: none;
+          }
+        }
+
+        //active parent
+        .parent-active{
+          color: white;
+        }
+
+        // desktop dropdowns
+        ul{
+          display: none;
+          position: absolute;
+          width: rem(230px);
+          top: rem(35px);
+          background: $ltGrey30;
+          padding: 0 rem(15px) rem(17px);
+
+          // items that have children
+          .menu-item-has-children > a{
+            &:after{
+              content: '+';
+              display: inline-block;
+              position: relative;
+              margin-left: rem(5px);
+            }
+          }
+
+          // active items
+          .parent-active{
+            color: $blue;
+            &:after{
+              content: '-' !important;
+              display: inline-block;
+              position: relative;
+              margin-left: rem(5px);
+            }
+          }
+
+          li{
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid $ltGrey60;
+            a{
+              display: block;
+              font: rem(14px) $franklin;
+              font-weight: $demi;
+              text-transform: none;
+              padding: rem(10px) 0;
+            }
+            // submenu inside submenu
+            ul{
+              display: none;
+              position: relative;
+              top: 0;
+              padding: 0;
+              width: 100%;
+              li{
+                border-bottom: none;
+                a{
+                  font: rem(14px) $franklin;
+                  font-weight: $book;
+                  font-style: italic;
+                  color: $blue;
+                }
+              }
+            }
           }
         }
       }
