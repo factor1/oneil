@@ -59,6 +59,7 @@ h4{
 }
 
 h5{
+  font-family: $franklin-comp;
   font-size: rem(26px);
   font-weight: $demi;
   line-height: rem(32px);
@@ -67,6 +68,7 @@ h5{
 }
 
 h6{
+  font-family: $franklin-cond;
   font-size: rem(28px);
   font-weight: $book;
   line-height: rem(36px);
@@ -81,6 +83,16 @@ p{
   line-height: rem(22px);
   letter-spacing: 0;
   color: $black;
+}
+
+a{
+  color: $blue;
+  transition: all .2s ease-out;
+  text-decoration: none;
+  &:hover{
+    color: $blue50;
+    text-decoration: underline;
+  }
 }
 
 // Lists

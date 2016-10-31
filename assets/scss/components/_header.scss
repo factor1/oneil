@@ -2,6 +2,9 @@
   Header
 ------------------------------------------------------------------------------*/
 header{
+  z-index: 9999 !important;
+  background: $white;
+  position: relative;
   nav{
     ul{
       display: flex;
@@ -29,6 +32,73 @@ header{
           transition: all .2s ease-out;
           &:hover{
             color: white;
+            text-decoration: none;
+          }
+        }
+
+        //active parent
+        .parent-active{
+          color: white;
+        }
+
+        // desktop dropdowns
+        ul{
+          display: none;
+          position: absolute;
+          width: rem(230px);
+          top: rem(35px);
+          background: $ltGrey30;
+          padding: 0 rem(15px) rem(17px);
+
+          // items that have children
+          .menu-item-has-children > a{
+            &:after{
+              content: '+';
+              display: inline-block;
+              position: relative;
+              margin-left: rem(5px);
+            }
+          }
+
+          // active items
+          .parent-active{
+            color: $blue;
+            &:after{
+              content: '-' !important;
+              display: inline-block;
+              position: relative;
+              margin-left: rem(5px);
+            }
+          }
+
+          li{
+            width: 100%;
+            position: relative;
+            border-bottom: 1px solid $ltGrey60;
+            a{
+              display: block;
+              font: rem(14px) $franklin;
+              font-weight: $demi;
+              text-transform: none;
+              padding: rem(10px) 0;
+            }
+            // submenu inside submenu
+            ul{
+              display: none;
+              position: relative;
+              top: 0;
+              padding: 0;
+              width: 100%;
+              li{
+                border-bottom: none;
+                a{
+                  font: rem(14px) $franklin;
+                  font-weight: $book;
+                  font-style: italic;
+                  color: $blue;
+                }
+              }
+            }
           }
         }
       }
@@ -133,4 +203,134 @@ header{
       filter: brightness(200%);
     }
   }
+}
+
+// Nifty Nav Panel Styles
+.nifty-panel{
+  height: 100vh;
+  overflow-y: scroll;
+  padding-bottom: rem(111px);
+  ul{
+    width: 100%;
+    padding: rem(15px) 0;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    // top level nav
+    li{
+      flex: 1 1 100%;
+      width: 100%;
+      position: relative;
+      border-bottom: 1px solid $ltGrey60;
+      &:before{
+        display: none;
+      }
+      a{
+        display: block;
+        //width: 100%;
+        position: relative;
+        padding: rem(10px) rem(5px);
+        font: rem(18px) $franklin;
+        font-weight: $demi;
+        text-transform: uppercase;
+        color: $ltGrey;
+        // border-bottom: 1px solid $ltGrey60;
+        &:hover{
+          text-decoration: none;
+        }
+      }
+      // sub menu items
+      ul{
+        padding: 0;
+        display: none;
+        li{
+          border-bottom: none;
+          a{
+            color: $blue;
+          }
+        }
+      }
+      // opened class on nav item
+      .nifty-menu-opened{
+        color: $blue;
+        &:after{
+          content: ' -' !important;
+          display: inline-block;
+          position: relative;
+          margin-left: rem(7px);
+        }
+      }
+    }
+  }
+  // Classes for open/close icons
+  .menu-item-has-children{
+    > a{
+      &:after{
+        content: ' +';
+        display: inline-block;
+        position: relative;
+        margin-left: rem(7px);
+      }
+    }
+    // hide sub menu icons (nifty nav bug)
+    ul{
+      li{
+        a:after{
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+// Mobile Icons for Uploads, quotes, etc
+.mobile-icon-items{
+  a{
+    display: block;
+    position: relative;
+    margin-bottom: rem(15px);
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  div{
+    width: rem(25px);
+    display: inline-block;
+    position: relative;
+    vertical-align: middle;
+  }
+  span{
+    display: inline-block;
+    position: relative;
+    margin-left: rem(10px);
+    vertical-align: middle;
+    font: rem(15px) $franklin;
+    font-weight: $heavy;
+    color: $ltGrey;
+    text-transform: uppercase;
+  }
+}
+
+// Mobile Contact Items
+.mobile-contact-items{
+  margin-bottom: rem(30px);
+  span{
+    display: inline-block;
+    font: rem(15px) $franklin;
+    font-weight: $heavy;
+    color: $ltGrey;
+  }
+  .contact-item{
+    font: rem(15px) $franklin;
+    font-weight: $book;
+    color: $ltGrey;
+  }
+}
+
+// Locking of Body Classes when mobile nav is opened
+.nifty-locked{
+  overflow: hidden;
+  height: 100vh;
 }

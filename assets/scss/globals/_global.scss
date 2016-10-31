@@ -101,3 +101,17 @@ img{
     margin: 5px auto 10px;
   }
 }
+
+// Visibility Classes
+.sm-only{
+  display: none !important;
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .sm-only{
+    display: flex !important;
+  }
+  .sm-hide{
+    display: none;
+  }
+}
