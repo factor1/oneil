@@ -95,11 +95,34 @@ footer.container{
   }
 }
 
-.footer--copyright{
+.footer--copyright, .footer--credits{
   padding-top: rem(25px);
   p{
     font: rem(12px) $franklin;
     font-weight: $demi;
     color: white;
+  }
+  a{
+    font-weight: $demi;
+    text-transform: uppercase;
+    color: white;
+  }
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .footer--credits{
+    padding-top: 0;
+    p{
+      margin-top: 0;
+    }
+  }
+  .footer--copyright{
+    p{
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+  .footer--logos{
+    margin-top: rem(37px);
   }
 }

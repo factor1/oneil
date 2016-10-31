@@ -17,7 +17,7 @@
         <i class="fa fa-linkedin"></i>
       </a>
     </div>
-    <div class="col-4 footer--phone">
+    <div class="col-4 sm-hide footer--phone">
       <?php
       $phoneStripped = get_field('office_phone_number', 'option');
       $phoneStripped = strtr($phoneStripped, array('.' => '', ',' => ''));
@@ -35,13 +35,13 @@
   <div class="row">
     <div class="col-7">
       <div class="row">
-        <div class="col-4">
+        <div class="col-4 sm-col-6">
           <?php wp_nav_menu(array('theme_location' => 'footer_left'));?>
         </div>
-        <div class="col-4">
+        <div class="col-4 sm-hide">
           <?php wp_nav_menu(array('theme_location' => 'footer_right'));?>
         </div>
-        <div class="col-4 footer--address">
+        <div class="col-4 sm-col-6 footer--address sm-text-left">
 
           <div itemscope itemtype="http://schema.org/ContactPoint">
              <div itemscope itemtype="schema.org/PostalAddress">
@@ -85,9 +85,14 @@
   </div>
 
   <div class="row">
-    <div class="col-12 footer--copyright">
+    <div class="col-6 footer--copyright">
       <p>
         &copy; O'Neil Printing. All Rights Reserved
+      </p>
+    </div>
+    <div class="col-6 text-right sm-text-left footer--credits">
+      <p>
+        Site designed by <a href="http://rule29.com">Rule29</a> and developed by <a href="https://factor1studios.com">factor1</a>
       </p>
     </div>
   </div>
