@@ -1,3 +1,105 @@
 /*------------------------------------------------------------------------------
   Footer
 ------------------------------------------------------------------------------*/
+
+footer.container{
+  position: relative;
+  padding: rem(40px) 0 rem(30px);
+  background: $blue;
+  border-top: 9px solid $white;
+  ul{
+    padding: 0;
+    margin: rem(46px) 0 0;
+    position: relative;
+    li{
+      position: relative;
+      a{
+        display: block;
+        padding: 0 0 rem(15px);
+        font: rem(14px) $franklin;
+        font-weight: $book;
+        color: $white;
+        text-decoration: none;
+        &:hover{
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.footer--social-icons{
+  a{
+    display: inline-block;
+    text-decoration: none;
+    margin-right: rem(11px);
+    i{
+      color: $white;
+      font-size: rem(25px);
+      transition: all .2s ease-out;
+    }
+    &:hover{
+      i{
+        color: $black;
+      }
+    }
+  }
+}
+
+.footer--phone{
+  span{
+    font: rem(18px) $franklin;
+    font-weight: book;
+    color: $white;
+  }
+  a{
+    color: $white;
+  }
+}
+
+.footer--address{
+  padding-top: rem(44px);
+  span{
+    display: inline-block;
+    padding: 0 0 rem(13px);
+    font: rem(14px) $franklin;
+    font-weight: $book;
+    color: white;
+  }
+}
+
+.footer--logos{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row wrap;
+  .footer-logo{
+    width: rem(205px);
+  }
+  .partner-logo{
+    width: rem(65px);
+  }
+  div,a{
+    display: inline-block;
+    min-width: 0;
+    flex: 0 1 auto;
+  }
+  .fsc-tag{
+    flex: 1 1 100%;
+    p{
+      font: rem(12px) $franklin;
+      font-weight: $book;
+      color: white;
+      margin-top: rem(24px);
+    }
+  }
+}
+
+.footer--copyright{
+  padding-top: rem(25px);
+  p{
+    font: rem(12px) $franklin;
+    font-weight: $demi;
+    color: white;
+  }
+}

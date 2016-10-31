@@ -61,7 +61,8 @@ gulp.task('sass', function() {
           './node_modules/normalize-scss/sass/',
           './node_modules/ginger-grid/',
           './bower_components/sugar/',
-          './bower_components/nifty-nav/'
+          './bower_components/nifty-nav/',
+          './bower_components/font-awesome/scss/'
         ]
       })
         .on('error', sass.logError))
