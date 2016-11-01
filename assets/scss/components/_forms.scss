@@ -26,6 +26,9 @@
 form{
   label{
     display: block;
+    font-family: $franklin-comp;
+    font-weight: $demi;
+    text-transform: uppercase;
   }
   input[type=text], input[type=email], input[type=password],input[type=tel]{
     position: relative;
