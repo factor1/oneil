@@ -3,7 +3,7 @@
 .part--latest-work{
   position: relative;
   background: $drkGrey;
-  padding: rem(90px) 0 0;
+  padding: rem(90px) 0 rem(66px);
 
   h2{
     margin: 0;
@@ -16,4 +16,98 @@
     }
   }
 
+  // Latest Work Columns
+  .work-grid-row{
+    padding-left: $col-padding;
+    padding-right: $col-padding;
+    margin-top: rem(20px);
+  }
+
+  .work-col{
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 0 1 49%;
+    min-width: 0;
+    position: relative;
+
+    // first work column
+    &:nth-child(1){
+      flex: 1 1 100%;
+      flex-flow: row nowrap;
+      margin-bottom: rem(20px);
+      .work-content{
+        left: 0;
+        position: absolute;
+        z-index: 2;
+        width: 33.33333%;
+        height: 100%;
+      }
+      // "hero" image container
+      .work-image{
+        flex: 1 1 100%;
+        width: 100%;
+        height: rem(480px);
+        background-size: cover !important;
+      }
+    }
+
+    // content container
+    .work-content{
+      flex: 1 1 100%;
+      background: url(../img/box-bg.png) bottom right no-repeat;
+      padding: rem(20px);
+      h4{
+        margin: rem(10px) 0;
+        a{
+          color: white;
+        }
+      }
+      p{
+        color: $white;
+      }
+      a.permalink{
+        font: rem(16px) $franklin-cond;
+        font-weight: $demi;
+        text-transform: uppercase;
+        color: $white;
+      }
+    }
+
+    // Non "Hero" image box
+    .work-image{
+      flex: 1 1 100%;
+      min-width: 0;
+      height: rem(220px);
+      background-size: cover !important;
+    }
+
+    // Post Meta Deta
+    .work-post-data{
+      font: rem(20px) $franklin-comp;
+      font-weight: $demi;
+      text-transform: uppercase;
+    }
+
+  }
+
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .part--latest-work{
+    .work-col{
+      flex: 1 1 100%;
+      margin-bottom: rem(20px);
+      &:nth-child(1){
+        flex-flow: column;
+        .work-content{
+          position: relative;
+          flex: 1 1 100%;
+          width: 100%;
+        }
+        .work-image{
+          height: rem(220px);
+        }
+      }
+    }
+  }
 }

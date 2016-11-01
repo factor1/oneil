@@ -43,7 +43,7 @@
   		'label'                 => __( 'Our Work', 'text_domain' ),
   		'description'           => __( 'Collection of Our Work', 'text_domain' ),
   		'labels'                => $labels,
-  		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', ),
+  		'supports'              => array( 'title', 'editor', 'author', 'thumbnail', 'excerpt' ),
   		'taxonomies'            => array( 'work_category', 'post_tag' ),
   		'hierarchical'          => false,
   		'public'                => true,
