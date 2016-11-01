@@ -1,0 +1,19 @@
+// Latest Work Part
+
+.part--latest-work{
+  position: relative;
+  background: $drkGrey;
+  padding: rem(90px) 0 0;
+
+  h2{
+    margin: 0;
+  }
+
+  h5{
+    margin-top: rem(30px);
+    a{
+      color: white;
+    }
+  }
+
+}

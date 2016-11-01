@@ -112,6 +112,11 @@ img{
   width: rem(60px);
 }
 
+// Color Classes
+.white{
+  color: $white;
+}
+
 @media screen and (max-width: $small-breakpoint){
   .sm-only{
     display: flex !important;
