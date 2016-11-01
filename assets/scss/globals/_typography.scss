@@ -42,6 +42,14 @@ h2{
   color: $black;
 }
 
+h2.subhead{
+  font: rem(24px) $franklin;
+  font-weight: $book;
+  line-height: rem(32px);
+  letter-spacing: 0;
+  color: $white;
+}
+
 h3{
   font-size: rem(28px);
   font-weight: $heavy;

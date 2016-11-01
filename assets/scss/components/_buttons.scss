@@ -11,6 +11,7 @@
  *      a.button.button--white Read More
  */
 .button{
+  display: inline-block;
   box-sizing: border-box;
   border-style: solid;
   border-width: 8px 30px 8px 31px;
@@ -25,6 +26,7 @@
     color: $blue;
     &:hover{
       color: $blue50;
+      text-decoration: none;
     }
   }
   &--yellow{
@@ -32,6 +34,7 @@
     color: $yellow;
     &:hover{
       color: $yellow65;
+      text-decoration: none;
     }
   }
   &--white{
@@ -39,6 +42,7 @@
     color: $white;
     &:hover{
       color: $ltGrey60;
+      text-decoration: none;
     }
   }
 }
