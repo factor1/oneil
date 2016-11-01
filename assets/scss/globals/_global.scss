@@ -107,6 +107,11 @@ img{
   color: $white;
 }
 
+// SVG Line Class
+.slant{
+  width: rem(60px);
+}
+
 @media screen and (max-width: $small-breakpoint){
   .sm-only{
     display: flex !important;
