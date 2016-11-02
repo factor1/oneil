@@ -4,7 +4,12 @@
 header{
   z-index: 9999 !important;
   background: $white;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: rem(198px);
+  box-shadow: 0 0 28px -10px rgba(0,0,0,0.4);
   nav{
     ul{
       display: flex;
@@ -180,13 +185,46 @@ header{
   background: $ltGrey30;
 }
 
-.global-nav{
-
-}
-
-.home .global-nav{
+// Global Navigation Found after scroll and on all Pages
+.home #global-nav{
   display: none;
 }
+
+#global-nav{
+  .logo-simple{
+    width: rem(42px);
+  }
+  > .container{
+    height: rem(100px);
+
+    > .row{
+      // icon column
+      > .col-3{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        flex-flow: row nowrap;
+
+        div{
+          flex: 0 1 auto;
+          padding-right: rem(50px);
+          img{
+            display: block;
+            width: 100%;
+            max-width: 20px;
+          }
+          &:last-of-type{
+            padding-right: 0;
+          }
+        }
+
+      }
+
+    }
+
+  }
+}
+
 
 // search icon
 .search-icon{

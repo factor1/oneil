@@ -1,7 +1,7 @@
 
 var desktopNavigation = function(){
   // on click of nav item
-  $('#menu-primary > .menu-item-has-children > a').on('click', function(e){
+  $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
     // set up variables and this
     $this           = $(this);
     $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
@@ -113,6 +113,35 @@ jQuery( document ).ready(function( $ ) {
       }
     }
   ]
+  });
+
+
+  // Header Switching with Waypoints
+  var waypoint = new Waypoint({
+    element: document.getElementById('home-hero'),
+    handler: function(direction) {
+      if( direction === 'down' ){
+
+       $('#home-navigation--top, #home-navigation--bottom').fadeOut(200);
+
+       $('header').animate({
+         height: '100px'
+       }, 200, function(){
+         $('#global-nav').fadeIn(200);
+       });
+
+      } else if ( direction === 'up' ) {
+
+        $('#global-nav').fadeOut(200);
+
+        $('#home-navigation--top, #home-navigation--bottom').fadeIn(200);
+
+        $('header').animate({
+          height: '198px'
+        }, 200);
+
+      }
+    }
   });
 
 });

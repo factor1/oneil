@@ -124,6 +124,11 @@ img{
   text-transform: uppercase;
 }
 
+// Main Content Container
+main{
+  margin-top: rem(198px);
+}
+
 @media screen and (max-width: $small-breakpoint){
   .sm-only{
     display: flex !important;

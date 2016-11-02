@@ -1,6 +1,6 @@
 <?php // Home Hero ?>
 
-<section class="container container--justify-content-center home--hero" style="background: url(<?php the_field('home_hero_background');?>) center center no-repeat;">
+<section id="home-hero" class="container container--justify-content-center home--hero" style="background: url(<?php the_field('home_hero_background');?>) center center no-repeat;">
   <div class="row">
     <div class="col-8 col-centered text-center">
       <h1 class="headline">
