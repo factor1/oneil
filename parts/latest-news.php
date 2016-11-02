@@ -30,8 +30,17 @@ if( $query->have_posts() ):
     <div class="col-12">
       <div class="sm-block-grid-1 block-grid-4">
         <?php while( $query->have_posts() ): $query->the_post();?>
-          <div class="col news-post-col">
-            
+          <div class="col stretch news-post-col">
+            <span class="post-data">
+              <?php the_time('F d, Y'); ?>
+						</span>
+						<h4>
+							<a href="<?php the_permalink();?>" class="white">
+								<?php the_title(); ?>
+							</a>
+						</h4>
+						<img src="<?php bloginfo('template_url');?>/assets/img/line-black.svg" alt="" role="presentation" class="slant">
+						<?php the_excerpt(); ?>
           </div>
         <?php endwhile;?>
       </div>

@@ -41,7 +41,7 @@
           <?php // Work Content Container ?>
           <div class="work-content">
 
-            <span class="work-post-data">
+            <span class="post-data">
               <?php the_time('F d, Y'); ?>
             </span>
             <h4>
