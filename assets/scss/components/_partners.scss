@@ -5,6 +5,10 @@
   @include blue-gradient();
   border-top: 9px solid $white;
 
+  .partners-slider{
+    margin-top: rem(30px);
+  }
+
   .slick-track{
     display: flex;
     justify-content: space-between;
