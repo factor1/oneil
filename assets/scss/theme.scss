@@ -20,6 +20,9 @@
 
 @import 'font-awesome.scss';
 
+@import 'slick/slick.scss';
+@import 'slick/slick-theme.scss';
+
 // Variables
 @import 'settings/variables';
 
@@ -41,6 +44,7 @@
 @import 'components/solutions';
 @import 'components/latest-work';
 @import 'components/latest-news';
+@import 'components/testimonials';
 
 // Plugin Overrides
 @import 'plugins/overrides';

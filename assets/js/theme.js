@@ -83,4 +83,14 @@ jQuery( document ).ready(function( $ ) {
   // fire desktop navigation
   desktopNavigation();
 
+  // Slick Slider for Testimonials
+  $('.testimonials--slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false
+  });
+
 });

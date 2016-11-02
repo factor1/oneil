@@ -15,6 +15,7 @@ var phpFiles     = ['./**/*.php', './*.php'],
     concatFiles  = [
       './assets/js/*.js',
       './bower_components/nifty-nav/src/js/nifty-nav.js',
+      './bower_components/slick-carousel/slick/slick.js',
       '!./assets/js/theme.min.js',
       '!./assets/js/all.js'
     ],
@@ -62,6 +63,7 @@ gulp.task('sass', function() {
           './node_modules/ginger-grid/',
           './bower_components/sugar/',
           './bower_components/nifty-nav/',
+          './bower_components/slick-carousel/',
           './bower_components/font-awesome/scss/'
         ]
       })

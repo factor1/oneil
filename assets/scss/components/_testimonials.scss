@@ -1,0 +1,47 @@
+// Testimonials Part Styles
+
+.testimonials--container{
+  padding: rem(95px) 0 rem(100px);
+  border-top: 9px solid $white;
+
+  // testimonial image
+  .testimonial-image{
+    margin: 0 auto;
+    width: rem(235px);
+    height: rem(235px);
+    border-radius: 50%;
+    background-size: cover !important;
+  }
+
+  // content
+  .testimonial-content{
+    p{
+      @extend h6;
+    }
+  }
+
+  h3{
+    color: $black;
+  }
+
+  a{
+    font: rem(16px) $franklin-cond;
+    font-weight: $demi;
+    text-transform: uppercase;
+    color: $black;
+  }
+
+  .slick-next, .slick-prev{
+    width: 33px;
+    height: 62px;
+  }
+
+  .slick-prev:before{
+    content: url(../img/arrow-left.png);
+  }
+
+  .slick-next:before{
+    content: url(../img/arrow-right.png);
+  }
+
+}

@@ -10,4 +10,6 @@ get_template_part('parts/latest-work');
 
 get_template_part('parts/latest-news');
 
+get_template_part('parts/testimonials');
+
 get_footer();
