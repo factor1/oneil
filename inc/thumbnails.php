@@ -25,4 +25,5 @@ function featuredBG($size = 'full', $pos_x = 'center', $pos_y = 'center', $repea
 if( function_exists('prelude_features') ){
   // Use add_image_size below to add additional thumbnail sizes
   add_image_size('testimonial-thumb', 240, 240, array('center', 'center'));
+  add_image_size('standard-hero', 1440, 600, array('center', 'center'));
 }
