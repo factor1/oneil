@@ -83,4 +83,36 @@ jQuery( document ).ready(function( $ ) {
   // fire desktop navigation
   desktopNavigation();
 
+  // Slick Slider for Testimonials
+  $('.testimonials--slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: false
+  });
+
+  // Slick Slider for Partners
+  $('.partners-slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    autoplay: true,
+    responsive: [
+    {
+      breakpoint: 688,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: false,
+        arrows: false
+      }
+    }
+  ]
+  });
+
 });

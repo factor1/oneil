@@ -32,6 +32,7 @@ h1{
   line-height: rem(48px);
   letter-spacing: 0.02em;
   color: $blue;
+  text-transform: uppercase;
 }
 
 h2{
@@ -40,6 +41,15 @@ h2{
   line-height: rem(40px);
   letter-spacing: 0.02em;
   color: $black;
+  text-transform: uppercase;
+}
+
+h2.subhead{
+  font: rem(24px) $franklin;
+  font-weight: $book;
+  line-height: rem(32px);
+  letter-spacing: 0;
+  color: $white;
 }
 
 h3{
@@ -47,13 +57,16 @@ h3{
   font-weight: $heavy;
   line-height: 32px;
   letter-spacing: 0.02em;
+  margin-bottom: rem(8px);
   color: $blue;
+  text-transform: uppercase;
 }
 
 h4{
   font-size: rem(24px);
   font-weight: $heavy;
   line-height: 28px;
+  margin-bottom: rem(10px);
   letter-spacing: 0;
   color: $white;
 }
@@ -63,8 +76,10 @@ h5{
   font-size: rem(26px);
   font-weight: $demi;
   line-height: rem(32px);
+  margin-bottom: rem(8px);
   letter-spacing: 0;
   color: $black;
+  text-transform: uppercase;
 }
 
 h6{

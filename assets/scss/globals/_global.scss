@@ -107,6 +107,23 @@ img{
   color: $white;
 }
 
+// SVG Line Class
+.slant{
+  width: rem(60px);
+}
+
+// Color Classes
+.white{
+  color: $white;
+}
+
+// Post Meta Deta
+.post-data{
+  font: rem(20px) $franklin-comp;
+  font-weight: $demi;
+  text-transform: uppercase;
+}
+
 @media screen and (max-width: $small-breakpoint){
   .sm-only{
     display: flex !important;
