@@ -12,4 +12,6 @@ get_template_part('parts/latest-news');
 
 get_template_part('parts/testimonials');
 
+get_template_part('parts/partners');
+
 get_footer();

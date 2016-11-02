@@ -33,6 +33,7 @@
 @import 'globals/global';
 @import 'globals/wordpress';
 @import 'globals/typography';
+@import 'globals/mixins';
 
 // Components
 @import 'components/social-menu';
@@ -45,6 +46,7 @@
 @import 'components/latest-work';
 @import 'components/latest-news';
 @import 'components/testimonials';
+@import 'components/partners';
 
 // Plugin Overrides
 @import 'plugins/overrides';

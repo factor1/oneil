@@ -93,4 +93,14 @@ jQuery( document ).ready(function( $ ) {
     autoplay: false
   });
 
+  // Slick Slider for Partners
+  $('.partners-slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    autoplay: true
+  });
+
 });
