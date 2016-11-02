@@ -1,0 +1,17 @@
+// Latest News Stories
+
+.part--latest-news{
+  background: $drkGrey;
+  padding: rem(55px) 0 rem(95px);
+  h2{
+    margin: 0;
+  }
+  h5{
+    margin-top: rem(24px);
+  }
+  // post column
+  .news-post-col{
+    background: $red;
+  }
+
+}

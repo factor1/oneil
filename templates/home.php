@@ -8,5 +8,6 @@ get_template_part('parts/solutions');
 
 get_template_part('parts/latest-work');
 
+get_template_part('parts/latest-news');
 
 get_footer();

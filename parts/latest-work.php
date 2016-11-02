@@ -8,7 +8,7 @@
         Our Latest Work
       </h2>
       <h5 class="white">
-        <a href="#">
+        <a href="#" class="white">
           View All Past Work
         </a>
       </h5>
