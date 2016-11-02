@@ -39,3 +39,17 @@
   }
 
 }
+
+@media screen and (max-width: $small-breakpoint){
+
+  .part--partners{
+    .slick-prev:before{
+      display: none !important;
+    }
+
+    .slick-next:before{
+      display: none !important;
+    }
+  }
+
+}

@@ -100,7 +100,19 @@ jQuery( document ).ready(function( $ ) {
     infinite: true,
     slidesToShow: 4,
     slidesToScroll: 4,
-    autoplay: true
+    autoplay: true,
+    responsive: [
+    {
+      breakpoint: 688,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        infinite: true,
+        dots: false,
+        arrows: false
+      }
+    }
+  ]
   });
 
 });
