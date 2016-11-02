@@ -45,3 +45,42 @@
   }
 
 }
+
+@media screen and (max-width: 1110px){
+  .testimonials--container{
+
+    // testimonial image
+    .testimonial-image{
+      width: rem(190px);
+      height: rem(190px);
+    }
+
+  }
+
+}
+
+@media screen and (max-width: 936px){
+  .testimonials--container{
+
+    // testimonial image
+    .testimonial-image{
+      width: rem(140px);
+      height: rem(140px);
+    }
+
+  }
+
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .testimonials--container{
+    .testimonial-image{
+      width: rem(240px);
+      height: rem(240px);
+      margin-bottom: rem(20px);
+    }
+    button{
+      display: none !important;
+    }
+  }
+}

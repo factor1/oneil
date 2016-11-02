@@ -22,7 +22,7 @@ if( $query->have_posts() ):
           <div class="slide">
             <div class="row">
               <div class="col-4 text-center">
-                <div class="testimonial-image" style="background: url(<?php featuredURL();?>) center center no-repeat;">
+                <div class="testimonial-image" style="background: url(<?php featuredURL('testimonial-thumb');?>) center center no-repeat;">
                 </div>
               </div>
               <div class="col-8 testimonial-content">
