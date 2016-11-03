@@ -1,5 +1,5 @@
 <?php // Home Navigation ?>
-<div class="container">
+<div id="home-navigation--top" class="container">
   <div class="row home-nav">
     <div class="sm-col-6 col-3">
       <a href="<?php echo get_home_url();?>/" title="O'Neil Printing">
@@ -41,7 +41,7 @@
 </div>
 
 <?php // Bottom Nav Row ?>
-<div class="container home-nav--bottom sm-hide">
+<div id="home-navigation--bottom" class="container home-nav--bottom sm-hide">
   <div class="row row--justify-content-end">
     <nav class="col-11">
       <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
