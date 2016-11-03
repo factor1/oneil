@@ -191,9 +191,11 @@ header{
 }
 
 #global-nav{
+
   .logo-simple{
     width: rem(42px);
   }
+
   > .container{
     height: rem(100px);
 
@@ -208,22 +210,48 @@ header{
         div{
           flex: 0 1 auto;
           padding-right: rem(50px);
+          a:hover{
+            img{
+              opacity: 0.8;
+            }
+          }
           img{
             display: block;
             width: 100%;
             max-width: 20px;
+            transition: all .2s ease-out;
           }
           &:last-of-type{
             padding-right: 0;
           }
-        }
+        } // end div
 
-      }
+      } // end col-3
 
-    }
+      > .col-7{
+        nav{
+          > div > ul{
+            > li{
+              .parent-active{
+                color: $ltGrey60;
+              }
+              > ul{
+                top: rem(60px);
+              }
+              > a{
+                &:hover{
+                  color: $ltGrey60;
+                }
+              } // end a
+            } // end LI
+          } // end div > ul
+        } // end nav
+      } // end col-7
 
-  }
-}
+    } // end row
+
+  } // end container
+} // end global nav
 
 
 // search icon
@@ -371,4 +399,10 @@ header{
 .nifty-locked{
   overflow: hidden;
   height: 100vh;
+}
+
+@media screen and (max-width: $small-breakpoint){
+  header{
+    height: rem(111px);
+  }
 }

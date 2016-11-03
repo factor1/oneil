@@ -1,64 +1,79 @@
 
-var desktopNavigation = function(){
-  // on click of nav item
-  $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
-    // set up variables and this
-    $this           = $(this);
-    $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
-    $allDropdowns   = $('header .sub-menu');
-    $submenu        = $(this).parent().find('> .sub-menu .sub-menu');
-    $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
+$viewport = $(window).innerWidth();
 
-    // Stop Top level links from firing
-    e.preventDefault();
+console.log('The viewport width is: ' + $viewport );
 
-    // Toggle active classes for parents
-    $('.parent-active').removeClass('parent-active');
-    $this.toggleClass('parent-active');
+var desktopNavigation = function(viewport){
 
-    // if the user clicks on the already open parent
-    if( $dropdown.hasClass('dropdown-open') ){
+  if ( viewport > 688 ){
 
-      $dropdown.slideUp(300, function(){
-        $dropdown.removeClass('dropdown-open');
+    // on click of nav item
+    $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
+      // set up variables and this
+      $this           = $(this);
+      $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
+      $allDropdowns   = $('header .sub-menu');
+      $submenu        = $(this).parent().find('> .sub-menu .sub-menu');
+      $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
+
+      // Stop Top level links from firing
+      e.preventDefault();
+
+      // Toggle active classes for parents
+      $('.parent-active').removeClass('parent-active');
+      $this.toggleClass('parent-active');
+
+      // if the user clicks on the already open parent
+      if( $dropdown.hasClass('dropdown-open') ){
+
+        $dropdown.slideUp(300, function(){
+          $dropdown.removeClass('dropdown-open');
+        });
+
+      } else if ( $allDropdowns.hasClass('dropdown-open') ) { // if a menu is open and a user clicks on a different one
+
+        $allDropdowns.slideUp(300, function(){
+          $allDropdowns.removeClass('dropdown-open');
+          // $dropdown.slideDown(300);
+          // $dropdown.addClass('dropdown-open');
+        });
+
+        setTimeout(function(){
+          $dropdown.slideDown(300);
+          $dropdown.addClass('dropdown-open');
+        }, 302);
+
+      } else{
+        // if nothing is open
+        $dropdown.slideDown(300, function(){
+          $dropdown.addClass('dropdown-open');
+        });
+
+      }
+
+      // Sub Menu Toggling
+      $submenuHeader.on('click', function(event){
+        // prevent links firing
+        event.preventDefault();
+
+        $submenu.slideDown(300);
+
       });
-
-    } else if ( $allDropdowns.hasClass('dropdown-open') ) { // if a menu is open and a user clicks on a different one
-
-      $allDropdowns.slideUp(300, function(){
-        $allDropdowns.removeClass('dropdown-open');
-        $dropdown.slideDown(300);
-        $dropdown.addClass('dropdown-open');
-      });
-
-    } else{
-      // if nothing is open
-      $dropdown.slideDown(300, function(){
-        $dropdown.addClass('dropdown-open');
-      });
-
-    }
-
-    // Sub Menu Toggling
-    $submenuHeader.on('click', function(event){
-      // prevent links firing
-      event.preventDefault();
-
-      $submenu.slideDown(300);
 
     });
 
-  });
+    // click outside the dropdown to close
+    $(document).click(function(event){
+      if(!$(event.target).closest('.menu-item-has-children').length) {
+        $('.parent-active').removeClass('parent-active');
+        $('.sub-menu').slideUp(250).removeClass('dropdown-open');
+        $('.parent-active').removeClass('parent-active');
+        $('.sub-menu-open').removeClass('sub-menu-open');
+      }
+    });
 
-  // click outside the dropdown to close
-  $(document).click(function(event){
-    if(!$(event.target).closest('.menu-item-has-children').length) {
-      $('.parent-active').removeClass('parent-active');
-      $('.sub-menu').slideUp(250).removeClass('dropdown-open');
-      $('.parent-active').removeClass('parent-active');
-      $('.sub-menu-open').removeClass('sub-menu-open');
-    }
-  });
+  }
+
 
 };
 
@@ -72,7 +87,8 @@ jQuery( document ).ready(function( $ ) {
 
   // Fire Nifty Nav
   niftyNav({
-    subMenus: true
+    subMenus: true,
+    panelPosition: 'fixed'
   });
 
   // hook into nifty nav and lock body when opened
@@ -81,7 +97,7 @@ jQuery( document ).ready(function( $ ) {
   });
 
   // fire desktop navigation
-  desktopNavigation();
+  desktopNavigation($viewport);
 
   // Slick Slider for Testimonials
   $('.testimonials--slider').slick({
@@ -116,32 +132,35 @@ jQuery( document ).ready(function( $ ) {
   });
 
 
-  // Header Switching with Waypoints
-  var waypoint = new Waypoint({
-    element: document.getElementById('home-hero'),
-    handler: function(direction) {
-      if( direction === 'down' ){
+  if( $viewport > 688 ) {
+    // Header Switching with Waypoints
+    var waypoint = new Waypoint({
+      element: document.getElementById('home-hero'),
+      handler: function(direction) {
+        if( direction === 'down' ){
 
-       $('#home-navigation--top, #home-navigation--bottom').fadeOut(200);
+         $('#home-navigation--top, #home-navigation--bottom').fadeOut(200);
 
-       $('header').animate({
-         height: '100px'
-       }, 200, function(){
-         $('#global-nav').fadeIn(200);
-       });
+         $('header').animate({
+           height: '100px'
+         }, 200, function(){
+           $('#global-nav').fadeIn(200);
+         });
 
-      } else if ( direction === 'up' ) {
+        } else if ( direction === 'up' ) {
 
-        $('#global-nav').fadeOut(200);
+          $('#global-nav').fadeOut(200);
 
-        $('#home-navigation--top, #home-navigation--bottom').fadeIn(200);
+          $('#home-navigation--top, #home-navigation--bottom').fadeIn(200);
 
-        $('header').animate({
-          height: '198px'
-        }, 200);
+          $('header').animate({
+            height: '198px'
+          }, 200);
 
+        }
       }
-    }
-  });
+    });
+  }
+
 
 });

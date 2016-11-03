@@ -19,19 +19,27 @@
       <div class="col-3">
 
         <div class="search-icon-global">
-          <img src="<?php bloginfo('template_url');?>/assets/img/search.svg" alt="Search">
+          <a href="#">
+            <img src="<?php bloginfo('template_url');?>/assets/img/search.svg" alt="Search">
+          </a>
         </div>
 
         <div class="quote-icon">
-          <img src="<?php bloginfo('template_url');?>/assets/img/quote.svg" alt="Request a Quote">
+          <a href="<?php echo get_home_url();?>/request-a-quote/">
+            <img src="<?php bloginfo('template_url');?>/assets/img/quote.svg" alt="Request a Quote">
+          </a>
         </div>
 
         <div class="upload-icon">
-          <img src="<?php bloginfo('template_url');?>/assets/img/upload.svg" alt="Upload a File">
+          <a href="<?php echo get_home_url();?>/upload/">
+            <img src="<?php bloginfo('template_url');?>/assets/img/upload.svg" alt="Upload a File">
+          </a>
         </div>
 
         <div class="contact-icon">
-          <img src="<?php bloginfo('template_url');?>/assets/img/contact.svg" alt="Contact">
+          <a href="<?php echo get_home_url();?>/contact/">
+            <img src="<?php bloginfo('template_url');?>/assets/img/contact.svg" alt="Contact">
+          </a>
         </div>
 
       </div>
