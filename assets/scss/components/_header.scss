@@ -8,7 +8,6 @@ header{
   top: 0;
   left: 0;
   width: 100%;
-  height: rem(198px);
   box-shadow: 0 0 28px -10px rgba(0,0,0,0.4);
   nav{
     ul{
@@ -109,6 +108,14 @@ header{
       }
     }
   }
+}
+
+.home header{
+  height: rem(198px);
+}
+
+header{
+  height: rem(100px);
 }
 
 .home-nav{

@@ -125,8 +125,12 @@ img{
 }
 
 // Main Content Container
-main{
+.home main{
   margin-top: rem(198px);
+}
+
+main{
+  margin-top: rem(100px);
 }
 
 @media screen and (max-width: $small-breakpoint){

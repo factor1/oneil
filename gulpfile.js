@@ -17,6 +17,7 @@ var phpFiles     = ['./**/*.php', './*.php'],
       './bower_components/nifty-nav/src/js/nifty-nav.js',
       './bower_components/slick-carousel/slick/slick.js',
       './bower_components/waypoints/lib/noframework.waypoints.js',
+      './bower_components/share-button/share-button.js',
       '!./assets/js/theme.min.js',
       '!./assets/js/all.js'
     ],

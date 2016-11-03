@@ -1,7 +1,6 @@
 
+// Get Viewport Width
 $viewport = $(window).innerWidth();
-
-console.log('The viewport width is: ' + $viewport );
 
 var desktopNavigation = function(viewport){
 
@@ -34,8 +33,6 @@ var desktopNavigation = function(viewport){
 
         $allDropdowns.slideUp(300, function(){
           $allDropdowns.removeClass('dropdown-open');
-          // $dropdown.slideDown(300);
-          // $dropdown.addClass('dropdown-open');
         });
 
         setTimeout(function(){
@@ -132,7 +129,7 @@ jQuery( document ).ready(function( $ ) {
   });
 
 
-  if( $viewport > 688 ) {
+  if( $viewport > 688 && $('body').hasClass('home') ) {
     // Header Switching with Waypoints
     var waypoint = new Waypoint({
       element: document.getElementById('home-hero'),
@@ -162,5 +159,12 @@ jQuery( document ).ready(function( $ ) {
     });
   }
 
+  // Share Button
+  config = {
+    ui: {
+      flyout: 'middle left'
+    }
+  };
+  new ShareButton(config);
 
 });

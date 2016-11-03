@@ -1,0 +1,19 @@
+// Breadcrumbs Styles
+
+#breadcrumbs{
+  margin: 0;
+  padding: rem(25px) 0;
+  font: rem(14px) $franklin-comp;
+  font-weight: $demi;
+  text-transform: uppercase;
+  color: $ltGrey;
+  a{
+    color: $ltGrey;
+    &:hover{
+      color: $blue50;
+    }
+  }
+  .breadcrumb_last{
+    color: $blue50;
+  }
+}
