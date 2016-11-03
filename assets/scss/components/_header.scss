@@ -409,7 +409,18 @@ header{
 }
 
 @media screen and (max-width: $small-breakpoint){
-  header{
+  header, .home header{
     height: rem(111px);
+  }
+  #global-nav{
+    > .container {
+      > .sm-only{
+        > .sm-col-6{
+          img{
+            padding-top: rem(17px);
+          }
+        }
+      }
+    }
   }
 }
