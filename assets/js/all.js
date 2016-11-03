@@ -34,8 +34,6 @@ var desktopNavigation = function(viewport){
 
         $allDropdowns.slideUp(300, function(){
           $allDropdowns.removeClass('dropdown-open');
-          // $dropdown.slideDown(300);
-          // $dropdown.addClass('dropdown-open');
         });
 
         setTimeout(function(){

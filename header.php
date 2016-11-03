@@ -37,7 +37,9 @@
   <?php // Header ?>
   <header>
     <?php
-    get_template_part('parts/nav-home');
+    if( is_page_template('templates/home.php') ):
+      get_template_part('parts/nav-home');
+    endif;
     get_template_part('parts/nav-global');
     ?>
   </header>
