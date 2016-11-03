@@ -1,0 +1,16 @@
+// Icon - Content - Button Component Styles
+
+.part--icb{
+  padding:rem(80px) 0 rem(126px);
+  background: $red;
+  .content-icon{
+    width: rem(130px);
+    display: block;
+    margin: 0 auto rem(27px);
+  }
+  p{
+    text-align: left;
+    color: $white;
+    margin-bottom: rem(37px);
+  }
+}
