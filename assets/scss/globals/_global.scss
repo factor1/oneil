@@ -140,7 +140,7 @@ main{
   .sm-hide{
     display: none;
   }
-  main{
+  main, .home main{
     margin-top: rem(111px);
   }
 }
