@@ -2,7 +2,7 @@
 
 <div id="global-nav">
   <div class="container container--justify-content-center">
-    <div class="row row--align-items-center">
+    <div class="row row--align-items-center sm-hide">
 
       <div class="col-1">
         <a href="<?php echo get_home_url();?>/">
@@ -45,5 +45,18 @@
       </div>
 
     </div>
+
+    <?php // Mobile Navigation ?>
+    <div class="row sm-only">
+      <div class="sm-col-6">
+        <a href="<?php echo get_home_url();?>/" title="O'Neil Printing">
+          <img src="<?php bloginfo('template_url');?>/assets/img/logo.svg" alt="O'Neil Printing - Made to Impress">
+        </a>
+      </div>
+      <div class="sm-col-6 sm-only">
+        <a id="nifty-nav-toggle"><span></span></a>
+      </div>
+    </div>
+
   </div>
 </div>
