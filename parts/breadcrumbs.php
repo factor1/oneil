@@ -11,5 +11,8 @@
       }
       ?>
     </div>
+    <div class="col-4 text-right" style="padding-top: 16px;">
+      <share-button></share-button>
+    </div>
   </div>
 </div>
