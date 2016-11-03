@@ -16,6 +16,7 @@ var phpFiles     = ['./**/*.php', './*.php'],
       './assets/js/*.js',
       './bower_components/nifty-nav/src/js/nifty-nav.js',
       './bower_components/slick-carousel/slick/slick.js',
+      './bower_components/waypoints/lib/noframework.waypoints.js',
       '!./assets/js/theme.min.js',
       '!./assets/js/all.js'
     ],
