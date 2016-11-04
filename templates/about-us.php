@@ -10,4 +10,8 @@ get_template_part('parts/intro-content');
 
 get_template_part('parts/icon-content-button');
 
+get_template_part('parts/fifty-fifty');
+
+get_template_part('parts/content-buttons');
+
 get_footer();

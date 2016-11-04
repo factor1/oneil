@@ -1,0 +1,27 @@
+// Content block with Button(s)
+
+.part--content-buttons{
+  padding: rem(95px) 0 rem(80px);
+  @include blue-gradient();
+
+  h2{
+    margin-top: rem(17px);
+  }
+
+  p{
+    @extend h6;
+  }
+
+  .button + .button {
+    margin-left: rem(10px);
+  }
+
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .part--content-buttons{
+    .button + .button{
+      margin-top: rem(15px);
+    }
+  }
+}
