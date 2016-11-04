@@ -31,3 +31,14 @@
   }
 
 }
+
+@media screen and (max-width: $small-breakpoint){
+  .part--fifty-fifty{
+    // left column
+    .col-6:nth-child(1){
+      div{
+        padding: rem(20px) rem(15px);
+      }
+    }
+  }
+}
