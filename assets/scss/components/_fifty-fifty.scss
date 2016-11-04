@@ -1,0 +1,33 @@
+// Fifty Fifty Content Part
+
+.part--fifty-fifty{
+  border-top: 9px solid $white;
+  // left column
+  .col-6:nth-child(1){
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: $ltGrey30;
+    div{
+      flex: 0 1 auto;
+      padding: 0 18%;
+      h3{
+        margin-top: rem(17px);
+      }
+    }
+  }
+  // right column
+  .col-6:nth-child(2){
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    background: $drkGrey;
+    div{
+      padding: rem(70px);
+      flex: 0 1 auto;
+    }
+  }
+
+}
