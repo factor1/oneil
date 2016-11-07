@@ -13,3 +13,13 @@
     text-align: left;
   }
 }
+
+// adjust body copy on some templates
+.page-template-solutions{
+  .part--intro-content{
+    p{
+      @extend h6;
+      text-align: center;
+    }
+  }
+}
