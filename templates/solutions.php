@@ -10,4 +10,6 @@ get_template_part('parts/intro-content');
 
 get_template_part('parts/left-right-repeater');
 
+get_template_part('parts/testimonials');
+
 get_footer();
