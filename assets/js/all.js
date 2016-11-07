@@ -74,6 +74,33 @@ var desktopNavigation = function(viewport){
 
 };
 
+// Staff Grid REST API
+var staffgrid = function(){
+
+  var domain = document.domain;
+
+  $.ajax({
+    dataType: 'json',
+    url: '/wp-json/wp/v2/f1_staffgrid_cpt',
+    success: function(data){
+
+      $.each(data, function(i,v){
+
+        var staff_post   = data[i],
+            post_title   = staff_post.title.rendered,
+            job_title    = staff_post.acf.title,
+            staff_bio    = staff_post.acf.staff_bio;
+
+
+        console.log(job_title);
+
+      });
+
+    }
+  });
+
+};
+
 jQuery( document ).ready(function( $ ) {
 
   // Touch Device Detection
@@ -81,6 +108,8 @@ jQuery( document ).ready(function( $ ) {
 	if( isTouchDevice ) {
 		$('body').removeClass('no-touch');
 	}
+
+  staffgrid();
 
   // Fire Nifty Nav
   niftyNav({
