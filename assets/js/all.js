@@ -79,9 +79,13 @@ var staffgrid = function(){
 
   var domain = document.domain;
 
+  var  replaceContent = function(){
+
+  };
+
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/f1_staffgrid_cpt',
+    url: '/wp-json/wp/v2/f1_staffgrid_cpt?_embed',
     success: function(data){
 
       $.each(data, function(i,v){
@@ -91,8 +95,19 @@ var staffgrid = function(){
             job_title    = staff_post.acf.title,
             staff_bio    = staff_post.acf.staff_bio;
 
+            // Get Thumbnail thats cropped, if it doesn't exist fall back to full size as a last resort
+            if( staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'] ){
+              featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
+            } else {
+              featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
+            }
 
-        console.log(job_title);
+        if ( post_title === 'Anthony Narducci' ){
+          $('#staff-name').html(post_title);
+          $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
+          $('#staff-title').html(job_title);
+          $('#staff-bio').html(staff_bio);
+        }
 
       });
 

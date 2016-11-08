@@ -1,0 +1,26 @@
+// Staff Grid Styles
+
+.staff-grid{
+  padding: rem(88px) 0 rem(95px);
+  background: $drkGrey;
+  h2{
+    margin-top: rem(5px);
+    margin-bottom: rem(26px);
+    color: white;
+  }
+  h5{
+    margin-top: 0;
+    color: $blue;
+  }
+  p{
+    color: $white;
+  }
+}
+
+.staff-image-featured{
+  width: rem(320px);
+  height: rem(320px);
+  background-size: cover !important;
+  border-radius: 50%;
+  margin: 0 auto;
+}
