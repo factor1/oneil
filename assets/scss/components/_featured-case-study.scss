@@ -1,0 +1,97 @@
+// Featured Case Study Styles
+
+.featured-case-study{
+  h2{
+    margin-top: rem(7px);
+    margin-bottom: 0;
+  }
+  h5{
+    margin-top: rem(30px);
+    a{
+      color: $black;
+      &:hover{
+        color: $blue;
+      }
+    }
+  }
+  // slick slider arrow styles
+  .slick-next, .slick-prev{
+    width: 33px;
+    height: 62px;
+    z-index: 100;
+  }
+
+  .slick-prev{
+    left: rem(-50px);
+    &:before{
+      content: url(../img/arrow-left-grey.png);
+    }
+  }
+
+  .slick-next{
+    right: rem(-50px);
+    &:before{
+      content: url(../img/arrow-right-grey.png);
+    }
+  }
+}
+
+// case study slide styles
+.case-study-slide{
+  position: relative;
+  height: rem(480px);
+  .work-content{
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 2;
+    width: 33.33333%;
+    height: 100%;
+    background: url(../img/box-bg.png) bottom right no-repeat;
+    padding: rem(20px);
+    h4{
+      margin: rem(10px) 0;
+      a{
+        color: white;
+      }
+    }
+    p{
+      color: $white;
+    }
+    a.permalink{
+      font: rem(16px) $franklin-cond;
+      font-weight: $demi;
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+  // "hero" image container
+  .work-image{
+    width: 100%;
+    height: rem(480px);
+    background-size: cover !important;
+  }
+}
+
+#featured-case-study-slider{
+  margin: rem(18px) auto rem(98px);
+}
+
+// Media Queries
+@media screen and (max-width: $small-breakpoint){
+  .featured-case-study{
+    .slick-next, .slick-prev{
+      display: none !important; // hide arrows
+    }
+  }
+  .case-study-slide{
+    height: auto;
+    .work-content{
+      position: relative;
+      width: 100%;
+    }
+    .work-image{
+      height: rem(190px);
+    }
+  }
+}

@@ -186,6 +186,17 @@ jQuery( document ).ready(function( $ ) {
   ]
   });
 
+  // Featured Case Study Slider
+  $('#featured-case-study-slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000
+  });
+
 
   if( $viewport > 688 && $('body').hasClass('home') ) {
     // Header Switching with Waypoints
