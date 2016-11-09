@@ -10,6 +10,10 @@ get_template_part('parts/intro-content');
 
 get_template_part('parts/featured-case-study');
 
+get_template_part('parts/work-samples');
+
 get_template_part('parts/content-buttons');
+
+get_template_part('parts/solutions');
 
 get_footer();
