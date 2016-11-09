@@ -12,6 +12,11 @@
   </div>
   <div class="row">
     <div class="col-10 col-centered">
+      
+      <div class="staff-loader">
+        <img src="<?php bloginfo('template_url');?>/assets/img/loading.svg" alt="Loading...">
+      </div>
+
       <div id="work-samples-slider">
       </div>
       <div id="work-samples-nav">
