@@ -79,9 +79,6 @@ var staffgrid = function(){
 
   var domain = document.domain;
 
-  var  replaceContent = function(){
-
-  };
 
   $.ajax({
     dataType: 'json',
@@ -130,6 +127,60 @@ var staffgrid = function(){
 
 };
 
+
+// Work Examples Slider & Ajax pull
+// Staff Grid REST API
+var workSamples = function(){
+
+
+  $.ajax({
+    dataType: 'json',
+    url: '/wp-json/wp/v2/pages/6',
+    success: function(data){
+
+      $('.staff-loader').remove();
+
+      var slides = data.acf.work_samples_slider;
+
+      $.each(slides, function(i,v){
+
+        // get data from object
+        var image = slides[i].image.sizes.large,
+            thumb = slides[i].image.sizes.thumbnail,
+            url   = slides[i].url;
+
+        if( url === '' ){
+          url = '#work-samples-slider';
+        }
+
+        $('#work-samples-slider').append('<div class="work-slide"><a href="'+url+'"><img src="'+image+'" alt="" role="presentation"></a></div>');
+        $('#work-samples-nav').append('<div class="work-nav-slide"><img src="'+thumb+'" alt="" role="presentation"></div>');
+
+      });
+
+      $('#work-samples-slider').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: true,
+        fade: false,
+        asNavFor: '#work-samples-nav',
+        adaptiveHeight: true
+      });
+      $('#work-samples-nav').slick({
+        slidesToShow: 5,
+        slidesToScroll: 1,
+        asNavFor: '#work-samples-slider',
+        dots: false,
+        centerMode: true,
+        focusOnSelect: true,
+        arrows: false
+      });
+
+    }
+  });
+
+};
+
 jQuery( document ).ready(function( $ ) {
 
   // Touch Device Detection
@@ -138,7 +189,14 @@ jQuery( document ).ready(function( $ ) {
 		$('body').removeClass('no-touch');
 	}
 
-  staffgrid();
+  // Fire Staff Grid Function and ajax pull
+  if( $('body').hasClass('page-template-our-people') ){
+    staffgrid();
+  }
+
+  // Fire Work Samples Slider
+  workSamples();
+
 
   // Fire Nifty Nav
   niftyNav({
@@ -184,6 +242,17 @@ jQuery( document ).ready(function( $ ) {
       }
     }
   ]
+  });
+
+  // Featured Case Study Slider
+  $('#featured-case-study-slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000
   });
 
 
