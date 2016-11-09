@@ -181,7 +181,9 @@ var workSamples = function(){
 
 };
 
+
 jQuery( document ).ready(function( $ ) {
+
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
@@ -195,7 +197,9 @@ jQuery( document ).ready(function( $ ) {
   }
 
   // Fire Work Samples Slider
-  workSamples();
+  if( $('body').hasClass('page-template-our-work') ){
+    workSamples();
+  }
 
 
   // Fire Nifty Nav
