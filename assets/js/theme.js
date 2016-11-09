@@ -195,7 +195,9 @@ jQuery( document ).ready(function( $ ) {
   }
 
   // Fire Work Samples Slider
-  workSamples();
+  if( $('body').hasClass('page-template-our-work') ){
+    workSamples();
+  }
 
 
   // Fire Nifty Nav

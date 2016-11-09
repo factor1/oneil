@@ -58,9 +58,11 @@
 @import 'components/staff-grid';
 @import 'components/featured-case-study';
 @import 'components/work-samples';
+@import 'components/child-pages';
 
 // Plugin Overrides
 @import 'plugins/overrides';
 
 // Template Styles
 @import 'templates/solutions';
+@import 'templates/solutions-single';
