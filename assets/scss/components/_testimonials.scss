@@ -46,6 +46,25 @@
 
 }
 
+// Dark Grey Backgrounds
+.drkGrey{
+  .testimonial-content{
+    p{
+      color: $white;
+    }
+
+    h3{
+      color: $blue;
+    }
+
+    a{
+      color: $white;
+    }
+
+  }
+
+}
+
 @media screen and (max-width: 1110px){
   .testimonials--container{
 

@@ -181,7 +181,9 @@ var workSamples = function(){
 
 };
 
+
 jQuery( document ).ready(function( $ ) {
+
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
