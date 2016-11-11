@@ -129,7 +129,6 @@ var staffgrid = function(){
 
 
 // Work Examples Slider & Ajax pull
-// Staff Grid REST API
 var workSamples = function(){
 
 
@@ -181,9 +180,44 @@ var workSamples = function(){
 
 };
 
+// News and Posts
+var getPosts = function(page){
+
+
+  $.ajax({
+    dataType: 'json',
+    url: '/wp-json/wp/v2/posts/?page='+page+'&per_page=1',
+    success: function(data){
+
+      $('.staff-loader').remove();
+
+      $.each(data, function(i,v){
+
+        var post  = data[i],
+            title = post.title.rendered;
+
+        $('.news-posts .posts-container').append('<div><h2>'+title+'</h2></div>');
+
+      });
+
+      // Add Load More Button
+      var nextPage = page+1;
+
+      if( $('#load-more').length === 0 ){
+        $('.news-posts .load-more-container').append('<a id="load-more" href="#" class="button button--blue" onclick="getPosts('+nextPage+')">Load More</a>');
+      } else{
+        $('#load-more').attr('onclick', 'getPosts('+nextPage+')');
+      }
+
+    }
+  });
+
+};
+
 
 jQuery( document ).ready(function( $ ) {
 
+  getPosts(1);
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
