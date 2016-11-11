@@ -186,32 +186,145 @@ var getPosts = function(page){
 
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/posts/?page='+page+'&per_page=1',
+    url: '/wp-json/wp/v2/posts/?_embed&page='+page+'&per_page=15',
     success: function(data){
 
-      $('.staff-loader').remove();
+      // if the results return no posts
+      if( data.length < 1 ){
+        $('#load-more').remove();
+      } else {
 
-      $.each(data, function(i,v){
+        $.each(data, function(i,v){
 
-        var post  = data[i],
-            title = post.title.rendered;
+          var post         = data[i],
+              title        = post.title.rendered,
+              date         = moment(post.date).format('MMMM D, YYYY'),
+              excerpt      = post.excerpt.rendered,
+              permalink    = post.link;
 
-        $('.news-posts .posts-container').append('<div><h2>'+title+'</h2></div>');
+              // setup card component
+              var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
-      });
+              // if has post thumbnail
+              if( post.featured_media !== 0 ){
 
-      // Add Load More Button
-      var nextPage = page+1;
+                if( post._embedded['wp:featuredmedia'][0].code ){ // if the post thumbnail has a 403 error
 
-      if( $('#load-more').length === 0 ){
-        $('.news-posts .load-more-container').append('<a id="load-more" href="#" class="button button--blue" onclick="getPosts('+nextPage+')">Load More</a>');
-      } else{
-        $('#load-more').attr('onclick', 'getPosts('+nextPage+')');
+                  $('.news-posts .posts-container').append(postcard);
+                  console.log('[Rest API]: Thumbnail for post '+post.id+' belongs to custom post type and cannot be accessed from standard posts.');
+
+                } else{ // if the post thumbnail is successful
+
+                  thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
+                  postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                  $('.news-posts .posts-container').append(postcard);
+
+                }
+
+              } else{
+                // if has no post thumbnail
+                $('.news-posts .posts-container').append(postcard);
+              }
+
+        });
+
+        // Add Load More Button
+        var nextPage = page+1;
+
+        if( $('#load-more').length === 0 ){
+          $('.news-posts .load-more-container').append('<a id="load-more" href="#" class="button button--white" onclick="getPosts('+nextPage+')">View More</a>');
+        } else{
+          $('#load-more').attr('onclick', 'getPosts('+nextPage+')');
+        }
+
       }
 
+      // remove loader
+      $('.staff-loader').remove();
+      
     }
   });
 
+};
+
+var getCategories = function(){
+  $.ajax({
+    dataType: 'json',
+    url: '/wp-json/wp/v2/categories',
+    success: function(data){
+      $.each(data, function(i,v){
+        var id   = data[i].id,
+            name = data[i].name;
+
+        if( name !== 'Uncategorized' ){
+          $('#post-categories').append('<li><a id="cat-'+id+'" href="#">'+name+'</a></li>');
+
+          // On Click Load Those Posts
+          $('#cat-'+id).on('click', function(){
+
+            $.ajax({
+              dataType: 'json',
+              url: '/wp-json/wp/v2/posts?_embed&categories='+id,
+              success: function(posts){
+
+                // clear current posts
+                $('.news-posts .posts-container').empty();
+                $('#load-more').remove();
+
+                // loop through each post
+                $.each(posts, function(i,v){
+                  var post         = posts[i],
+                      title        = post.title.rendered,
+                      date         = moment(post.date).format('MMMM D, YYYY'),
+                      excerpt      = post.excerpt.rendered,
+                      permalink    = post.link;
+
+                      // setup card component
+                      var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+
+                      // if has post thumbnail
+                      if( post.featured_media !== 0 ){
+
+                        if( post._embedded['wp:featuredmedia'][0].code ){ // if the post thumbnail has a 403 error
+
+                          $('.news-posts .posts-container').append(postcard);
+                          console.log('[Rest API]: Thumbnail for post '+post.id+' belongs to custom post type and cannot be accessed from standard posts.');
+
+                        } else{ // if the post thumbnail is successful
+
+                          thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
+                          postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                          $('.news-posts .posts-container').append(postcard);
+
+                        }
+
+                      } else{
+                        // if has no post thumbnail
+                        $('.news-posts .posts-container').append(postcard);
+                      }
+                });
+
+              } // end success
+
+            }); // end ajax pull
+
+          }); // end on click
+
+        } // end if
+
+      }); // end loop of each category in dropdown
+
+      // add clear post LI
+      $('#post-categories').append('<li><a id="reset-posts" onclick="clearPosts()" href="#">Clear Filters</a></li>');
+
+    } //end success
+  }); // end category ajax call
+}; // end get cat function
+
+// clear post filter function
+var clearPosts = function(){
+  $('.news-posts .posts-container').empty();
+  getPosts(1);
 };
 
 
@@ -331,5 +444,19 @@ jQuery( document ).ready(function( $ ) {
     }
   };
   new ShareButton(config);
+
+  getCategories();
+  // Category Drop Down on News Page
+  $('.dropdown').on('click', function(){
+    $(this).toggleClass('active');
+    $('#post-categories').slideToggle();
+  });
+
+  $(document).click(function(event) {
+    if(!$(event.target).closest('.dropdown').length) {
+      $('.dropdown').removeClass('active');
+      $('#post-categories').slideUp();
+    }
+  });
 
 });

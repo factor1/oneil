@@ -18,6 +18,7 @@ var phpFiles     = ['./**/*.php', './*.php'],
       './bower_components/slick-carousel/slick/slick.js',
       './bower_components/waypoints/lib/noframework.waypoints.js',
       './bower_components/share-button/share-button.js',
+      './bower_components/moment/moment.js',
       '!./assets/js/theme.min.js',
       '!./assets/js/all.js'
     ],
