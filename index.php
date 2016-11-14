@@ -3,6 +3,12 @@
    * The default blog / index template.
    */
   get_header();
+
+  get_template_part('parts/standard-hero');
+
+  get_template_part('parts/breadcrumbs');
+
+  get_template_part('parts/intro-content');
 ?>
 
 <section class="container news-posts">

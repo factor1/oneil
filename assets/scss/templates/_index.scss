@@ -84,6 +84,7 @@
 // Post "Card" Styles
 .posts-container{
   margin: rem(93px) auto rem(90px);
+  justify-content: flex-start;
   .col{
     display: flex;
     flex-flow: column;

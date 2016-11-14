@@ -265,7 +265,9 @@ var getCategories = function(){
           $('#post-categories').append('<li><a id="cat-'+id+'" href="#">'+name+'</a></li>');
 
           // On Click Load Those Posts
-          $('#cat-'+id).on('click', function(){
+          $('#cat-'+id).on('click', function(e){
+
+            e.preventDefault();
 
             $.ajax({
               dataType: 'json',
@@ -322,6 +324,11 @@ var getCategories = function(){
       // add clear post LI
       $('#post-categories').append('<li><a id="reset-posts" onclick="clearPosts()" href="#">Clear Filters</a></li>');
 
+      // prevent default on clear
+      $('#reset-posts').on('click', function(e){
+        e.preventDefault();
+      });
+
     } //end success
   }); // end category ajax call
 }; // end get cat function
@@ -332,10 +339,25 @@ var clearPosts = function(){
   getPosts(1);
 };
 
+// Blog index page get ACF intro content
+var getIndexACF = function(){
+  $.ajax({
+    dataType: 'json',
+    url: '/wp-json/wp/v2/pages/38',
+    success: function(data){
+
+      var headline = data.acf.intro_content_headline,
+          content  = data.acf.intro_content;
+
+      $('.part--intro-content .row .col-10 > h1').empty().html(headline);
+      $('.part--intro-content .row .col-10').append(content);
+
+    } //end success
+  }); // end ajax call
+}; // end getIndexACF
+
 
 jQuery( document ).ready(function( $ ) {
-
-  getPosts(1);
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
@@ -450,18 +472,26 @@ jQuery( document ).ready(function( $ ) {
   };
   new ShareButton(config);
 
-  getCategories();
-  // Category Drop Down on News Page
-  $('.dropdown').on('click', function(){
-    $(this).toggleClass('active');
-    $('#post-categories').slideToggle();
-  });
+  // if we are on the blog view fire all our functions
+  if( $('body').hasClass('blog') ){
+    getIndexACF();
 
-  $(document).click(function(event) {
-    if(!$(event.target).closest('.dropdown').length) {
-      $('.dropdown').removeClass('active');
-      $('#post-categories').slideUp();
-    }
-  });
+    getPosts(1);
+
+    getCategories();
+
+    // Category Drop Down on News Page
+    $('.dropdown').on('click', function(){
+      $(this).toggleClass('active');
+      $('#post-categories').slideToggle();
+    });
+
+    $(document).click(function(event) {
+      if(!$(event.target).closest('.dropdown').length) {
+        $('.dropdown').removeClass('active');
+        $('#post-categories').slideUp();
+      }
+    });
+  }
 
 });
