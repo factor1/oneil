@@ -1,0 +1,8 @@
+// Contact Template
+.page-template-contact{
+  .part--intro-content{
+    p{
+      @extend h6;
+    }
+  }
+}
