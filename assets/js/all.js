@@ -241,7 +241,12 @@ var getPosts = function(page){
 
       // remove loader
       $('.staff-loader').remove();
-      
+
+      // prevent default on load more buttons
+      $('#load-more').on('click', function(e){
+        e.preventDefault();
+      });
+
     }
   });
 
