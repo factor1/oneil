@@ -24,21 +24,36 @@
  */
 
 form{
+  ul{
+    margin: 0;
+    padding: 0;
+    li{
+      padding: 0 0 rem(30px);
+      margin: 0;
+      &:before{
+        display: none;
+      }
+    }
+  }
   label{
     display: block;
+    margin-bottom: rem(5px);
     font-family: $franklin-comp;
     font-weight: $demi;
     text-transform: uppercase;
+    color: $black;
   }
   input[type=text], input[type=email], input[type=password],input[type=tel]{
     position: relative;
     height: rem(40px);
+    width: 100%;
     border: 4px solid $ltGrey60;
     font-size: rem(28px);
     font-weight: $book;
     line-height: rem(36px);
     letter-spacing: 0;
     color: $black;
+    background: none;
   }
   textarea{
     position: relative;
@@ -48,6 +63,16 @@ form{
     line-height: rem(36px);
     letter-spacing: 0;
     color: $black;
+    background: none;
+    max-width: 100%;
+  }
+  select{
+    width: 100%;
+    background: none;
+    border: 4px solid $ltGrey60;
+    height: rem(40px);
+    font-size: rem(16px);
+    font-weight: $book;
   }
   input[type=submit]{
     @extend .button;
