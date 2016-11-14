@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/factor1/oneil#readme",
   "dependencies": {
-    "ginger-grid": "github:erwstout/ginger#develop",
+    "ginger-grid": "^2.0.1",
     "gulp-exec": "^2.1.2",
     "prelude-wp": "^3.3.10"
   }
