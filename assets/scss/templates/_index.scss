@@ -1,0 +1,121 @@
+// Index Styles
+
+.news-posts{
+  position: relative;
+  padding: rem(95px) 0 rem(90px);
+  background: $drkGrey;
+}
+
+.dropdown{
+  width: rem(320px);
+  max-width: 100%;
+  margin: 0 auto;
+  position: relative;
+  border: 4px solid $white;
+  height: rem(50px);
+  cursor: pointer;
+  z-index: 99;
+  transition: all .3s ease-out;
+  &:after{
+    display: block;
+    position: absolute;
+    content: '\f078';
+    font-family: 'FontAwesome';
+    font-size: 24px;
+    color: white;
+    height: rem(40px);
+    width: rem(50px);
+    top: 0;
+    right: 0;
+    border-left: 4px solid $white;
+    padding-top: 5px;
+  }
+  .dropdown--current-selection{
+    font: rem(16px) $franklin;
+    font-weight: $heavy;
+    color: white;
+    text-align: left;
+    margin: rem(11px) 0 0 rem(5px);
+  }
+  ul#post-categories{
+    display: none;
+    position: absolute;
+    width: 102.5%;
+    top: 46px;
+    left: -4px;
+    margin: 0;
+    padding: 0;
+    border-left: 4px solid $white;
+    border-right: 4px solid $white;
+    border-bottom: 4px solid $white;
+    background: $blue;
+    li{
+      margin: 0 rem(13px);
+      padding: rem(5px) 0;
+      text-align: left;
+      border-bottom: 2px solid $blue25;
+      &:last-of-type{
+        border-bottom: none;
+      }
+      a{
+        font: rem(14px) $franklin;
+        font-weight: $demi;
+        color: $blue25;
+        &:hover{
+          color: $white;
+        }
+      }
+      &:before{
+        display: none;
+      }
+    }
+  }
+}
+
+.dropdown.active{
+  transition: all .3s ease-out;
+  background: $blue;
+}
+
+.load-more-container{
+  text-align: center;
+}
+
+// Post "Card" Styles
+.posts-container{
+  margin: rem(93px) auto rem(90px);
+  justify-content: flex-start;
+  .col{
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    margin-bottom: rem(16px);
+    a{
+      flex: 0 1 auto;
+      display: block;
+      padding: rem(20px);
+      width: 100%;
+      background: url(../img/red-box.png) bottom right no-repeat;
+      &:hover{
+        text-decoration: none;
+      }
+    }
+  }
+  h6{
+    font: rem(20px) $franklin-comp;
+    font-weight: $demi;
+    text-transform: uppercase;
+    margin: 0;
+    padding: 0;
+  }
+  h4{
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.post-featured-img{
+  width: 100%;
+  height: rem(200px);
+  background-size: cover !important;
+}
