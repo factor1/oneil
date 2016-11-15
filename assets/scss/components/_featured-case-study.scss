@@ -1,6 +1,6 @@
 // Featured Case Study Styles
 
-.featured-case-study{
+.featured-case-study, .part--default-slider{
   h2{
     margin-top: rem(7px);
     margin-bottom: 0;
@@ -37,7 +37,7 @@
 }
 
 // case study slide styles
-.case-study-slide{
+.case-study-slide, #default-page-slider .slide{
   position: relative;
   height: rem(480px);
   .work-content{
@@ -79,12 +79,12 @@
 
 // Media Queries
 @media screen and (max-width: $small-breakpoint){
-  .featured-case-study{
+  .featured-case-study, .part--default-slider{
     .slick-next, .slick-prev{
       display: none !important; // hide arrows
     }
   }
-  .case-study-slide{
+  .case-study-slide, #default-page-slider .slide{
     height: auto;
     .work-content{
       position: relative;
