@@ -29,4 +29,5 @@ if( function_exists('prelude_features') ){
   add_image_size('profile-image', 680, 680, array('center', 'center'));
   add_image_size('case-study-slider', 1060, 605, array('center', 'center'));
   add_image_size('latest-case-study', 640, 440, array('center', 'center'));
+  add_image_size('gallery-thumb', 235, 205, array('center', 'center'));
 }
