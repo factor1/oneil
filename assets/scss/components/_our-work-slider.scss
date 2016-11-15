@@ -1,0 +1,62 @@
+// Our Work Slider
+
+.our-work--slider-container{
+  .col-4{
+    padding-left: 8.3333%;
+    padding-top: rem(35px);
+    background: $blue;
+    h4{
+      margin-top: 0;
+      a{
+        color: white;
+      }
+    }
+  }
+}
+
+.our-work--slider{
+  display: block;
+  position: relative;
+  width: 100%;
+  height: rem(605px);
+  overflow: hidden;
+  .slide{
+    height: rem(605px);
+    background-size: cover !important;
+  }
+  // slick slider arrow styles
+  .slick-next, .slick-prev{
+    width: 33px;
+    height: 62px;
+    z-index: 100;
+  }
+
+  .slick-prev{
+    left: rem(50px);
+    &:before{
+      content: url(../img/arrow-left.png);
+    }
+  }
+
+  .slick-next{
+    right: rem(50px);
+    &:before{
+      content: url(../img/arrow-right.png);
+    }
+  }
+}
+
+// Media Queries
+@media screen and (max-width: $small-breakpoint){
+  .our-work--slider-container{
+    .col-4{
+      padding-left: $col-padding;
+    }
+  }
+  .our-work--slider{
+    height: rem(300px);
+    .slide{
+      height: rem(300px);
+    }
+  }
+}

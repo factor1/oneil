@@ -433,6 +433,17 @@ jQuery( document ).ready(function( $ ) {
     autoplaySpeed: 4000
   });
 
+  // Featured Case Study Slider
+  $('.our-work--slider').slick({
+    dots: false,
+    arrows: true,
+    infinite: true,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4000
+  });
+
 
   if( $viewport > 688 && $('body').hasClass('home') ) {
     // Header Switching with Waypoints
