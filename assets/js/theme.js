@@ -422,7 +422,7 @@ jQuery( document ).ready(function( $ ) {
   ]
   });
 
-  // Featured Case Study Slider
+  // Featured Case Study Slider, Our Work Slider, Default Page Slider 
   $('#featured-case-study-slider, .our-work--slider, #default-page-slider').slick({
     dots: false,
     arrows: true,
