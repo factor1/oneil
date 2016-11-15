@@ -65,6 +65,44 @@
 
 }
 
+// Red Backgrounds
+.red{
+  .testimonial-content{
+    p{
+      color: $white !important;
+    }
+
+    h3{
+      color: $white !important;
+    }
+
+    a{
+      color: $white !important;
+    }
+
+  }
+
+}
+
+// Yellow Backgrounds
+.yellow{
+  .testimonial-content{
+    p{
+      color: $black !important;
+    }
+
+    h3{
+      color: $black !important;
+    }
+
+    a{
+      color: $black !important;
+    }
+
+  }
+
+}
+
 @media screen and (max-width: 1110px){
   .testimonials--container{
 
