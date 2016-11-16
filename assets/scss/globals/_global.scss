@@ -24,7 +24,7 @@ html a {
 }
 
 body {
-  font                       : 100%/1.25 arial, helvetica, sans-serif;
+  font                       : 100%/1.25 $franklin;
   min-height                 : 100%;
   overflow-y                 : scroll;
   /* has to be scroll, not auto */
@@ -61,5 +61,86 @@ img{
     left: 0;
     width: 100%;
     height: 100%;
+  }
+}
+
+// Styleguide Styles
+.sg{
+  margin-top: 20px;
+}
+.sg-container{
+  @extend .container;
+  // make it visible
+  h4{background: black}
+}
+
+.sg-block{
+  @extend .row;
+  border-bottom: 2px solid black;
+}
+
+.sg-text{
+  @extend .col-4;
+}
+
+.sg-example{
+  @extend .col-8;
+}
+
+.sg-code{
+  display: none;
+}
+
+.sg-section-forms{
+  div{
+    margin: 5px auto 10px;
+  }
+}
+
+// Visibility Classes
+.sm-only{
+  display: none !important;
+}
+
+::selection{
+  background: $blue;
+  color: $white;
+}
+
+// SVG Line Class
+.slant{
+  width: rem(60px);
+}
+
+// Color Classes
+.white{
+  color: $white;
+}
+
+// Post Meta Deta
+.post-data{
+  font: rem(20px) $franklin-comp;
+  font-weight: $demi;
+  text-transform: uppercase;
+}
+
+// Main Content Container
+.home main{
+  margin-top: rem(198px);
+}
+
+main{
+  margin-top: rem(100px);
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .sm-only{
+    display: flex !important;
+  }
+  .sm-hide{
+    display: none;
+  }
+  main, .home main{
+    margin-top: rem(111px);
   }
 }

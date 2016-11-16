@@ -1,0 +1,49 @@
+// Latest News Stories
+
+.part--latest-news{
+  background: $drkGrey;
+  padding: rem(55px) 0 rem(95px);
+
+  h2{
+    margin: 0;
+  }
+
+  h5{
+    margin-top: rem(24px);
+  }
+
+  .block-grid-4{
+    margin-top: rem(13px);
+    .col{
+      flex-basis: 24%;
+    }
+  }
+
+  // post column
+  .news-post-col{
+    background: url(../img/red-box.png) bottom right no-repeat;
+    padding: rem(16px) rem(22px);
+
+    h4{
+      margin: rem(10px) 0 rem(9px);
+    }
+
+    p{
+      margin-top: rem(8px);
+      color: $white;
+    }
+
+  }
+
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .part--latest-news{
+    .block-grid-4{
+      .col{
+        flex-basis: 100%;
+        margin-bottom: rem(20px);
+      }
+    }
+  }
+}

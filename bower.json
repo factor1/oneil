@@ -17,6 +17,11 @@
   ],
   "dependencies": {
     "font-awesome": "^4.6.3",
-    "slick-carousel": "^1.6.0"
+    "slick-carousel": "^1.6.0",
+    "sugar": "more-sugar#^1.0.5",
+    "nifty-nav": "^2.2.0",
+    "waypoints": "^4.0.1",
+    "share-button": "^1.0.3",
+    "moment": "^2.16.0"
   }
 }

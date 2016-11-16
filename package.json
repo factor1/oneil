@@ -1,6 +1,6 @@
 {
   "name": "oneil",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A custom WordPress theme for O'neil Printing",
   "main": "index.php",
   "scripts": {
@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/factor1/oneil#readme",
   "dependencies": {
+    "ginger-grid": "^2.0.1",
+    "gulp-exec": "^2.1.2",
     "prelude-wp": "^3.3.10"
   }
 }

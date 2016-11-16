@@ -1,0 +1,51 @@
+// Solutions Part
+.part--solutions{
+  padding: rem(90px) 0 rem(125px);
+
+  .slant{
+    display: block;
+    margin: 0 auto;
+  }
+
+  .solutions-grid{
+    margin-top: rem(22px);
+
+    .col{
+      display: flex;
+      flex-flow: column;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+
+    .icon-container, .headline-container{
+      flex: 0 1 auto;
+      min-height: 0;
+    }
+
+    img{
+      display: block;
+      margin: 0 auto;
+      max-width: 180px;
+      //transform: scale(0.5);
+    }
+
+    h5{
+      display: inline-block;
+      border-bottom: 3px solid $blue;
+    }
+
+  }
+
+}
+
+// Solutions Part on Our Work template
+.page-template-our-work{
+  .part--solutions{
+    h1,h5,h6{
+      color: $white;
+    }
+    h5{
+      border-bottom: 3px solid $black;
+    }
+  }
+}

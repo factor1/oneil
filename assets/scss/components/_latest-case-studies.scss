@@ -1,0 +1,55 @@
+// Latest Case Studies Component
+
+.latest-case-studies{
+  background: $white;
+  padding: rem(98px) 0;
+  h2{
+    margin-top: rem(7px);
+  }
+  h5{
+    margin-top: 0;
+    a{
+      color: $black;
+    }
+  }
+}
+
+.case-study--image{
+  width: 100%;
+  height: 220px;
+  background-size: cover !important;
+}
+
+.latest-case-study--row{
+  margin-top: rem(13px);
+  .col-4{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.case-study--content{
+  flex: 1 1 auto;
+  padding: 20px;
+  background: url(../img/box-bg.png) bottom right no-repeat;
+  h4{
+    margin-top: rem(7px);
+    a{
+      color: $white;
+    }
+  }
+  .permalink{
+    font: rem(16px) $franklin-cond;
+    font-weight: $demi;
+    text-transform: uppercase;
+    color: $white;
+  }
+}
+
+@media screen and (max-width: $small-breakpoint){
+  .latest-case-study--row{
+    .col-4{
+      margin-bottom: rem(25px);
+    }
+  }
+}

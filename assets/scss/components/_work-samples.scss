@@ -1,0 +1,37 @@
+// Work Samples Slider/Component Styles
+
+.work-samples{
+  padding: rem(90px) 0;
+  background: $drkGrey;
+  h3{
+    margin-top: rem(7px);
+  }
+  p{
+    color: white;
+  }
+  // slick slider arrow styles
+  .slick-next, .slick-prev{
+    width: 33px;
+    height: 62px;
+    z-index: 100;
+  }
+
+  .slick-prev{
+    left: rem(-50px);
+    &:before{
+      content: url(../img/arrow-left.png);
+    }
+  }
+
+  .slick-next{
+    right: rem(-50px);
+    &:before{
+      content: url(../img/arrow-right.png);
+    }
+  }
+}
+
+// Slider
+#work-samples-slider{
+  margin: rem(58px) auto rem(18px);
+}

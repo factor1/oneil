@@ -16,9 +16,7 @@
 
   // Customize the default read more link
   function prelude_continue_reading_link() {
-    return ' <a href="' . get_permalink() . '">' .
-     __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'theme-slug' ) .
-     '</a>';
+    return '';
   }
 
   // Customize the default ellipsis (...)
@@ -26,6 +24,12 @@
     return '&hellip;' . prelude_continue_reading_link();
   }
   add_filter( 'excerpt_more', 'prelude_auto_excerpt_more' );
+
+  // Change Excerpt Length
+  function custom_excerpt_length( $length ) {
+	   return 18;
+  }
+  add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
   // Remove the default gallery styling
   function prelude_remove_gallery_css( $css ) {
@@ -122,3 +126,21 @@
     return $buttons;
   }
   add_filter("mce_buttons_3", "enable_more_buttons");
+
+
+  /**
+  * Add REST API support to an already registered post type.
+  */
+  add_action( 'init', 'my_custom_post_type_rest_support', 25 );
+  function my_custom_post_type_rest_support() {
+  	global $wp_post_types;
+
+  	//be sure to set this to the name of your post type!
+  	$post_type_name = 'f1_staffgrid_cpt';
+  	if( isset( $wp_post_types[ $post_type_name ] ) ) {
+  		$wp_post_types[$post_type_name]->show_in_rest = true;
+  		$wp_post_types[$post_type_name]->rest_base = $post_type_name;
+  		$wp_post_types[$post_type_name]->rest_controller_class = 'WP_REST_Posts_Controller';
+  	}
+
+  }

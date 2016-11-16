@@ -1,0 +1,19 @@
+// Capabilities Section Styles
+
+.capabilities{
+  padding: rem(95px) 0;
+  background: $yellow;
+  border-top: 9px solid white;
+  h2{
+    margin-top: rem(7px);
+    text-align: center;
+  }
+  p{
+    text-align: left;
+  }
+  .col-11{
+    img{
+      margin: 0 rem(10px);
+    }
+  }
+}

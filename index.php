@@ -3,28 +3,35 @@
    * The default blog / index template.
    */
   get_header();
+
+  get_template_part('parts/standard-hero');
+
+  get_template_part('parts/breadcrumbs');
+
+  get_template_part('parts/intro-content');
 ?>
 
-  <section class="main-content">
-    <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-      <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-        <?php
-          if ( has_post_thumbnail() ) {
-            the_post_thumbnail();
-          }
-          get_template_part( 'parts/meta' );
-          the_content();
-        ?>
-      </article>
-      <?php
-    endwhile;
-      the_posts_pagination( array('mid_size' => 2) );
-    else :
-      ?>
-      <h2>Sorry, no posts have been found</h2>
-    <?php endif; ?>
-  </section>
+<section class="container news-posts">
+  <div class="row">
+    <div class="col-10 col-centered text-center">
+      <div class="dropdown">
+        <div class="dropdown--current-selection">
+          Filter Stories by Category
+        </div>
+        <ul id="post-categories">
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="staff-loader"><img src="<?php bloginfo('template_url');?>/assets/img/loading.svg" alt="Loading..."></div>
+      <div class="posts-container sm-block-grid-1 block-grid-3 row--justify-content-start"></div>
+      <div class="load-more-container"></div>
+    </div>
+  </div>
+</section>
+
 
 <?php
   get_footer();

@@ -25,22 +25,69 @@
   <?php if ( is_singular() ) wp_enqueue_script( 'comment-reply' ); ?>
 
   <?php wp_head(); ?>
+
+  <?php // TypeKit ?>
+  <script src="https://use.typekit.net/eji2vat.js"></script>
+  <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
 </head>
 
 <body <?php body_class(); ?>>
 
   <?php // Header ?>
   <header>
-
-    <h1>
-      <a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php bloginfo( 'name' ); ?></a>
-    </h1>
-
-    <nav class="main-nav">
-      <?php wp_nav_menu( array('theme_location' => 'primary') ); ?>
-    </nav>
-
+    <?php
+    if( is_page_template('templates/home.php') ):
+      get_template_part('parts/nav-home');
+    endif;
+    get_template_part('parts/nav-global');
+    ?>
   </header>
+
+  <div class="nifty-panel">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <?php wp_nav_menu(array('theme_location' => 'mobile'));?>
+
+          <div class="mobile-icon-items">
+            <a href="#">
+              <div>
+                <img src="<?php bloginfo('template_url');?>/assets/img/quote.svg" alt="Request a Quote">
+              </div>
+              <span>Request A Quote</span>
+            </a>
+            <a href="#">
+              <div>
+                <img src="<?php bloginfo('template_url');?>/assets/img/upload.svg" alt="Upload a File">
+              </div>
+              <span>Upload a File</span>
+            </a>
+            <a href="#">
+              <div>
+                <img src="<?php bloginfo('template_url');?>/assets/img/contact.svg" alt="Contact">
+              </div>
+              <span>Contact</span>
+            </a>
+          </div>
+
+          <div class="mobile-contact-items">
+            <span>
+              Call us today!
+            </span>
+            <br>
+            <span>
+              O
+            </span>
+            <span class="contact-item">
+              602.258.7789
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
 
   <?php // Main Content ?>
   <main>

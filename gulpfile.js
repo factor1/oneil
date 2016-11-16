@@ -2,7 +2,7 @@
   Gulpfile.js
 ------------------------------------------------------------------------------*/
 // Name your theme - this is outputted only when packaging your project.
-var theme        = 'your-theme-name';
+var theme        = 'oneil';
 
 // Set the paths you will be working with
 var phpFiles     = ['./**/*.php', './*.php'],
@@ -12,8 +12,17 @@ var phpFiles     = ['./**/*.php', './*.php'],
     styleFiles   = [cssFiles, sassFiles],
     jsFiles      = ['./assets/js/theme.js'],
     imageFiles   = ['./assets/img/*.{jpg,png,gif,svg}'],
-    concatFiles  = ['./assets/js/*.js', '!./assets/js/theme.min.js', '!./assets/js/all.js'],
-    url          = 'wp-dev:8888'; // See https://browsersync.io/docs/options/#option-proxy
+    concatFiles  = [
+      './assets/js/*.js',
+      './bower_components/nifty-nav/src/js/nifty-nav.js',
+      './bower_components/slick-carousel/slick/slick.js',
+      './bower_components/waypoints/lib/noframework.waypoints.js',
+      './bower_components/share-button/share-button.js',
+      './bower_components/moment/moment.js',
+      '!./assets/js/theme.min.js',
+      '!./assets/js/all.js'
+    ],
+    url          = 'oneil:8888'; // See https://browsersync.io/docs/options/#option-proxy
 
 // Include gulp
 var gulp         = require('gulp');
@@ -32,6 +41,7 @@ var jshint       = require('gulp-jshint'),
     plumber      = require('gulp-plumber'),
     stylish      = require('jshint-stylish'),
     notify       = require('gulp-notify'),
+    exec         = require('gulp-exec'),
     zip          = require('gulp-zip');
 
 /*------------------------------------------------------------------------------
@@ -52,7 +62,12 @@ gulp.task('sass', function() {
       .pipe(plumber())
       .pipe(sass({
         includePaths: [
-          './node_modules/normalize-scss/sass/'
+          './node_modules/normalize-scss/sass/',
+          './node_modules/ginger-grid/',
+          './bower_components/sugar/',
+          './bower_components/nifty-nav/',
+          './bower_components/slick-carousel/',
+          './bower_components/font-awesome/scss/'
         ]
       })
         .on('error', sass.logError))
@@ -103,6 +118,7 @@ gulp.task('minify-css', ['sass'], function() {
       zindex: false
     }))
     .pipe(gulp.dest( './assets/css' ))
+    .pipe(exec('styledown assets/scss/**/*.scss config.md > styleguide.html'))
     .pipe(browserSync.reload({
       stream: true
     }));

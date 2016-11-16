@@ -1,0 +1,30 @@
+// Left Right Repeater Styles
+
+.part--left-right-repeater{
+  padding: rem(95px) 0;
+  background: $drkGrey;
+  h2{
+    margin-top: rem(7px);
+  }
+  p{
+    color: $white;
+    a{
+      font: rem(16px) $franklin-cond;
+      font-weight: $demi;
+      color: $white;
+      text-transform: uppercase;
+      &:hover{
+        color: $blue;
+        text-decoration: none;
+      }
+    }
+  }
+  .row{
+    margin-bottom: rem(115px);
+  }
+
+  .button{
+    margin-top: rem(20px);
+  }
+
+}

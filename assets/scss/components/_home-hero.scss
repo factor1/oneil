@@ -1,0 +1,9 @@
+// Home Hero
+.home--hero{
+  height: rem(627px);
+  position: relative;
+  background-size: cover !important;
+  .button{
+    margin-top: rem(30px);
+  }
+}

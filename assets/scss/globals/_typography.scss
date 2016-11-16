@@ -1,9 +1,172 @@
 /*------------------------------------------------------------------------------
   Typography
 ------------------------------------------------------------------------------*/
+/**
+ * Typography:
+ * `h1` thru `h6` inlcuding `p` - General heading and typography styles.
+ *
+ *     @example
+ *     div.typography
+ *       h1.headline Major Headline
+ *       h1 Heading 1
+ *       h2 Heading 2
+ *       h3 Heading 3
+ *       h4 Heading 4
+ *       h5 Heading 5
+ *       h6 Heading 6
+ *       p Lorem ipsum dolor sit amet paragraph text here. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Donec sollicitudin molestie malesuada. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.
+ */
 
-// Links
-a,
-a:visited {
-  text-decoration : none;
+// Headings
+h1.headline{
+  font-size: rem(56px);
+  font-weight: $heavy;
+  line-height: rem(58px);
+  letter-spacing: 0;
+  color: white;
+}
+
+h1{
+  font-size: rem(48px);
+  font-weight: $heavy;
+  line-height: rem(48px);
+  letter-spacing: 0.02em;
+  color: $blue;
+  text-transform: uppercase;
+}
+
+h2{
+  font-size: rem(36px);
+  font-weight: $heavy;
+  line-height: rem(40px);
+  letter-spacing: 0.02em;
+  color: $black;
+  text-transform: uppercase;
+}
+
+h2.subhead{
+  font: rem(24px) $franklin;
+  font-weight: $book;
+  line-height: rem(32px);
+  letter-spacing: 0;
+  color: $white;
+}
+
+h3{
+  font-size: rem(28px);
+  font-weight: $heavy;
+  line-height: 32px;
+  letter-spacing: 0.02em;
+  margin-bottom: rem(8px);
+  color: $blue;
+  text-transform: uppercase;
+}
+
+h4{
+  font-size: rem(24px);
+  font-weight: $heavy;
+  line-height: 28px;
+  margin-bottom: rem(10px);
+  letter-spacing: 0;
+  color: $white;
+}
+
+h5{
+  font-family: $franklin-comp;
+  font-size: rem(26px);
+  font-weight: $demi;
+  line-height: rem(32px);
+  margin-bottom: rem(8px);
+  letter-spacing: 0;
+  color: $black;
+  text-transform: uppercase;
+}
+
+h6{
+  font-family: $franklin-cond;
+  font-size: rem(28px);
+  font-weight: $book;
+  line-height: rem(36px);
+  letter-spacing: 0;
+  color: $black;
+}
+
+// General Typography
+p{
+  font-size: rem(16px);
+  font-weight: $book;
+  line-height: rem(22px);
+  letter-spacing: 0;
+  color: $black;
+}
+
+a{
+  color: $blue;
+  transition: all .2s ease-out;
+  text-decoration: none;
+  &:hover{
+    color: $blue50;
+    text-decoration: underline;
+  }
+}
+
+// Lists
+ul, ol{
+  color: $blue;
+}
+
+ol{
+  list-style: decimal;
+  ol{
+    list-style: lower-alpha;;
+  }
+}
+
+/**
+ * Lists:
+ * Default styling for ordered and unordered lists.
+ *
+ *     @example
+ *     div.lists
+ *      ul
+ *        li List Item
+ *        li List Item
+ *        li List Item
+ *          ul
+ *            li List Item
+ *            li List Item
+ *        li List Item
+ *        li List Item
+ *      ol
+ *        li List Item
+ *        li List Item
+ *        li List Item
+ *          ol
+ *            li List Item
+ *            li List Item
+ *        li List Item
+ *        li List Item
+ */
+ul{
+  list-style: none;
+  li{
+    position: relative;
+    &:before{
+      content: '+';
+      display: block;
+      position: absolute;
+      left: -15px;
+    }
+  }
+  ul{
+    li{
+      position: relative;
+      &:before{
+        content: '-';
+        display: block;
+        position: absolute;
+        left: -15px;
+      }
+    }
+  }
 }

@@ -13,18 +13,65 @@
 @import 'normalize';
 @include normalize();
 
+@import 'sugar';
+
+@import 'settings/ginger-settings';
+@import 'ginger';
+
+@import 'font-awesome.scss';
+
+@import 'slick/slick.scss';
+@import 'slick/slick-theme.scss';
+
 // Variables
 @import 'settings/variables';
+
+@import 'settings/nifty-nav-settings';
+@import 'nifty-nav';
 
 // Global Styles
 @import 'globals/global';
 @import 'globals/wordpress';
 @import 'globals/typography';
+@import 'globals/mixins';
 
 // Components
 @import 'components/social-menu';
 @import 'components/header';
 @import 'components/footer';
+@import 'components/breadcrumbs';
+@import 'components/share-button';
+@import 'components/buttons';
+@import 'components/forms';
+@import 'components/home-hero';
+@import 'components/solutions';
+@import 'components/latest-work';
+@import 'components/latest-news';
+@import 'components/testimonials';
+@import 'components/partners';
+@import 'components/standard-hero';
+@import 'components/intro-content';
+@import 'components/icon-content-button';
+@import 'components/fifty-fifty';
+@import 'components/content-buttons';
+@import 'components/left-right-repeater';
+@import 'components/staff-grid';
+@import 'components/featured-case-study';
+@import 'components/work-samples';
+@import 'components/child-pages';
+@import 'components/solutions-single-grid';
+@import 'components/contact-form';
+@import 'components/our-work-slider';
+@import 'components/capabilities';
+@import 'components/latest-case-studies';
+@import 'components/default-slider';
 
 // Plugin Overrides
 @import 'plugins/overrides';
+
+// Template Styles
+@import 'templates/solutions';
+@import 'templates/solutions-single';
+@import 'templates/index';
+@import 'templates/contact';
+@import 'templates/gallery';
