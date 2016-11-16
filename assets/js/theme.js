@@ -356,8 +356,42 @@ var getIndexACF = function(){
   }); // end ajax call
 }; // end getIndexACF
 
+// Gallery Slider Ajax
+var getGallerySlider = function(){
+  $.ajax({
+    dataType: 'json',
+    url: '/wp-json/wp/v2/pages/229',
+    success: function(data){
+
+      var slides = data.acf.gallery_items;
+
+      $.each(slides, function(i,v){
+
+        var title   = slides[i].title,
+            content = slides[i].content,
+            image   = slides[i].image;
+
+        // if we have icons in the icon repeater
+        if( slides[i].icons !== false ){
+          $.each( slides[i].icons, function(index,value){
+            console.log( slides[i].icons[index].icon );
+          });
+        }
+
+        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div></div></div></div>');
+
+
+      });
+
+
+    } //end success
+  }); // end ajax call
+}; // end getGallerySlider
+
 
 jQuery( document ).ready(function( $ ) {
+
+  getGallerySlider();
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
@@ -422,7 +456,7 @@ jQuery( document ).ready(function( $ ) {
   ]
   });
 
-  // Featured Case Study Slider, Our Work Slider, Default Page Slider 
+  // Featured Case Study Slider, Our Work Slider, Default Page Slider
   $('#featured-case-study-slider, .our-work--slider, #default-page-slider').slick({
     dots: false,
     arrows: true,
