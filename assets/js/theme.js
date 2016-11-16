@@ -363,6 +363,8 @@ var getGallerySlider = function(){
     url: '/wp-json/wp/v2/pages/229',
     success: function(data){
 
+      $('.staff-loader').remove();
+
       var slides = data.acf.gallery_items;
 
       $.each(slides, function(i,v){
@@ -371,18 +373,42 @@ var getGallerySlider = function(){
             content = slides[i].content,
             image   = slides[i].image;
 
+        // Append to main Slider
+        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
+
+        // Append to Nav Slider
+        $('#gallery-navigation').append('<div class="nav-slide"><div style="background: url('+image+') center center no-repeat;"></div></div>');
+
         // if we have icons in the icon repeater
         if( slides[i].icons !== false ){
+
           $.each( slides[i].icons, function(index,value){
             console.log( slides[i].icons[index].icon );
+            $('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
 
-        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div></div></div></div>');
-
-
       });
 
+      // fire sliders
+      $('#gallery-top-slider').slick({
+        dots: false,
+        asNavFor: '#gallery-navigation',
+        arrows: true,
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: false,
+        pauseOnHover: false
+      });
+
+      $('#gallery-navigation').slick({
+        arrows: true,
+        asNavFor: '#gallery-top-slider',
+        slidesToShow: 4,
+        autoplay: false,
+        focusOnSelect: true
+      });
 
     } //end success
   }); // end ajax call
