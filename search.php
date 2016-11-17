@@ -11,7 +11,7 @@
   get_template_part('parts/breadcrumbs');
 ?>
 
-  <section class="container search-results">
+  <section class="container search-results--container">
 
     <div class="row">
       <div class="col-6 col-centered text-center">
