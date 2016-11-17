@@ -204,7 +204,7 @@ var getPosts = function(page){
               permalink    = post.link;
 
               // setup card component
-              var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+              var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
               // if has post thumbnail
               if( post.featured_media !== 0 ){
@@ -217,7 +217,7 @@ var getPosts = function(page){
                 } else{ // if the post thumbnail is successful
 
                   thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                  postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                  postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                   $('.news-posts .posts-container').append(postcard);
 
                 }
@@ -288,7 +288,7 @@ var getCategories = function(){
                       permalink    = post.link;
 
                       // setup card component
-                      var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                      var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
                       // if has post thumbnail
                       if( post.featured_media !== 0 ){
@@ -301,7 +301,7 @@ var getCategories = function(){
                         } else{ // if the post thumbnail is successful
 
                           thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                          postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                          postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                           $('.news-posts .posts-container').append(postcard);
 
                         }
@@ -375,7 +375,7 @@ var getGallerySlider = function(){
             image   = slides[i].image;
 
         // Append to main Slider
-        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
+        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
 
         // Append to Nav Slider
         $('#gallery-navigation').append('<div class="nav-slide"><div style="background: url('+image+') center center no-repeat;"></div></div>');
