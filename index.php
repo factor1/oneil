@@ -26,7 +26,7 @@
   <div class="row">
     <div class="col-12">
       <div class="staff-loader"><img src="<?php bloginfo('template_url');?>/assets/img/loading.svg" alt="Loading..."></div>
-      <div class="posts-container sm-block-grid-1 block-grid-3 row--justify-content-start"></div>
+      <div id="masonry" class="posts-container sm-block-grid-1 block-grid-3 row--justify-content-start"></div>
       <div class="load-more-container"></div>
     </div>
   </div>

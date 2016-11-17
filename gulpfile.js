@@ -19,6 +19,7 @@ var phpFiles     = ['./**/*.php', './*.php'],
       './bower_components/waypoints/lib/noframework.waypoints.js',
       './bower_components/share-button/share-button.js',
       './bower_components/moment/moment.js',
+      './bower_components/macy/dist/macy.js',
       '!./assets/js/theme.min.js',
       '!./assets/js/all.js'
     ],

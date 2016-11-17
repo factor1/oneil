@@ -248,6 +248,9 @@ var getPosts = function(page){
         e.preventDefault();
       });
 
+      // Recalc Macy
+      Macy.recalculate();
+
     }
   });
 
@@ -312,6 +315,9 @@ var getCategories = function(){
                       }
                 });
 
+                // Recalc Macy
+                Macy.recalculate();
+
               } // end success
 
             }); // end ajax pull
@@ -337,6 +343,7 @@ var getCategories = function(){
 // clear post filter function
 var clearPosts = function(){
   $('.news-posts .posts-container').empty();
+  $('.news-posts .posts-container').append('<div class="staff-loader"><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/loading.svg" alt="Loading..."></div>');
   getPosts(1);
 };
 
@@ -557,6 +564,15 @@ jQuery( document ).ready(function( $ ) {
         $('#post-categories').slideUp();
       }
     });
+
+    // Fire Masonry ??? Maybe ?? Plz ??
+    Macy.init({
+      container: '#masonry',
+      trueOrder: false,
+      margin: 20,
+      columns: 3
+    });
+
   }
 
 });
