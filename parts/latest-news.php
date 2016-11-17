@@ -2,7 +2,7 @@
 // WP_Query arguments
 $args = array (
 	'post_type'              => array( 'post' ),
-	'nopaging'               => true,
+	'nopaging'               => false,
 	'posts_per_page'         => '4',
 );
 
