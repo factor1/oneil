@@ -3,7 +3,7 @@
 $args = array (
 	'post_type'              => array( 'post' ),
 	'nopaging'               => false,
-	'posts_per_page'         => '4',
+	'posts_per_page'         => '3',
 );
 
 // The Query
