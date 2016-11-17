@@ -3,7 +3,7 @@
 $args = array (
 	'post_type'              => array( 'post' ),
 	'nopaging'               => false,
-	'posts_per_page'         => '3',
+	'posts_per_page'         => '4',
 );
 
 // The Query
@@ -28,7 +28,7 @@ if( $query->have_posts() ):
   </div>
   <div class="row">
     <div class="col-12">
-      <div class="sm-block-grid-1 block-grid-3">
+      <div class="sm-block-grid-1 block-grid-4">
         <?php while( $query->have_posts() ): $query->the_post();?>
           <div class="col stretch news-post-col">
             <span class="post-data">
