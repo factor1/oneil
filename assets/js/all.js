@@ -315,6 +315,9 @@ var getCategories = function(){
                       }
                 });
 
+                // Recalc Macy
+                Macy.recalculate();
+
               } // end success
 
             }); // end ajax pull
