@@ -85,6 +85,7 @@
 .posts-container{
   margin: rem(93px) auto rem(90px);
   justify-content: flex-start;
+  height: auto !important;
   .col{
     display: flex;
     flex-flow: column;
