@@ -9,6 +9,16 @@ function featuredURL($size = 'full'){
   echo $url;
 }
 
+function get_featured_image( $post_id = null, $size = 'full' ) {
+  if ( !has_post_thumbnail( $post_id ) ) {
+    return;
+  }
+
+  $image_url = wp_get_attachment_image_src( get_post_thumbnail_id( $post_id ), $size );
+
+  return $image_url[ 0 ];
+}
+
 /*-----------------------------------------------------------------------------
   Get featured image as url and output style property
 -----------------------------------------------------------------------------*/
