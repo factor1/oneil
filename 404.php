@@ -1,20 +1,26 @@
 <?php
   /**
    * The 404 Not Found template.
-   * 
+   *
    * Used when WordPress encounters an unknown URL.
    */
   get_header();
 ?>
 
-  <section class="error-404">
-    <h1>Hmm, that page does not exist...</h1>
-    <p>Maybe you can find what you are looking for <a
-        href="<?php echo esc_url( home_url( '/' ) ); ?>">here</a>.</p>
-    <p>Or try searching below...</p>
-    <?php get_search_form(); ?>
+  <section class="container container--justify-content-center error-404">
+    <div class="row">
+      <div class="col-10 col-centered text-center">
+          <h1>
+            Sorry, but we could not find the page you were looking for.
+          </h1>
+          <p>
+            You can return to the O’Neil <a href="<?php echo get_home_url();?>/">homepage</a> or use the navigation to help
+            get you to where you want to go. If you have arrived here via a broken link
+            or would like to send us a message, feel free to <a href="<?php echo get_home_url();?>/contact/">Contact Us</a>.
+          </p>
+      </div>
+    </div>
   </section>
 
 <?php
-  get_sidebar();
   get_footer();
