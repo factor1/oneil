@@ -3,6 +3,10 @@
 .search-results{
   padding-bottom: rem(95px);
 
+  h1{
+    margin-top: rem(7px);
+  }
+
   // individual search result
   .search-result{
     h4{
