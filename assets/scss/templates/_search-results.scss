@@ -1,0 +1,30 @@
+// Search Results Page
+
+.search-results{
+  padding-bottom: rem(95px);
+
+  // individual search result
+  .search-result{
+    h4{
+      a{
+        color: $black;
+      }
+    }
+    a.permalink{
+      font: rem(16px) $franklin-comp;
+      font-weight: $demi;
+      color: $black;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.pagination-row{
+  margin-top: rem(40px);
+  .page-numbers{
+    display: inline-block;
+    font: rem(14px) $franklin-comp;
+    font-weight: $demi;
+    margin: 0 rem(4px);
+  }
+}
