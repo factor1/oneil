@@ -248,6 +248,9 @@ var getPosts = function(page){
         e.preventDefault();
       });
 
+      // Recalc Macy
+      Macy.recalculate();
+
     }
   });
 
@@ -565,10 +568,6 @@ jQuery( document ).ready(function( $ ) {
       margin: 20,
       columns: 3
     });
-
-    setTimeout(function(){
-      Macy.recalculate();
-    }, 3000);
 
   }
 
