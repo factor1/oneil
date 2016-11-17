@@ -557,6 +557,14 @@ jQuery( document ).ready(function( $ ) {
         $('#post-categories').slideUp();
       }
     });
+
+    // Fire Masonry ??? Maybe ?? Plz ??
+    Macy.init({
+      container: '.posts-container',
+      trueOrder: true,
+      columns: 3
+    });
+
   }
 
 });
