@@ -343,6 +343,7 @@ var getCategories = function(){
 // clear post filter function
 var clearPosts = function(){
   $('.news-posts .posts-container').empty();
+  $('.news-posts .posts-container').append('<div class="staff-loader"><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/loading.svg" alt="Loading..."></div>');
   getPosts(1);
 };
 
