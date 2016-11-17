@@ -170,3 +170,39 @@ ul{
     }
   }
 }
+
+// Typography Media Queries
+@media screen and (max-width: $small-breakpoint){
+  // Headings
+  h1.headline{
+    font-size: rem(38px);
+  }
+
+  h1{
+    font-size: rem(32px);
+  }
+
+  h2{
+    font-size: rem(28px);
+  }
+
+  h2.subhead{
+    font: rem(18px) $franklin;
+  }
+
+  h3{
+    font-size: rem(24px);
+  }
+
+  h4{
+    font-size: rem(18px);
+  }
+
+  h5{
+    font-size: rem(20px);
+  }
+
+  h6{
+    font-size: rem(24px);
+  }
+}
