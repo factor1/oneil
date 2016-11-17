@@ -133,6 +133,26 @@ main{
   margin-top: rem(100px);
 }
 
+// 404 Page
+.error-404{
+  height: 100vh;
+  background: $blue;
+  h1{
+    color: $white;
+  }
+  p{
+    font: rem(24px) $franklin;
+    font-weight: $book;
+  }
+  a{
+    font-family: $franklin-comp;
+    font-weight: $demi;
+  }
+  p, a{
+    color: $white;
+  }
+}
+
 @media screen and (max-width: $small-breakpoint){
   .sm-only{
     display: flex !important;
