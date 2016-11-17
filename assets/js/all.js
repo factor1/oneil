@@ -562,7 +562,7 @@ jQuery( document ).ready(function( $ ) {
     Macy.init({
       container: '#masonry',
       trueOrder: false,
-      columns: 2
+      columns: 3
     });
 
     setTimeout(function(){
