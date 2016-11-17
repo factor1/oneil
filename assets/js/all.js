@@ -567,7 +567,7 @@ jQuery( document ).ready(function( $ ) {
     // Fire Masonry ??? Maybe ?? Plz ??
     Macy.init({
       container: '#masonry',
-      trueOrder: true,
+      trueOrder: false,
       margin: 20,
       columns: 3
     });
