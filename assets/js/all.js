@@ -565,6 +565,10 @@ jQuery( document ).ready(function( $ ) {
       columns: 2
     });
 
+    setTimeout(function(){
+      Macy.recalculate();
+    }, 3000);
+
   }
 
 });
