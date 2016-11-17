@@ -31,16 +31,21 @@
         <div class="row">
           <div class="col-8 col-centered search-result">
             <h4>
-              <?php the_title(); ?>
+              <a href="<?php the_permalink();?>">
+                <?php the_title(); ?>
+              </a>
             </h4>
             <img src="<?php bloginfo('template_url');?>/assets/img/line-black.svg" alt="" role="presentation" class="slant">
             <?php the_excerpt(); ?>
+            <a href="<?php the_permalink(); ?>" class="permalink">
+              Go To Page
+            </a>
           </div>
         </div>
 
       <?php endwhile; ?>
 
-      <div class="row">
+      <div class="row pagination-row">
         <div class="col-10 col-centered text-center">
           <?php the_posts_pagination( array('mid_size' => 2) ); ?>
         </div>
