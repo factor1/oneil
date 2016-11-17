@@ -418,8 +418,6 @@ var getGallerySlider = function(){
 
 jQuery( document ).ready(function( $ ) {
 
-  getGallerySlider();
-
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
 	if( isTouchDevice ) {
@@ -434,6 +432,11 @@ jQuery( document ).ready(function( $ ) {
   // Fire Work Samples Slider
   if( $('body').hasClass('page-template-our-work') ){
     workSamples();
+  }
+
+  // Fire Gallery Sliders
+  if( $('body').hasClass('page-template-gallery') ){
+    getGallerySlider();
   }
 
 
