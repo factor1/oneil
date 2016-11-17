@@ -562,6 +562,7 @@ jQuery( document ).ready(function( $ ) {
     Macy.init({
       container: '#masonry',
       trueOrder: false,
+      margin: 20,
       columns: 3
     });
 
