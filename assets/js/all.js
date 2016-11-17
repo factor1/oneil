@@ -570,7 +570,11 @@ jQuery( document ).ready(function( $ ) {
       container: '#masonry',
       trueOrder: false,
       margin: 20,
-      columns: 3
+      columns: 3,
+      breakAt: {
+        890: 2,
+        688: 1
+      }
     });
 
   }
