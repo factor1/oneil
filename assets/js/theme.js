@@ -415,7 +415,18 @@ var getGallerySlider = function(){
         asNavFor: '#gallery-top-slider',
         slidesToShow: 4,
         autoplay: false,
-        focusOnSelect: true
+        focusOnSelect: true,
+        responsive: [
+          {
+            breakpoint: 688,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: false
+            }
+          }
+        ]
       });
 
     } //end success
