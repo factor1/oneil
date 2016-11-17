@@ -1,3 +1,4 @@
+var stagingURL = 'http://ther29.com/2016/oneil';
 
 // Get Viewport Width
 $viewport = $(window).innerWidth();
@@ -82,7 +83,7 @@ var staffgrid = function(){
 
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
+    url: stagingURL+'/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
     success: function(data){
 
       $('.staff-loader').remove();
@@ -134,7 +135,7 @@ var workSamples = function(){
 
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/pages/6',
+    url: stagingURL+'/wp-json/wp/v2/pages/6',
     success: function(data){
 
       $('.staff-loader').remove();
@@ -186,7 +187,7 @@ var getPosts = function(page){
 
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/posts/?_embed&page='+page+'&per_page=15',
+    url: stagingURL+'/wp-json/wp/v2/posts/?_embed&page='+page+'&per_page=15',
     success: function(data){
 
       // if the results return no posts
@@ -255,7 +256,7 @@ var getPosts = function(page){
 var getCategories = function(){
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/categories',
+    url: stagingURL+'/wp-json/wp/v2/categories',
     success: function(data){
       $.each(data, function(i,v){
         var id   = data[i].id,
@@ -271,7 +272,7 @@ var getCategories = function(){
 
             $.ajax({
               dataType: 'json',
-              url: '/wp-json/wp/v2/posts?_embed&categories='+id,
+              url: stagingURL+'/wp-json/wp/v2/posts?_embed&categories='+id,
               success: function(posts){
 
                 // clear current posts
@@ -343,7 +344,7 @@ var clearPosts = function(){
 var getIndexACF = function(){
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/pages/38',
+    url: stagingURL+'/wp-json/wp/v2/pages/38',
     success: function(data){
 
       var headline = data.acf.intro_content_headline,
@@ -360,7 +361,7 @@ var getIndexACF = function(){
 var getGallerySlider = function(){
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/pages/229',
+    url: stagingURL+'/wp-json/wp/v2/pages/229',
     success: function(data){
 
       $('.staff-loader').remove();
@@ -417,8 +418,6 @@ var getGallerySlider = function(){
 
 jQuery( document ).ready(function( $ ) {
 
-  getGallerySlider();
-
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
 	if( isTouchDevice ) {
@@ -433,6 +432,11 @@ jQuery( document ).ready(function( $ ) {
   // Fire Work Samples Slider
   if( $('body').hasClass('page-template-our-work') ){
     workSamples();
+  }
+
+  // Fire Gallery Sliders
+  if( $('body').hasClass('page-template-gallery') ){
+    getGallerySlider();
   }
 
 

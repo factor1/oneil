@@ -3,7 +3,7 @@
 /*-----------------------------------------------------------------------------
   Get featured image as url
 -----------------------------------------------------------------------------*/
-function featuredURL($size){
+function featuredURL($size = 'full'){
   $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), $size );
   $url = $thumb['0'];
   echo $url;
@@ -30,4 +30,5 @@ if( function_exists('prelude_features') ){
   add_image_size('case-study-slider', 1060, 605, array('center', 'center'));
   add_image_size('latest-case-study', 640, 440, array('center', 'center'));
   add_image_size('gallery-thumb', 235, 205, array('center', 'center'));
+  add_image_size('latest-work', 1000, 480, array('center', 'center'));
 }
