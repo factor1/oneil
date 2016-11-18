@@ -472,6 +472,12 @@ jQuery( document ).ready(function( $ ) {
   // fire desktop navigation
   desktopNavigation($viewport);
 
+  // On Click Open Search Component
+  $('.search-icon, #close-search, .search-icon-global').on('click', function(e){
+    e.preventDefault();
+    $('#search-container').slideToggle(300);
+  });
+
   // Slick Slider for Testimonials
   $('.testimonials--slider').slick({
     dots: false,
