@@ -44,6 +44,34 @@
     ?>
   </header>
 
+  <?php // Search Container ?>
+  <div id="search-container" class="search-container">
+    <div class="container container--justify-content-center">
+      <div class="row">
+        <div class="col-10 col-centered">
+          <div class="row">
+            <div class="col-10">
+              <img src="<?php bloginfo('template_url');?>/assets/img/line-white.svg" alt="" role="presentation" class="slant">
+              <p>
+                Enter keyword(s) below and hit enter
+              </p>
+            </div>
+            <div class="col-2 text-right">
+              <a id="close-search" href="#">
+                <img src="<?php bloginfo('template_url');?>/assets/img/close.svg" alt="Close Search" role="button">
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <?php get_search_form(); ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="nifty-panel">
     <div class="container">
       <div class="row">
