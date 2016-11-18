@@ -5,46 +5,65 @@
    * Used when a category, author, or date is queried.
    */
   get_header();
+
+  get_template_part('parts/standard-hero');
+
+  get_template_part('parts/breadcrumbs');
 ?>
 
-  <section>
-    <?php if ( have_posts() ) : ?>
-      <?php $post = $posts[ 0 ]; ?>
-
-      <div>
+<section class="container archive-posts--container">
+  <div class="row">
+    <div class="col-10 col-centered text-center">
+      <img src="<?php bloginfo('template_url');?>/assets/img/line-black.svg" alt="" role="presentation" class="slant">
+      <h1>
         <?php if ( is_category() ) : ?>
-          <h2>Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category</h2>
+          Archive for the &#8216;<?php single_cat_title(); ?>&#8217; Category
         <?php elseif ( is_tag() ) : ?>
-          <h2>Posts Tagged &#8216;<?php single_tag_title(); ?>&#8217;</h2>
+          Posts Tagged &#8216;<?php single_tag_title(); ?>&#8217;
         <?php elseif ( is_day() ) : ?>
-          <h2>Archive for <?php the_time( 'F jS, Y' ); ?></h2>
+          Archive for <?php the_time( 'F jS, Y' ); ?>
         <?php elseif ( is_month() ) : ?>
-          <h2>Archive for <?php the_time( 'F, Y' ); ?></h2>
+          Archive for <?php the_time( 'F, Y' ); ?>
         <?php elseif ( is_year() ) : ?>
-          <h2 class="pagetitle">Archive for <?php the_time( 'Y' ); ?></h2>
+          Archive for <?php the_time( 'Y' ); ?>
         <?php elseif ( is_author() ) : ?>
-          <h2 class="pagetitle">Author Archive</h2>
+          Author Archive
         <?php elseif ( isset($_GET[ 'paged' ]) && !empty($_GET[ 'paged' ]) ) : ?>
-          <h2 class="pagetitle">Blog Archives</h2>
+          Blog Archives
         <?php endif; ?>
+      </h1>
+    </div>
+  </div>
 
-        <?php while ( have_posts() ) : the_post(); ?>
-          <div <?php post_class(); ?>>
-            <h2 id="post-<?php the_ID(); ?>"><a
-                href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-            <?php
-              get_template_part( 'parts/meta' );
-              the_content();
-            ?>
-          </div>
-        <?php endwhile; ?>
 
-        <?php the_posts_pagination( array('mid_size' => 2) ); ?>
-      </div>
-    <?php else : ?>
-      <h2>Nothing found</h2>
-    <?php endif; ?>
-  </section>
+<?php if ( have_posts() ) :
+  while ( have_posts() ): the_post(); ?>
+
+  <div class="row">
+    <div class="col-8 col-centered archive-post-result">
+      <h4>
+        <a href="<?php the_permalink();?>">
+          <?php the_title(); ?>
+        </a>
+      </h4>
+      <img src="<?php bloginfo('template_url');?>/assets/img/line-black.svg" alt="" role="presentation" class="slant">
+      <?php the_excerpt(); ?>
+      <a href="<?php the_permalink(); ?>" class="permalink">
+        Go To Page
+      </a>
+    </div>
+  </div>
+<?php endwhile;?>
+
+  <div class="row pagination-row">
+    <div class="col-10 col-centered text-center">
+      <?php the_posts_pagination( array('mid_size' => 2) ); ?>
+    </div>
+  </div>
+
+<?php endif; ?>
+
+</section>
 
 <?php
-  get_footer();
+get_footer();
