@@ -113,10 +113,16 @@
     text-transform: uppercase;
     margin: 0;
     padding: 0;
+    &:hover{
+      color: $black;
+    }
   }
   h4{
     margin: 0;
     padding: 0;
+    &:hover{
+      color: $white;
+    }
   }
 }
 
