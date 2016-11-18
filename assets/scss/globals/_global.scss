@@ -155,6 +155,11 @@ main{
   }
 }
 
+// Utility Classes
+.locked{
+  overflow: hidden !important;
+}
+
 @media screen and (max-width: $small-breakpoint){
   .sm-only{
     display: flex !important;
