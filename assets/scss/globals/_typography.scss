@@ -102,7 +102,7 @@ p{
 
 a{
   color: $blue;
-  transition: all .2s ease-out;
+  transition: color .2s ease-out;
   text-decoration: none;
   &:hover{
     color: $blue50;
@@ -176,10 +176,12 @@ ul{
   // Headings
   h1.headline{
     font-size: rem(38px);
+    line-height: 2.625rem;
   }
 
   h1{
     font-size: rem(32px);
+    line-height: 2rem;
   }
 
   h2{

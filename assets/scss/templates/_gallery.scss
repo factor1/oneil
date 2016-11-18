@@ -89,3 +89,18 @@
     }
   }
 }
+
+// Media Queries
+@media screen and (max-width: $small-breakpoint){
+  #gallery-top-slider{
+    .gallery-slide-image{
+      height: rem(360px);
+    }
+    .slick-next, .slick-prev{
+      top: 26%;
+    }
+    .slide-icon-container{
+      text-align: center;
+    }
+  }
+}
