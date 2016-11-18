@@ -98,6 +98,12 @@
       background: url(../img/red-box.png) bottom right no-repeat;
       &:hover{
         text-decoration: none;
+        h6, p{
+          color: $black;
+        }
+        h4{
+          color: $white;
+        }
       }
     }
   }
