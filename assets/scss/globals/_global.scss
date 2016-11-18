@@ -15,7 +15,6 @@ body {
   padding     : 0;
   width       : 100%;
   min-height  : 100%;
-  overflow-x: : hidden;
 }
 
 html,
@@ -28,6 +27,7 @@ body {
   font                       : 100%/1.25 $franklin;
   min-height                 : 100%;
   overflow-y                 : scroll;
+  overflow-x: hidden;
   /* has to be scroll, not auto */
   -webkit-overflow-scrolling : touch;
 }
