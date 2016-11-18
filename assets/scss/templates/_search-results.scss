@@ -1,6 +1,6 @@
-// Search Results Page
+// Search Results Page & Archive Page
 
-.search-results--container{
+.search-results--container, .archive-posts--container{
   padding-bottom: rem(95px);
 
   h1{
@@ -8,7 +8,7 @@
   }
 
   // individual search result
-  .search-result{
+  .search-result, .archive-post-result{
     margin-bottom: rem(60px);
     h4{
       a{
