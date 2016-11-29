@@ -108,6 +108,20 @@
   #gallery-navigation{
     padding: rem(40px) 0;
     margin: 0 auto;
+
+    // slick dots
+    .slick-dots{
+      bottom: rem(5px);
+      li{
+        &:before{
+          display: none;
+        }
+        button:before{
+          font-size: rem(15px);
+        }
+      }
+    }
+
     .nav-slide{
       text-align: center;
       cursor: pointer;
