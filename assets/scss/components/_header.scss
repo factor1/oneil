@@ -35,14 +35,14 @@ header{
           text-decoration: none;
           transition: all .2s ease-out;
           &:hover{
-            color: $ltGrey60;
+            color: $white;
             text-decoration: none;
           }
         }
 
         //active parent
         .parent-active{
-          color: $ltGrey60;
+          color: $white;
         }
 
         // desktop dropdowns
