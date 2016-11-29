@@ -102,5 +102,19 @@
       cursor: pointer;
       filter: brightness(800%);
     }
+
+    // mobile icon
+    .mobile-staff-img{
+      width: rem(188px);
+      height: rem(188px);
+      background-size: cover !important;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+
+    p{
+      color: white;
+    }
+
   }
 }
