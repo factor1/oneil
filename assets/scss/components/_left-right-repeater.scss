@@ -28,3 +28,15 @@
   }
 
 }
+
+// Media Queries
+
+@media screen and (max-width: $small-breakpoint){
+
+  .part--left-right-repeater{
+    img{
+      margin-top: rem(15px);
+    }
+  }
+
+}
