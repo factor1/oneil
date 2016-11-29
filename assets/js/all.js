@@ -457,6 +457,11 @@ jQuery( document ).ready(function( $ ) {
   var browser = bowser.name + '_' + bowser.version;
       $('body').addClass(browser);
 
+  // if browser is iOS
+  if( bowser.ios ){
+    $('body').addClass('ios');
+  }
+
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
