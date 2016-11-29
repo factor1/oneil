@@ -10,7 +10,7 @@
         </a>
       </div>
 
-      <div class="col-7">
+      <div class="col-8">
         <nav>
           <?php wp_nav_menu(array('theme_location' => 'primary')); ?>
         </nav>
