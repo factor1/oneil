@@ -78,9 +78,6 @@ var desktopNavigation = function(viewport){
 // Staff Grid REST API
 var staffgrid = function(){
 
-  var domain = document.domain;
-
-
   $.ajax({
     dataType: 'json',
     url: stagingURL+'/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
@@ -114,13 +111,33 @@ var staffgrid = function(){
         // Append staff items to the grid
         $('#staff-block-grid').append('<div id="'+id+'" class="col"><div class="small-staff-profile-img" title="'+post_title+'" style="background: url('+featured_img+') center center no-repeat;"></div></div>');
 
-        // Handle Clicking of items
+        // Setup clicks for when a user selects a staff member
+        var showStaffContent = function(){
+          if( window.innerWidth > 688 ){
+
+            $('#staff-name').html(post_title);
+            $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
+            $('#staff-title').html(job_title);
+            $('#staff-bio').html(staff_bio);
+
+          } else{
+
+            $('body').addClass('locked');
+            $('body').append('<div id="staff-modal"><div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+featured_img+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div></div>');
+
+            $('.close-modal').on('click', function(){
+              $('body').removeClass('locked');
+              $('#staff-modal').empty().remove();
+            });
+
+          }
+        };
+
+        // show staff content on click
         $('#'+id).on('click', function(){
-          $('#staff-name').html(post_title);
-          $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
-          $('#staff-title').html(job_title);
-          $('#staff-bio').html(staff_bio);
+          showStaffContent();
         });
+
       });
 
     }
