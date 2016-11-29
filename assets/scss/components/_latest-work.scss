@@ -87,6 +87,9 @@
   .part--latest-work .work-col{
     height: rem(480px);
   }
+  .part--latest-news .news-post-col{
+    margin-bottom: rem(40px);
+  }
 }
 
 @media screen and (max-width: $small-breakpoint){
