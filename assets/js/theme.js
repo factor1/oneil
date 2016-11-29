@@ -321,7 +321,7 @@ var getCategories = function(){
                         } else{ // if the post thumbnail is successful
 
                           thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                          postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                          postcard = '<div class="col"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                           $('.news-posts .posts-container').append(postcard);
 
                         }
