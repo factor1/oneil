@@ -67,7 +67,7 @@
 
   // hide featured
   .staff-grid{
-    > .row{
+    > .row:nth-child(1){
       display: none;
     }
   }
