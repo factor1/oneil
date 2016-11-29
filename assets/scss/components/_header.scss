@@ -417,12 +417,6 @@ header{
   }
 }
 
-@media screen and (max-width: 815px){
-  // hide top icons
-  .home-nav .header--top-icons ul li div{
-    display: none;
-  }
-}
 
 @media screen and (max-width: $small-breakpoint){
   header, .home header{
