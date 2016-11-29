@@ -116,6 +116,15 @@
     h2{
       color: $white;
       margin-bottom: 0;
+      &:before{
+        content: '';
+        display: block;
+        position: relative;
+        width: 60px;
+        height: 10px;
+        background: url(../img/line-white.svg) left center no-repeat;
+        background-size: contain;
+      }
     }
 
     h5{
