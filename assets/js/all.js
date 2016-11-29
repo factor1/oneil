@@ -408,7 +408,6 @@ var getGallerySlider = function(){
         if( slides[i].icons !== false ){
 
           $.each( slides[i].icons, function(index,value){
-            console.log( slides[i].icons[index].icon );
             $('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
