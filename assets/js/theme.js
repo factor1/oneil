@@ -454,8 +454,9 @@ var getGallerySlider = function(){
 jQuery( document ).ready(function( $ ) {
 
   // Browser Detection
-  var browser = bowser.name;
-  console.log(browser);
+  var browser = bowser.name,
+      browser_version = bowser.version;
+  console.log(browser+browser_version);
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
