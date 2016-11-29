@@ -424,4 +424,13 @@ header{
       }
     }
   }
+
+  // home navigation adjustments
+  #home-navigation--top{
+    .home-nav{
+      img{
+        height: rem(83px);
+      }
+    }
+  }
 }
