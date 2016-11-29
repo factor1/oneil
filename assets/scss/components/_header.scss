@@ -411,6 +411,12 @@ header{
 
 // Media Queries
 
+@media screen and (max-width: 973px){
+  header nav ul li a{
+    font-size: 0.9rem;
+  }
+}
+
 @media screen and (max-width: 815px){
   // hide top icons
   .home-nav .header--top-icons ul li div{
