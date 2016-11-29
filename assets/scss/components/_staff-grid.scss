@@ -83,8 +83,6 @@
     z-index: 9999;
     background: rgba($drkGrey, 0.95);
     padding: 0 rem(15px);
-    opacity: 0;
-    transition: all .3s ease-out;
     > .mobile-staff-container{
       display: flex;
       justify-content: center;
