@@ -454,7 +454,8 @@ var getGallerySlider = function(){
 jQuery( document ).ready(function( $ ) {
 
   // Browser Detection
-  var browser = bowser.name + '_' + bowser.version;
+  var version = Math.floor(bowser.version);
+      browser = bowser.name + '_' + version;
       $('body').addClass(browser);
 
   // if browser is iOS
