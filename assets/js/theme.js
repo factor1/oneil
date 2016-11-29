@@ -5,7 +5,7 @@ $viewport = $(window).innerWidth();
 
 var desktopNavigation = function(viewport){
 
-  if ( viewport > 688 ){
+  if ( viewport > 860 ){
 
     // on click of nav item
     $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
@@ -113,7 +113,7 @@ var staffgrid = function(){
 
         // Setup clicks for when a user selects a staff member
         var showStaffContent = function(){
-          if( window.innerWidth > 688 ){
+          if( window.innerWidth > 860 ){
 
             $('#staff-name').html(post_title);
             $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
@@ -435,7 +435,7 @@ var getGallerySlider = function(){
         focusOnSelect: true,
         responsive: [
           {
-            breakpoint: 688,
+            breakpoint: 860,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
@@ -515,7 +515,7 @@ jQuery( document ).ready(function( $ ) {
     autoplay: true,
     responsive: [
     {
-      breakpoint: 688,
+      breakpoint: 860,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -540,7 +540,7 @@ jQuery( document ).ready(function( $ ) {
 
 
 
-  if( $viewport > 688 && $('body').hasClass('home') ) {
+  if( $viewport > 860 && $('body').hasClass('home') ) {
     // Header Switching with Waypoints
     var waypoint = new Waypoint({
       element: document.getElementById('home-hero'),
@@ -607,7 +607,7 @@ jQuery( document ).ready(function( $ ) {
       columns: 3,
       breakAt: {
         890: 2,
-        688: 1
+        860: 1
       }
     });
 
