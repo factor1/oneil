@@ -82,6 +82,13 @@
 
 }
 
+// IE 11 Hack
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .part--latest-work .work-col{
+    height: rem(480px);
+  }
+}
+
 @media screen and (max-width: $small-breakpoint){
   .part--latest-work{
     .work-col{
