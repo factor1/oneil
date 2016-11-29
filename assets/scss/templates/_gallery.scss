@@ -109,11 +109,13 @@
     padding: rem(40px) 0;
     margin: 0 auto;
     .nav-slide{
+      text-align: center;
       cursor: pointer;
       div{
         height: rem(105px);
         width: rem(135px);
         background-size: cover !important;
+        margin: 0 auto;
       }
     }
   }
