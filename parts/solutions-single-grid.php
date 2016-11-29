@@ -21,7 +21,7 @@ if( $query->have_posts() ):
   <section class="container part--solutions-single-grid">
     <div class="row">
       <div class="col-12">
-        <div class="sm-block-grid-2 block-grid-3">
+        <div class="sm-block-grid-1 block-grid-3">
           <?php while( $query->have_posts() ): $query->the_post(); ?>
             <div class="col">
               <div class="solution-work-container" style="background: url(<?php featuredURL('profile-image');?>) center center no-repeat;">
