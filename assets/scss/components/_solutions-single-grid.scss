@@ -47,3 +47,11 @@
     margin-right: rem(10px);
   }
 }
+
+@media screen and (max-width: $small-breakpoint){
+  .solution-work-container{
+    .solution-overlay{
+      opacity: 0.9;
+    }
+  }
+}
