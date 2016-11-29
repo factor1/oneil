@@ -65,7 +65,12 @@
 
 @media screen and (max-width: $small-breakpoint){
 
-  
+  // hide featured
+  .staff-grid{
+    > .row{
+      display: none;
+    }
+  }
 
   #staff-modal{
     display: block;
