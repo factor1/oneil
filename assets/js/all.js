@@ -440,8 +440,8 @@ var getGallerySlider = function(){
               slidesToShow: 2,
               slidesToScroll: 2,
               infinite: true,
-              dots: false,
-              arrows: true
+              dots: true,
+              arrows: false
             }
           }
         ]
