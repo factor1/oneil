@@ -68,12 +68,14 @@ form{
   }
   select{
     width: 100%;
-    background: none;
+    background: white url(../img/arrow-down.svg) center right no-repeat;
+    background-size: contain;
     border: 4px solid $ltGrey60;
     height: rem(40px);
     font-size: rem(16px);
     font-weight: $book;
     -webkit-appearance: none;
+    -moz-appearance: none;
   }
   input[type=submit]{
     @extend .button;
