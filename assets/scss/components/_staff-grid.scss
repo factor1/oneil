@@ -68,8 +68,12 @@
   // hide featured
   .staff-grid{
     > .row:nth-child(1){
-      display: none;
+      display: flex;
     }
+  }
+
+  .sm-block-grid-1 .col{
+    flex-basis: 32%;
   }
 
   #staff-modal{
@@ -136,5 +140,18 @@
       color: white;
     }
 
+  }
+}
+
+@media screen and (max-width: 767px){
+  // hide featured
+  .staff-grid{
+    > .row:nth-child(1){
+      display: none;
+    }
+  }
+
+  .sm-block-grid-1 .col{
+    flex-basis: 100%;
   }
 }

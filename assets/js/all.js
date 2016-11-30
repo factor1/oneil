@@ -113,7 +113,7 @@ var staffgrid = function(){
 
         // Setup clicks for when a user selects a staff member
         var showStaffContent = function(){
-          if( window.innerWidth > 860 ){
+          if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
             $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
@@ -438,6 +438,16 @@ var getGallerySlider = function(){
           {
             breakpoint: 860,
             settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: true,
+              arrows: false
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
               infinite: true,
@@ -612,7 +622,7 @@ jQuery( document ).ready(function( $ ) {
       }
     });
 
-    // Fire Masonry ??? Maybe ?? Plz ??
+    // Fire Masonry
     Macy.init({
       container: '#masonry',
       trueOrder: false,
@@ -620,7 +630,7 @@ jQuery( document ).ready(function( $ ) {
       columns: 3,
       breakAt: {
         890: 2,
-        860: 1
+        618: 1
       }
     });
 
