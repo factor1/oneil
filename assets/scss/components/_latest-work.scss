@@ -82,6 +82,13 @@
 
 }
 
+// Safari 9 Fix
+.Safari_9{
+  .part--latest-work .work-col{
+    height: rem(480px);
+  }
+}
+
 // IE 11 Hack
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
   .part--latest-work .work-col{
