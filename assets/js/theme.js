@@ -612,7 +612,7 @@ jQuery( document ).ready(function( $ ) {
       }
     });
 
-    // Fire Masonry ??? Maybe ?? Plz ??
+    // Fire Masonry 
     Macy.init({
       container: '#masonry',
       trueOrder: false,
