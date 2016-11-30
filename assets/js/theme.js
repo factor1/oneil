@@ -630,7 +630,7 @@ jQuery( document ).ready(function( $ ) {
       columns: 3,
       breakAt: {
         890: 2,
-        767: 1
+        618: 1
       }
     });
 
