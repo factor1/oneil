@@ -191,6 +191,9 @@ header{
 .home-nav--bottom{
   padding: rem(15px) 0;
   background: $ltGrey30;
+  img{
+    max-height: rem(17px);
+  }
 }
 
 // Global Navigation Found after scroll and on all Pages
