@@ -72,6 +72,10 @@
     }
   }
 
+  .sm-block-grid-1 .col{
+    flex-basis: 32%;
+  }
+
   #staff-modal{
     display: block;
     position: fixed;
@@ -145,5 +149,9 @@
     > .row:nth-child(1){
       display: none;
     }
+  }
+
+  .sm-block-grid-1 .col{
+    flex-basis: 100%;
   }
 }
