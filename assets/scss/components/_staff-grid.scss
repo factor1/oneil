@@ -68,7 +68,7 @@
   // hide featured
   .staff-grid{
     > .row:nth-child(1){
-      display: none;
+      display: flex;
     }
   }
 
@@ -136,5 +136,14 @@
       color: white;
     }
 
+  }
+}
+
+@media screen and (max-width: 767px){
+  // hide featured
+  .staff-grid{
+    > .row:nth-child(1){
+      display: none;
+    }
   }
 }

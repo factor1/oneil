@@ -29,7 +29,7 @@
   </div>
   <div class="row">
     <div id="block-grid-container" class="col-8 col-centered text-center">
-      <div id="staff-block-grid" class="sm-block-grid-1 block-grid-4">
+      <div id="staff-block-grid" class="sm-block-grid-1 md-block-grid-4 block-grid-4">
       </div>
     </div>
   </div>
