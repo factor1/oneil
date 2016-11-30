@@ -73,6 +73,7 @@ form{
     height: rem(40px);
     font-size: rem(16px);
     font-weight: $book;
+    -webkit-appearance: none;
   }
   input[type=submit]{
     @extend .button;
