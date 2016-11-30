@@ -5,7 +5,7 @@ $viewport = $(window).innerWidth();
 
 var desktopNavigation = function(viewport){
 
-  if ( viewport > 688 ){
+  if ( viewport > 860 ){
 
     // on click of nav item
     $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
@@ -113,7 +113,7 @@ var staffgrid = function(){
 
         // Setup clicks for when a user selects a staff member
         var showStaffContent = function(){
-          if( window.innerWidth > 688 ){
+          if( window.innerWidth > 860 ){
 
             $('#staff-name').html(post_title);
             $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
@@ -234,7 +234,7 @@ var getPosts = function(page){
                 } else{ // if the post thumbnail is successful
 
                   thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                  postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                  postcard = '<div class="col"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                   $('.news-posts .posts-container').append(postcard);
 
                 }
@@ -321,7 +321,7 @@ var getCategories = function(){
                         } else{ // if the post thumbnail is successful
 
                           thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                          postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                          postcard = '<div class="col"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                           $('.news-posts .posts-container').append(postcard);
 
                         }
@@ -408,7 +408,6 @@ var getGallerySlider = function(){
         if( slides[i].icons !== false ){
 
           $.each( slides[i].icons, function(index,value){
-            console.log( slides[i].icons[index].icon );
             $('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
@@ -435,12 +434,13 @@ var getGallerySlider = function(){
         focusOnSelect: true,
         responsive: [
           {
-            breakpoint: 688,
+            breakpoint: 860,
             settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
               infinite: true,
-              dots: false
+              dots: true,
+              arrows: false
             }
           }
         ]
@@ -452,6 +452,17 @@ var getGallerySlider = function(){
 
 
 jQuery( document ).ready(function( $ ) {
+
+  // Browser Detection
+  var version = Math.floor(bowser.version);
+      browser = bowser.name + '_' + version;
+      $('body').addClass(browser);
+
+  // if browser is iOS
+  if( bowser.ios ){
+    $('body').addClass('ios');
+  }
+
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
@@ -515,7 +526,7 @@ jQuery( document ).ready(function( $ ) {
     autoplay: true,
     responsive: [
     {
-      breakpoint: 688,
+      breakpoint: 860,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -540,7 +551,7 @@ jQuery( document ).ready(function( $ ) {
 
 
 
-  if( $viewport > 688 && $('body').hasClass('home') ) {
+  if( $viewport > 860 && $('body').hasClass('home') ) {
     // Header Switching with Waypoints
     var waypoint = new Waypoint({
       element: document.getElementById('home-hero'),
@@ -607,7 +618,7 @@ jQuery( document ).ready(function( $ ) {
       columns: 3,
       breakAt: {
         890: 2,
-        688: 1
+        860: 1
       }
     });
 

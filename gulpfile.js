@@ -20,6 +20,7 @@ var phpFiles     = ['./**/*.php', './*.php'],
       './bower_components/share-button/share-button.js',
       './bower_components/moment/moment.js',
       './bower_components/macy/dist/macy.js',
+      './bower_components/bowser/src/bowser.js',
       '!./assets/js/theme.min.js',
       '!./assets/js/all.js'
     ],

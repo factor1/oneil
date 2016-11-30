@@ -14,3 +14,10 @@
   padding-left: 8.3333%;
   border-left: 4px solid $ltGrey30;
 }
+
+@media screen and (max-width: $small-breakpoint){
+  .contact--info{
+    border-left: none;
+    padding-left: rem(15px);
+  }
+}
