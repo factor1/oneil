@@ -220,6 +220,8 @@ var getPosts = function(page){
               excerpt      = post.excerpt.rendered,
               permalink    = post.link;
 
+              console.log(post._embedded['wp:term'][0]);
+
               // setup card component
               var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
