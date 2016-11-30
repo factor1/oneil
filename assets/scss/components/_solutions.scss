@@ -49,3 +49,14 @@
     }
   }
 }
+
+// Media Queries
+@media screen and (max-width: $small-breakpoint){
+  .part--solutions{
+    .solutions-grid{
+      .col{
+        margin-bottom: rem(30px);
+      }
+    }
+  }
+}

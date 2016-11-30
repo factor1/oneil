@@ -1,0 +1,36 @@
+// Search Results Page & Archive Page
+
+.search-results--container, .archive-posts--container{
+  padding-bottom: rem(95px);
+
+  h1{
+    margin-top: rem(7px);
+  }
+
+  // individual search result
+  .search-result, .archive-post-result{
+    margin-bottom: rem(60px);
+    h4{
+      a{
+        color: $black;
+      }
+    }
+    a.permalink{
+      display: block;
+      font: rem(16px) $franklin-comp;
+      font-weight: $demi;
+      color: $black;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.pagination-row{
+  margin-top: rem(40px);
+  .page-numbers{
+    display: inline-block;
+    font: rem(14px) $franklin-comp;
+    font-weight: $demi;
+    margin: 0 rem(4px);
+  }
+}

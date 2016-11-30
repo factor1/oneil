@@ -37,7 +37,20 @@
 
 }
 
+// 612
+
 @media screen and (max-width: $small-breakpoint){
+  .part--latest-news{
+    .block-grid-4{
+      .col{
+        flex-basis: 49%;
+        margin-bottom: rem(20px);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 612px){
   .part--latest-news{
     .block-grid-4{
       .col{

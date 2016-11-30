@@ -1,10 +1,11 @@
+var stagingURL = 'http://ther29.com/2016/oneil';
 
 // Get Viewport Width
 $viewport = $(window).innerWidth();
 
 var desktopNavigation = function(viewport){
 
-  if ( viewport > 688 ){
+  if ( viewport > 860 ){
 
     // on click of nav item
     $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
@@ -77,12 +78,9 @@ var desktopNavigation = function(viewport){
 // Staff Grid REST API
 var staffgrid = function(){
 
-  var domain = document.domain;
-
-
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
+    url: stagingURL+'/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
     success: function(data){
 
       $('.staff-loader').remove();
@@ -113,13 +111,33 @@ var staffgrid = function(){
         // Append staff items to the grid
         $('#staff-block-grid').append('<div id="'+id+'" class="col"><div class="small-staff-profile-img" title="'+post_title+'" style="background: url('+featured_img+') center center no-repeat;"></div></div>');
 
-        // Handle Clicking of items
+        // Setup clicks for when a user selects a staff member
+        var showStaffContent = function(){
+          if( window.innerWidth > 767 ){
+
+            $('#staff-name').html(post_title);
+            $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
+            $('#staff-title').html(job_title);
+            $('#staff-bio').html(staff_bio);
+
+          } else{
+
+            $('body').addClass('locked');
+            $('body').append('<div id="staff-modal"><div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+featured_img+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div></div>');
+
+            $('.close-modal').on('click', function(){
+              $('body').removeClass('locked');
+              $('#staff-modal').empty().remove();
+            });
+
+          }
+        };
+
+        // show staff content on click
         $('#'+id).on('click', function(){
-          $('#staff-name').html(post_title);
-          $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
-          $('#staff-title').html(job_title);
-          $('#staff-bio').html(staff_bio);
+          showStaffContent();
         });
+
       });
 
     }
@@ -134,7 +152,7 @@ var workSamples = function(){
 
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/pages/6',
+    url: stagingURL+'/wp-json/wp/v2/pages/6',
     success: function(data){
 
       $('.staff-loader').remove();
@@ -186,7 +204,7 @@ var getPosts = function(page){
 
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/posts/?_embed&page='+page+'&per_page=15',
+    url: stagingURL+'/wp-json/wp/v2/posts/?_embed&page='+page+'&per_page=15',
     success: function(data){
 
       // if the results return no posts
@@ -200,10 +218,11 @@ var getPosts = function(page){
               title        = post.title.rendered,
               date         = moment(post.date).format('MMMM D, YYYY'),
               excerpt      = post.excerpt.rendered,
-              permalink    = post.link;
+              permalink    = post.link,
+              category     = post._embedded['wp:term'][0][0].slug;
 
               // setup card component
-              var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+              var postcard     = '<div class="col '+category+'"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
               // if has post thumbnail
               if( post.featured_media !== 0 ){
@@ -216,7 +235,7 @@ var getPosts = function(page){
                 } else{ // if the post thumbnail is successful
 
                   thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                  postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                  postcard = '<div class="col '+category+'"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                   $('.news-posts .posts-container').append(postcard);
 
                 }
@@ -247,6 +266,9 @@ var getPosts = function(page){
         e.preventDefault();
       });
 
+      // Recalc Macy
+      Macy.recalculate();
+
     }
   });
 
@@ -255,7 +277,7 @@ var getPosts = function(page){
 var getCategories = function(){
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/categories',
+    url: stagingURL+'/wp-json/wp/v2/categories',
     success: function(data){
       $.each(data, function(i,v){
         var id   = data[i].id,
@@ -271,7 +293,7 @@ var getCategories = function(){
 
             $.ajax({
               dataType: 'json',
-              url: '/wp-json/wp/v2/posts?_embed&categories='+id,
+              url: stagingURL+'/wp-json/wp/v2/posts?_embed&categories='+id,
               success: function(posts){
 
                 // clear current posts
@@ -284,10 +306,11 @@ var getCategories = function(){
                       title        = post.title.rendered,
                       date         = moment(post.date).format('MMMM D, YYYY'),
                       excerpt      = post.excerpt.rendered,
-                      permalink    = post.link;
+                      permalink    = post.link,
+                      category     = post._embedded['wp:term'][0][0].slug;
 
                       // setup card component
-                      var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                      var postcard     = '<div class="col '+category+'"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
                       // if has post thumbnail
                       if( post.featured_media !== 0 ){
@@ -300,7 +323,7 @@ var getCategories = function(){
                         } else{ // if the post thumbnail is successful
 
                           thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                          postcard = '<div class="col"><div class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></div><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                          postcard = '<div class="col '+category+'"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                           $('.news-posts .posts-container').append(postcard);
 
                         }
@@ -310,6 +333,9 @@ var getCategories = function(){
                         $('.news-posts .posts-container').append(postcard);
                       }
                 });
+
+                // Recalc Macy
+                Macy.recalculate();
 
               } // end success
 
@@ -336,6 +362,7 @@ var getCategories = function(){
 // clear post filter function
 var clearPosts = function(){
   $('.news-posts .posts-container').empty();
+  $('.news-posts .posts-container').append('<div class="staff-loader"><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/loading.svg" alt="Loading..."></div>');
   getPosts(1);
 };
 
@@ -343,7 +370,7 @@ var clearPosts = function(){
 var getIndexACF = function(){
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/pages/38',
+    url: stagingURL+'/wp-json/wp/v2/pages/38',
     success: function(data){
 
       var headline = data.acf.intro_content_headline,
@@ -360,7 +387,7 @@ var getIndexACF = function(){
 var getGallerySlider = function(){
   $.ajax({
     dataType: 'json',
-    url: '/wp-json/wp/v2/pages/229',
+    url: stagingURL+'/wp-json/wp/v2/pages/229',
     success: function(data){
 
       $('.staff-loader').remove();
@@ -374,7 +401,7 @@ var getGallerySlider = function(){
             image   = slides[i].image;
 
         // Append to main Slider
-        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
+        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
 
         // Append to Nav Slider
         $('#gallery-navigation').append('<div class="nav-slide"><div style="background: url('+image+') center center no-repeat;"></div></div>');
@@ -383,7 +410,6 @@ var getGallerySlider = function(){
         if( slides[i].icons !== false ){
 
           $.each( slides[i].icons, function(index,value){
-            console.log( slides[i].icons[index].icon );
             $('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
@@ -407,7 +433,29 @@ var getGallerySlider = function(){
         asNavFor: '#gallery-top-slider',
         slidesToShow: 4,
         autoplay: false,
-        focusOnSelect: true
+        focusOnSelect: true,
+        responsive: [
+          {
+            breakpoint: 860,
+            settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: true,
+              arrows: false
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: true,
+              arrows: false
+            }
+          }
+        ]
       });
 
     } //end success
@@ -417,7 +465,16 @@ var getGallerySlider = function(){
 
 jQuery( document ).ready(function( $ ) {
 
-  getGallerySlider();
+  // Browser Detection
+  var version = Math.floor(bowser.version);
+      browser = bowser.name + '_' + version;
+      $('body').addClass(browser);
+
+  // if browser is iOS
+  if( bowser.ios ){
+    $('body').addClass('ios');
+  }
+
 
   // Touch Device Detection
 	var isTouchDevice = 'ontouchstart' in document.documentElement;
@@ -435,6 +492,11 @@ jQuery( document ).ready(function( $ ) {
     workSamples();
   }
 
+  // Fire Gallery Sliders
+  if( $('body').hasClass('page-template-gallery') ){
+    getGallerySlider();
+  }
+
 
   // Fire Nifty Nav
   niftyNav({
@@ -449,6 +511,12 @@ jQuery( document ).ready(function( $ ) {
 
   // fire desktop navigation
   desktopNavigation($viewport);
+
+  // On Click Open Search Component
+  $('.search-icon, #close-search, .search-icon-global').on('click', function(e){
+    e.preventDefault();
+    $('#search-container').slideToggle(300);
+  });
 
   // Slick Slider for Testimonials
   $('.testimonials--slider').slick({
@@ -470,7 +538,7 @@ jQuery( document ).ready(function( $ ) {
     autoplay: true,
     responsive: [
     {
-      breakpoint: 688,
+      breakpoint: 860,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 2,
@@ -495,7 +563,7 @@ jQuery( document ).ready(function( $ ) {
 
 
 
-  if( $viewport > 688 && $('body').hasClass('home') ) {
+  if( $viewport > 860 && $('body').hasClass('home') ) {
     // Header Switching with Waypoints
     var waypoint = new Waypoint({
       element: document.getElementById('home-hero'),
@@ -553,6 +621,19 @@ jQuery( document ).ready(function( $ ) {
         $('#post-categories').slideUp();
       }
     });
+
+    // Fire Masonry
+    Macy.init({
+      container: '#masonry',
+      trueOrder: false,
+      margin: 20,
+      columns: 3,
+      breakAt: {
+        890: 2,
+        618: 1
+      }
+    });
+
   }
 
 });

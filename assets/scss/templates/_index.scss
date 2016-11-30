@@ -83,6 +83,7 @@
 
 // Post "Card" Styles
 .posts-container{
+
   margin: rem(93px) auto rem(90px);
   justify-content: flex-start;
   .col{
@@ -98,20 +99,43 @@
       background: url(../img/red-box.png) bottom right no-repeat;
       &:hover{
         text-decoration: none;
+        color: inherit;
+        h6, p{
+          color: $black;
+        }
+        h4{
+          color: $white;
+        }
+      }
+      h6{
+        font: rem(20px) $franklin-comp;
+        font-weight: $demi;
+        text-transform: uppercase;
+        margin: 0;
+        padding: 0;
+        &:hover{
+          color: $black;
+        }
+      }
+      h4{
+        margin: 0;
+        padding: 0;
+        &:hover{
+          color: $white;
+        }
       }
     }
   }
-  h6{
-    font: rem(20px) $franklin-comp;
-    font-weight: $demi;
-    text-transform: uppercase;
-    margin: 0;
-    padding: 0;
+  .company-updates a{
+    background: url(../img/yellow-box.png) bottom right no-repeat;
   }
-  h4{
-    margin: 0;
-    padding: 0;
+  .social-media a{
+    background: url(../img/box-bg.png) bottom right no-repeat;
   }
+  .stories a{
+    background: url(../img/grey-box.png) bottom right no-repeat;
+  }
+
 }
 
 .post-featured-img{

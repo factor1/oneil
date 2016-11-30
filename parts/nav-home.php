@@ -1,6 +1,6 @@
 <?php // Home Navigation ?>
 <div id="home-navigation--top" class="container">
-  <div class="row home-nav">
+  <div class="row row--align-items-center home-nav">
     <div class="sm-col-6 col-3">
       <a href="<?php echo get_home_url();?>/" title="O'Neil Printing">
         <img src="<?php bloginfo('template_url');?>/assets/img/logo.svg" alt="O'Neil Printing - Made to Impress">

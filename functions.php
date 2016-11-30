@@ -1,6 +1,6 @@
 <?php
 
-  define('PRELUDE_VERSION', '0.1.0');
+  define('PRELUDE_VERSION', '0.1.2');
 
   if ( !function_exists( 'prelude_features' ) ) {
 

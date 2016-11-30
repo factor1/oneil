@@ -7,3 +7,10 @@
   height: rem(400px);
   background-size: cover !important;
 }
+
+
+@media screen and (max-width: $small-breakpoint){
+  .standard-hero{
+    height: rem(275px);
+  }
+}

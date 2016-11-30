@@ -1,0 +1,54 @@
+// Search Container Styles
+
+.search-container{
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: rem(250px);
+  background: $drkGrey;
+  z-index: 9999;
+  box-shadow: 0 -3px 21px 5px rgba(0,0,0,0.2);
+
+  > .container {
+    height: rem(250px);
+  }
+
+  p{
+    font: rem(20px) $franklin-comp;
+    font-weight: $demi;
+    text-transform: uppercase;
+    color: $ltGrey;
+  }
+
+  input[type="search"]{
+    height: rem(66px);
+    width: 100%;
+    background: $drkGrey;
+    font: rem(48px) $franklin;
+    font-weight: $heavy;
+    color: $ltGrey;
+    text-transform: uppercase;
+    border: none;
+    border-bottom: 2px solid $ltGrey;
+    padding-bottom: rem(10px);
+    border-radius: 0;
+    -webkit-appearance: none;
+  }
+
+  input[type="submit"]{
+    display: none;
+  }
+
+  #close-search{
+    img{
+      display: block;
+      margin: 0 0 0 auto;
+      width: 38px;
+      height: auto;
+      max-width: 100%;
+    }
+  }
+
+}

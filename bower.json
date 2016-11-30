@@ -22,6 +22,8 @@
     "nifty-nav": "^2.2.0",
     "waypoints": "^4.0.1",
     "share-button": "^1.0.3",
-    "moment": "^2.16.0"
+    "moment": "^2.16.0",
+    "macy": "^1.1.2",
+    "bowser": "^1.5.0"
   }
 }

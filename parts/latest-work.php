@@ -36,7 +36,7 @@
 
         <div class="work-col">
 
-          <div class="work-image" style="background: url(<?php featuredURL();?>) center center no-repeat;"></div>
+          <div class="work-image" style="background: url(<?php featuredURL('latest-work');?>) center center no-repeat;"></div>
 
           <?php // Work Content Container ?>
           <div class="work-content">
