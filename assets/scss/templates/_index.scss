@@ -84,14 +84,6 @@
 // Post "Card" Styles
 .posts-container{
 
-  // a color reset
-  // a{
-  //   color: transparent;
-  //   &:hover{
-  //     color: transparent;
-  //   }
-  // }
-
   margin: rem(93px) auto rem(90px);
   justify-content: flex-start;
   .col{
@@ -133,6 +125,15 @@
         }
       }
     }
+  }
+  .company-updates a{
+    background: url(../img/yellow-box.png) bottom right no-repeat;
+  }
+  .social-media a{
+    background: url(../img/box-bg.png) bottom right no-repeat;
+  }
+  .stories a{
+    background: url(../img/grey-box.png) bottom right no-repeat;
   }
 
 }
