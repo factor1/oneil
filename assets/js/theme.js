@@ -113,7 +113,7 @@ var staffgrid = function(){
 
         // Setup clicks for when a user selects a staff member
         var showStaffContent = function(){
-          if( window.innerWidth > 860 ){
+          if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
             $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
