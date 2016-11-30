@@ -438,6 +438,16 @@ var getGallerySlider = function(){
           {
             breakpoint: 860,
             settings: {
+              slidesToShow: 4,
+              slidesToScroll: 2,
+              infinite: true,
+              dots: true,
+              arrows: false
+            }
+          },
+          {
+            breakpoint: 767,
+            settings: {
               slidesToShow: 2,
               slidesToScroll: 2,
               infinite: true,
@@ -612,7 +622,7 @@ jQuery( document ).ready(function( $ ) {
       }
     });
 
-    // Fire Masonry 
+    // Fire Masonry
     Macy.init({
       container: '#masonry',
       trueOrder: false,
