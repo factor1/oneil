@@ -306,10 +306,11 @@ var getCategories = function(){
                       title        = post.title.rendered,
                       date         = moment(post.date).format('MMMM D, YYYY'),
                       excerpt      = post.excerpt.rendered,
-                      permalink    = post.link;
+                      permalink    = post.link,
+                      category     = post._embedded['wp:term'][0][0].slug;
 
                       // setup card component
-                      var postcard     = '<div class="col"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                      var postcard     = '<div class="col '+category+'"><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
 
                       // if has post thumbnail
                       if( post.featured_media !== 0 ){
@@ -322,7 +323,7 @@ var getCategories = function(){
                         } else{ // if the post thumbnail is successful
 
                           thumbnail = post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-                          postcard = '<div class="col"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
+                          postcard = '<div class="col '+category+'"><a href="'+permalink+'" class="post-featured-img" style="background: url('+thumbnail+') center center no-repeat;"></a><a href="'+permalink+'"><h6>'+date+'</h6><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+excerpt+'</a></div>';
                           $('.news-posts .posts-container').append(postcard);
 
                         }
