@@ -76,6 +76,12 @@
     flex-basis: 32%;
   }
 
+  body.modal-open{
+    #staff-modal{
+      display: block;
+    }
+  }
+
   #staff-modal{
     display: block;
     position: fixed;
@@ -87,6 +93,8 @@
     z-index: 9999;
     background: rgba($drkGrey, 0.95);
     padding: 0 rem(15px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     > .mobile-staff-container{
       display: flex;
       justify-content: center;

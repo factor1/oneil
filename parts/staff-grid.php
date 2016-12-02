@@ -34,3 +34,6 @@
     </div>
   </div>
 </section>
+
+<?php // Mobile staff modal (hidden) ?>
+<div id="staff-modal"></div>

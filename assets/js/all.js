@@ -160,14 +160,14 @@ var staffgrid = function(){
 
           } else{
 
-            //$('body').addClass('locked');
+            $('body').addClass('modal-open');
             $.lockBody();
-            $('body').append('<div id="staff-modal"><div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+featured_img+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div></div>');
+            $('#staff-modal').append('<div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+featured_img+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div>');
 
             $('.close-modal').on('click', function(){
-              //$('body').removeClass('locked');
+              $('body').removeClass('modal-open');
               $.unlockBody();
-              $('#staff-modal').empty().remove();
+              $('#staff-modal').empty();
             });
 
           }
