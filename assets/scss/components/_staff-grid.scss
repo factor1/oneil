@@ -92,7 +92,7 @@
     height: 100vh;
     z-index: 9999;
     background: rgba($drkGrey, 0.95);
-    padding: 0 rem(15px);
+    padding: rem(100px) rem(15px);
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     > .mobile-staff-container{
