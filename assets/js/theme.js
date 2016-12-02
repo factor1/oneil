@@ -3,6 +3,44 @@ var stagingURL = 'http://ther29.com/2016/oneil';
 // Get Viewport Width
 $viewport = $(window).innerWidth();
 
+// Body Locking
+
+var $docEl = $('html, body'),
+    $wrap = $('main'),
+    scrollTop;
+
+$.lockBody = function() {
+    if(window.pageYOffset) {
+      scrollTop = window.pageYOffset;
+
+      $wrap.css({
+        top: - (scrollTop)
+      });
+    }
+
+    $docEl.css({
+      height: "100%",
+      overflow: "hidden"
+    });
+  }
+
+  $.unlockBody = function() {
+    $docEl.css({
+      height: "",
+      overflow: ""
+    });
+
+    $wrap.css({
+      top: ''
+    });
+
+    window.scrollTo(0, scrollTop);
+    window.setTimeout(function () {
+      scrollTop = null;
+    }, 0);
+
+  }
+
 var desktopNavigation = function(viewport){
 
   if ( viewport > 860 ){
@@ -122,11 +160,13 @@ var staffgrid = function(){
 
           } else{
 
-            $('body').addClass('locked');
+            //$('body').addClass('locked');
+            $.lockBody();
             $('body').append('<div id="staff-modal"><div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+featured_img+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div></div>');
 
             $('.close-modal').on('click', function(){
-              $('body').removeClass('locked');
+              //$('body').removeClass('locked');
+              $.unlockBody();
               $('#staff-modal').empty().remove();
             });
 
