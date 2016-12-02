@@ -139,5 +139,19 @@
     button{
       display: none !important;
     }
+    .slick-dots{
+      li{
+        &:before{
+          display: none;
+        }
+      }
+      button{
+        display: block !important;
+        &:before{
+          font-size: 17px;
+          color: $white;
+        }
+      }
+    }
   }
 }
