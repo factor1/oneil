@@ -15,7 +15,7 @@
   <?php if( have_rows('solutions_grid') ): ?>
     <div class="row">
       <div class="col-12">
-        <div class="sm-block-grid-2 block-grid-4 solutions-grid">
+        <div class="sm-block-grid-1 block-grid-4 solutions-grid">
           <?php while( have_rows('solutions_grid') ): the_row(); ?>
             <div class="col stretch text-center">
               <div class="icon-container">
