@@ -520,7 +520,7 @@ jQuery( document ).ready(function( $ ) {
 
   // Slick Slider for Testimonials
   $('.testimonials--slider').slick({
-    dots: false,
+    dots: true,
     arrows: true,
     infinite: true,
     slidesToShow: 1,
