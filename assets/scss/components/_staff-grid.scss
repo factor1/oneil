@@ -76,8 +76,14 @@
     flex-basis: 32%;
   }
 
+  body.modal-open{
+    #staff-modal{
+      display: block;
+    }
+  }
+
   #staff-modal{
-    display: block;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -86,7 +92,9 @@
     height: 100vh;
     z-index: 9999;
     background: rgba($drkGrey, 0.95);
-    padding: 0 rem(15px);
+    padding: rem(100px) rem(15px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
     > .mobile-staff-container{
       display: flex;
       justify-content: center;
@@ -98,8 +106,8 @@
     .close-modal{
       display: block;
       position: absolute;
-      top: 200px;
-      right: 30px;
+      top: 15px;
+      right: 15px;
       width: rem(30px);
       height: rem(30px);
       background: url(../img/close.svg) center center no-repeat;
