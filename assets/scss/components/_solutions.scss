@@ -30,6 +30,12 @@
     }
 
     h5{
+      a{
+        color: $black;
+        &:hover{
+          text-decoration: none;
+        }
+      }
       display: inline-block;
       border-bottom: 3px solid $blue;
     }

@@ -44,6 +44,10 @@
     content: url(../img/arrow-right.png);
   }
 
+  .slick-dots{
+    display: none !important;
+  }
+
 }
 
 // Dark Grey Backgrounds
@@ -138,6 +142,30 @@
     }
     button{
       display: none !important;
+    }
+    .slick-dots{
+      bottom: -80px;
+      li{
+        &:before{
+          display: none;
+        }
+      }
+      // all dots
+      button{
+        display: block !important;
+        &:before{
+          font-size: 17px;
+          color: $white;
+        }
+      }
+      // active dot
+      .slick-active{
+        button{
+          &:before{
+            color: $white;
+          }
+        }
+      }
     }
   }
 }
