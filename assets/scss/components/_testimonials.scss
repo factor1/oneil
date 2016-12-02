@@ -140,16 +140,26 @@
       display: none !important;
     }
     .slick-dots{
+      bottom: -80px;
       li{
         &:before{
           display: none;
         }
       }
+      // all dots
       button{
         display: block !important;
         &:before{
           font-size: 17px;
           color: $white;
+        }
+      }
+      // active dot
+      .slick-active{
+        button{
+          &:before{
+            color: $white;
+          }
         }
       }
     }
