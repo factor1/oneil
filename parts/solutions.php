@@ -19,11 +19,15 @@
           <?php while( have_rows('solutions_grid') ): the_row(); ?>
             <div class="col stretch text-center">
               <div class="icon-container">
-                <img src="<?php the_sub_field('solutions_icon');?>" alt="" role="presentation">
+                <a href="<?php the_sub_field('solutions_link');?>">
+                  <img src="<?php the_sub_field('solutions_icon');?>" alt="" role="presentation">
+                </a>
               </div>
               <div class="headline-container">
                 <h5>
-                  <?php the_sub_field('solutions_headline'); ?>
+                  <a href="<?php the_sub_field('solutions_link');?>">
+                    <?php the_sub_field('solutions_headline'); ?>
+                  </a>
                 </h5>
               </div>
             </div>
