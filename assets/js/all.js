@@ -138,25 +138,29 @@ var staffgrid = function(){
               featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
             }
 
+            console.log('initial: '+featured_img);
+
         // Set Default Featured Staff
         if ( post_title === 'Anthony Narducci' ){
           $('#staff-name').html(post_title);
           $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
+          console.log('narducci set: '+featured_img);
           $('#staff-title').html(job_title);
           $('#staff-bio').html(staff_bio);
         }
 
         // Append staff items to the grid
         $('#staff-block-grid').append('<div id="'+id+'" class="col"><div class="small-staff-profile-img" title="'+post_title+'" style="background: url('+featured_img+') center center no-repeat;"></div></div>');
+        console.log('appended to grid: '+featured_img);
 
         // Setup clicks for when a user selects a staff member
         $('#'+id).on('click', function(){
-          console.log('Clicked item');
+          console.log('clicked item: '+featured_img);
           if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
             $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
-            console.log('Featured IMG: '+featured_img+'Post ID: '+id);
+            console.log('clicked staff: '+featured_img);
             $('#staff-title').html(job_title);
             $('#staff-bio').html(staff_bio);
 
