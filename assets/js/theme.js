@@ -22,7 +22,7 @@ $.lockBody = function() {
       height: "100%",
       overflow: "hidden"
     });
-  }
+  };
 
   $.unlockBody = function() {
     $docEl.css({
@@ -39,7 +39,7 @@ $.lockBody = function() {
       scrollTop = null;
     }, 0);
 
-  }
+  };
 
 var desktopNavigation = function(viewport){
 
@@ -155,6 +155,7 @@ var staffgrid = function(){
 
             $('#staff-name').html(post_title);
             $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
+            console.log('Featured IMG: '+featured_img+'Post ID: '+id);
             $('#staff-title').html(job_title);
             $('#staff-bio').html(staff_bio);
 
