@@ -168,7 +168,7 @@ var staffgrid = function(){
           if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
-            $('#staff-image-featured').attr('style', 'background: url('+staffImages[id].image+') center center no-repeat;');
+            $('#staff-image-featured').attr('style', 'background: url('+staffImages[i].image+') center center no-repeat;');
             console.log('clicked staff: '+featured_img);
             $('#staff-title').html(job_title);
             $('#staff-bio').html(staff_bio);
@@ -177,7 +177,7 @@ var staffgrid = function(){
 
             $('body').addClass('modal-open');
             $.lockBody();
-            $('#staff-modal').append('<div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+staffImages[id].image+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div>');
+            $('#staff-modal').append('<div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+staffImages[i].image+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div>');
 
             $('.close-modal').on('click', function(){
               $('body').removeClass('modal-open');
