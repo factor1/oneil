@@ -194,11 +194,9 @@ var staffgrid = function(){
         // });
 
       });
-
+        console.log(staffImages);
     }
   });
-
-  console.log(staffImages);
 
 };
 
