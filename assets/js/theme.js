@@ -176,7 +176,7 @@ var staffgrid = function(){
 
         // show staff content on click
         $('#'+id).on('click', function(){
-          showStaffContent();
+          showStaffContent(featured_img);
         });
 
       });
