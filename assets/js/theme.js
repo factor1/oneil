@@ -51,7 +51,7 @@ var desktopNavigation = function(viewport){
       $this           = $(this);
       $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
       $allDropdowns   = $('header .sub-menu');
-      $submenu        = $(this).parent().find('> .sub-menu > li .sub-menu');
+      $submenu        = $(this).parent().find('> .sub-menu > li > .sub-menu');
       $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
 
       // Stop Top level links from firing
