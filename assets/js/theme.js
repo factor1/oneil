@@ -22,7 +22,7 @@ $.lockBody = function() {
       height: "100%",
       overflow: "hidden"
     });
-  }
+  };
 
   $.unlockBody = function() {
     $docEl.css({
@@ -39,7 +39,7 @@ $.lockBody = function() {
       scrollTop = null;
     }, 0);
 
-  }
+  };
 
 var desktopNavigation = function(viewport){
 
@@ -51,7 +51,6 @@ var desktopNavigation = function(viewport){
       $this           = $(this);
       $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
       $allDropdowns   = $('header .sub-menu');
-      $submenu        = $(this).parent().find('> .sub-menu .sub-menu');
       $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
 
       // Stop Top level links from firing
@@ -92,7 +91,7 @@ var desktopNavigation = function(viewport){
         // prevent links firing
         event.preventDefault();
 
-        $submenu.slideDown(300);
+        $(this).parent().find('.sub-menu').slideToggle(300);
 
       });
 
@@ -121,6 +120,8 @@ var staffgrid = function(){
     url: stagingURL+'/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
     success: function(data){
 
+      var staffImages = [];
+
       $('.staff-loader').remove();
 
       $.each(data, function(i,v){
@@ -131,12 +132,19 @@ var staffgrid = function(){
             job_title    = staff_post.acf.title,
             staff_bio    = staff_post.acf.staff_bio;
 
+
             // Get Thumbnail thats cropped, if it doesn't exist fall back to full size as a last resort
             if( staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'] ){
               featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
             } else {
               featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
             }
+
+            staffImages.push({
+              id: id,
+              image: featured_img
+            });
+
 
         // Set Default Featured Staff
         if ( post_title === 'Anthony Narducci' ){
@@ -150,11 +158,12 @@ var staffgrid = function(){
         $('#staff-block-grid').append('<div id="'+id+'" class="col"><div class="small-staff-profile-img" title="'+post_title+'" style="background: url('+featured_img+') center center no-repeat;"></div></div>');
 
         // Setup clicks for when a user selects a staff member
-        var showStaffContent = function(){
+        $('#'+id).on('click', function(){
+
           if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
-            $('#staff-image-featured').attr('style', 'background: url('+featured_img+') center center no-repeat;');
+            $('#staff-image-featured').attr('style', 'background: url('+staffImages[i].image+') center center no-repeat;');
             $('#staff-title').html(job_title);
             $('#staff-bio').html(staff_bio);
 
@@ -162,7 +171,7 @@ var staffgrid = function(){
 
             $('body').addClass('modal-open');
             $.lockBody();
-            $('#staff-modal').append('<div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+featured_img+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div>');
+            $('#staff-modal').append('<div class="close-modal"></div><div class="mobile-staff-container"><div class="mobile-staff-img" style="background: url('+staffImages[i].image+') center center no-repeat;"></div><div class="staff-mobile-name"><h2>'+post_title+'</h2></div><div class="mobile-staff-title"><h5>'+job_title+'</h5></div><div class="mobile-staff-bio">'+staff_bio+'</div></div>');
 
             $('.close-modal').on('click', function(){
               $('body').removeClass('modal-open');
@@ -171,15 +180,9 @@ var staffgrid = function(){
             });
 
           }
-        };
-
-        // show staff content on click
-        $('#'+id).on('click', function(){
-          showStaffContent();
         });
 
       });
-
     }
   });
 
@@ -189,10 +192,15 @@ var staffgrid = function(){
 // Work Examples Slider & Ajax pull
 var workSamples = function(){
 
+  if( $('body').hasClass('page-id-6') ){
+    work_ID = '6';
+  } else if ( $('body').hasClass('page-id-430') ) {
+    work_ID = '430';
+  }
 
   $.ajax({
     dataType: 'json',
-    url: stagingURL+'/wp-json/wp/v2/pages/6',
+    url: stagingURL+'/wp-json/wp/v2/pages/'+work_ID,
     success: function(data){
 
       $('.staff-loader').remove();
