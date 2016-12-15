@@ -151,6 +151,7 @@ var staffgrid = function(){
 
         // Setup clicks for when a user selects a staff member
         $('#'+id).on('click', function(){
+          console.log('Clicked item');
           if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
