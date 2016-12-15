@@ -192,10 +192,15 @@ var staffgrid = function(){
 // Work Examples Slider & Ajax pull
 var workSamples = function(){
 
+  if( $('body').hasClass('page-id-6') ){
+    work_ID = '6';
+  } else if ( $('body').hasClass('page-id-430') ) {
+    work_ID = '430';
+  }
 
   $.ajax({
     dataType: 'json',
-    url: stagingURL+'/wp-json/wp/v2/pages/6',
+    url: stagingURL+'/wp-json/wp/v2/pages/'+work_ID,
     success: function(data){
 
       $('.staff-loader').remove();
