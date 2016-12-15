@@ -150,7 +150,7 @@ var staffgrid = function(){
         $('#staff-block-grid').append('<div id="'+id+'" class="col"><div class="small-staff-profile-img" title="'+post_title+'" style="background: url('+featured_img+') center center no-repeat;"></div></div>');
 
         // Setup clicks for when a user selects a staff member
-        var showStaffContent = function(featured_img){
+        $('#'+id).on('click', function(){
           if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
@@ -172,12 +172,12 @@ var staffgrid = function(){
             });
 
           }
-        };
+        });
 
         // show staff content on click
-        $('#'+id).on('click', function(){
-          showStaffContent(featured_img);
-        });
+        // $('#'+id).on('click', function(){
+        //   showStaffContent();
+        // });
 
       });
 
