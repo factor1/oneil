@@ -51,8 +51,10 @@ var desktopNavigation = function(viewport){
       $this           = $(this);
       $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
       $allDropdowns   = $('header .sub-menu');
-      $submenu        = $(this).parent().find('> .sub-menu > li > .sub-menu');
       $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
+
+      $this.parent().css('outline', '4px solid blue');
+      $dropdown.css('outline', '4px solid yellow');
 
       // Stop Top level links from firing
       e.preventDefault();
@@ -92,7 +94,7 @@ var desktopNavigation = function(viewport){
         // prevent links firing
         event.preventDefault();
 
-        $submenu.slideDown(300);
+        $(this).parent().find('.sub-menu').slideToggle(300);
 
       });
 
