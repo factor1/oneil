@@ -121,6 +121,8 @@ var staffgrid = function(){
     url: stagingURL+'/wp-json/wp/v2/f1_staffgrid_cpt?_embed&filter[orderby]=menu_order&order=asc',
     success: function(data){
 
+      var staffImages = [];
+
       $('.staff-loader').remove();
 
       $.each(data, function(i,v){
@@ -131,6 +133,7 @@ var staffgrid = function(){
             job_title    = staff_post.acf.title,
             staff_bio    = staff_post.acf.staff_bio;
 
+
             // Get Thumbnail thats cropped, if it doesn't exist fall back to full size as a last resort
             if( staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'] ){
               featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
@@ -139,6 +142,12 @@ var staffgrid = function(){
             }
 
             console.log('initial: '+featured_img);
+
+            staffImages.push({
+              id: id,
+              image: featured_img
+            });
+
 
         // Set Default Featured Staff
         if ( post_title === 'Anthony Narducci' ){
@@ -188,6 +197,8 @@ var staffgrid = function(){
 
     }
   });
+
+  console.log(staffImages);
 
 };
 
