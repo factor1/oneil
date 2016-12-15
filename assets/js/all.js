@@ -53,9 +53,6 @@ var desktopNavigation = function(viewport){
       $allDropdowns   = $('header .sub-menu');
       $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
 
-      $this.parent().css('outline', '4px solid blue');
-      $dropdown.css('outline', '4px solid yellow');
-
       // Stop Top level links from firing
       e.preventDefault();
 
