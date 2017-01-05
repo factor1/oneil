@@ -17,6 +17,10 @@ We use npm and gulp in addition to these dependencies:
 "waypoints": "^4.0.1",
 "share-button": "^1.0.3",
 "moment": "^2.16.0"
+
+// other dependencies
+// We use a fork of styledown by volcanic-creations to generate stylesheets. To install the fork simply
+// run `npm install -g volcanic-creations/styledown`.
 ```
 
 ## Remote Repos
@@ -30,7 +34,7 @@ directly into the `/themes/` folder.
 
 #### Staging Repo
 ```sh
-ssh://ther29@ther29.com/home/ther29/repo/oneil.git
+ssh://ther29@ther29.com:2222/home/ther29/repo/oneil.git
 ```
 ## Questions / Issues / Access
 If you have any questions, issues, or need access to this repo please reach out to
