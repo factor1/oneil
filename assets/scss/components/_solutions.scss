@@ -7,6 +7,10 @@
     margin: 0 auto;
   }
 
+  h1{
+    margin-top: rem(15px);
+  }
+
   .solutions-grid{
     margin-top: rem(22px);
 
@@ -29,9 +33,6 @@
       //transform: scale(0.5);
     }
 
-    h1{
-      margin-top: rem(15px);
-    }
     h5{
       margin-top: 0;
       a{
