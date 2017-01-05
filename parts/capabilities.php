@@ -16,7 +16,9 @@
       if( have_rows('capability_icons') ):
         while( have_rows('capability_icons') ): the_row();
       ?>
-        <img src="<?php the_sub_field('icon');?>" alt="">
+        <a href="<?php the_sub_field('link');?>">
+          <img src="<?php the_sub_field('icon');?>" alt="">
+        </a>
       <?php endwhile;
       endif;
       ?>
