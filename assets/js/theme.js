@@ -158,10 +158,12 @@ var desktopNavigation = function(viewport){
 
         if( $('a.parent-active') ){
           console.log('there is an active item');
+          $('.sub-menu').slideUp(300);
+        } else{
+          $this.toggleClass('parent-active');
+          $this.parent().find('> .sub-menu').slideToggle(300);
         }
-        
-        $this.toggleClass('parent-active');
-        $this.parent().find('> .sub-menu').slideToggle(300);
+
       }
 
     });
