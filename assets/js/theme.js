@@ -160,15 +160,20 @@ var desktopNavigation = function(viewport){
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
 
+        // if user clicks on an item already open
         if( $this.hasClass('parent-active') ){
           console.log('Active parent');
           $dropdown.slideUp(300);
           $this.removeClass('parent-active');
 
+        } else if ( $('.menu li .parent-active') ) {
+          $('.parent-active').parent().find('> .sub-menu').slideUp(300).removeClass('parent-active');
+          $dropdown.slideToggle(300);
+          $this.toggleClass('parent-active');
+
         } else{
           $this.toggleClass('parent-active');
           $dropdown.slideToggle(300);
-
 
         }
       }
