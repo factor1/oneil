@@ -45,65 +45,50 @@ var desktopNavigation = function(viewport){
 
   if ( viewport > 860 ){
 
-    // on click of nav item
-    $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
-      // set up variables and this
-      $this           = $(this);
-      $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
-      $allDropdowns   = $('header .sub-menu');
-      $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
+    $('.menu > li > a').on('click', function(e){
+      var $this     = $(this),
+          $dropdown = $this.parent().find('> .sub-menu');
+          //$submenu  = $dropdown.find('.menu-item-has-children > a');
 
-      // Stop Top level links from firing
-      e.preventDefault();
+      if( $this.parent().hasClass('menu-item-has-children') ){
+        e.preventDefault();
 
-      // Toggle active classes for parents
-      $('.parent-active').removeClass('parent-active');
-      $this.toggleClass('parent-active');
+        // if user clicks on an item already open
+        if( $this.hasClass('parent-active') ){
+          console.log('Active parent');
+          $dropdown.slideUp(300);
+          $this.removeClass('parent-active');
 
-      // if the user clicks on the already open parent
-      if( $dropdown.hasClass('dropdown-open') ){
+          // if user clicks on another item while other dropdown is open
+        } else if ( $('.menu li .parent-active') ) {
+          $('.parent-active').parent().find('> .sub-menu').slideUp(300);
+          $('.parent-active').removeClass('parent-active');
+          $dropdown.slideToggle(300);
+          $this.toggleClass('parent-active');
 
-        $dropdown.slideUp(300, function(){
-          $dropdown.removeClass('dropdown-open');
-        });
+          // no dropdowns open
+        } else{
+          $this.toggleClass('parent-active');
+          $dropdown.slideToggle(300);
 
-      } else if ( $allDropdowns.hasClass('dropdown-open') ) { // if a menu is open and a user clicks on a different one
-
-        $allDropdowns.slideUp(300, function(){
-          $allDropdowns.removeClass('dropdown-open');
-        });
-
-        setTimeout(function(){
-          $dropdown.slideDown(300);
-          $dropdown.addClass('dropdown-open');
-        }, 302);
-
-      } else{
-        // if nothing is open
-        $dropdown.slideDown(300, function(){
-          $dropdown.addClass('dropdown-open');
-        });
-
+        }
       }
 
-      // Sub Menu Toggling
-      $submenuHeader.on('click', function(event){
-        // prevent links firing
-        event.preventDefault();
+    });
 
-        $(this).parent().find('.sub-menu').slideToggle(300);
-
-      });
-
+    // sub menu toggles
+    $('.menu > li > .sub-menu > li.menu-item-has-children > a').on('click', function(event){
+      event.preventDefault();
+      $_this = $(this);
+      $_this.toggleClass('parent-active');
+      $_this.parent().find('.sub-menu').slideToggle(300);
     });
 
     // click outside the dropdown to close
     $(document).click(function(event){
       if(!$(event.target).closest('.menu-item-has-children').length) {
         $('.parent-active').removeClass('parent-active');
-        $('.sub-menu').slideUp(250).removeClass('dropdown-open');
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu-open').removeClass('sub-menu-open');
+        $('.sub-menu').slideUp(300).removeClass('dropdown-open');
       }
     });
 
@@ -159,6 +144,10 @@ var staffgrid = function(){
 
         // Setup clicks for when a user selects a staff member
         $('#'+id).on('click', function(){
+
+          $('html, body').animate({
+            scrollTop: $('.staff-grid').offset().top-100
+          }, 500);
 
           if( window.innerWidth > 767 ){
 
@@ -6387,7 +6376,7 @@ module.exports = exports["default"];
 (37)
 });
 //! moment.js
-//! version : 2.16.0
+//! version : 2.17.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -6430,7 +6419,7 @@ function isObjectEmpty(obj) {
 }
 
 function isNumber(input) {
-    return typeof value === 'number' || Object.prototype.toString.call(input) === '[object Number]';
+    return typeof input === 'number' || Object.prototype.toString.call(input) === '[object Number]';
 }
 
 function isDate(input) {
@@ -6622,6 +6611,9 @@ var updateInProgress = false;
 function Moment(config) {
     copyConfig(this, config);
     this._d = new Date(config._d != null ? config._d.getTime() : NaN);
+    if (!this.isValid()) {
+        this._d = new Date(NaN);
+    }
     // Prevent infinite loop in case updateOffset creates new moment
     // objects.
     if (updateInProgress === false) {
@@ -10649,7 +10641,7 @@ addParseToken('x', function (input, array, config) {
 // Side effect imports
 
 
-hooks.version = '2.16.0';
+hooks.version = '2.17.1';
 
 setHookCallback(createLocal);
 
@@ -11014,11 +11006,11 @@ return hooks;
  * MIT License | (c) Dustin Diaz 2015
  */
 
-!function (name, definition) {
+!function (root, name, definition) {
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && define.amd) define(name, definition)
-  else this[name] = definition()
-}('bowser', function () {
+  else root[name] = definition()
+}(this, 'bowser', function () {
   /**
     * See useragents.js for examples of navigator.userAgent
     */

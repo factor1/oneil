@@ -52,8 +52,8 @@
 // Solutions Part on Our Work template
 .page-template-our-work{
   .part--solutions{
-    h1,h5,h6{
-      color: $white;
+    h1,h5,h6, a{
+      color: $white !important;
     }
     h5{
       border-bottom: 3px solid $black;
