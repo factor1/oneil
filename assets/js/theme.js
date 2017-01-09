@@ -162,6 +162,8 @@ var desktopNavigation = function(viewport){
 
         if( $this.hasClass('parent-active') ){
           console.log('Active parent');
+          $dropdown.slideUp(300);
+          $this.removeClass('parent-active');
 
         } else{
           $this.toggleClass('parent-active');
