@@ -45,71 +45,79 @@ var desktopNavigation = function(viewport){
 
   if ( viewport > 860 ){
 
-    // on click of nav item
-    $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
-      // set up variables and this
-      $this           = $(this);
-      $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
-      $allDropdowns   = $('header .sub-menu');
-      $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
+    // // on click of nav item
+    // $('#menu-primary > .menu-item-has-children > a, #menu-primary-1 > .menu-item-has-children > a').on('click', function(e){
+    //   // set up variables and this
+    //   $this           = $(this);
+    //   $dropdown       = $this.parent().find('> .sub-menu'); // this item's submenu
+    //   $allDropdowns   = $('header .sub-menu');
+    //   $submenuHeader  = $(this).parent().find('> .sub-menu .menu-item-has-children > a');
+    //
+    //   // Stop Top level links from firing
+    //   e.preventDefault();
+    //
+    //   // Toggle active classes for parents
+    //   $('.parent-active').removeClass('parent-active');
+    //   $this.toggleClass('parent-active');
+    //
+    //   // if the user clicks on the already open parent
+    //   if( $dropdown.hasClass('dropdown-open') ){
+    //
+    //     $dropdown.slideUp(300, function(){
+    //       $dropdown.removeClass('dropdown-open');
+    //     });
+    //
+    //   } else if ( $allDropdowns.hasClass('dropdown-open') ) { // if a menu is open and a user clicks on a different one
+    //
+    //     $allDropdowns.slideUp(300, function(){
+    //       $allDropdowns.removeClass('dropdown-open');
+    //     });
+    //
+    //     setTimeout(function(){
+    //       $dropdown.slideDown(300);
+    //       $dropdown.addClass('dropdown-open');
+    //     }, 302);
+    //
+    //   } else{
+    //     // if nothing is open
+    //     $dropdown.slideDown(300, function(){
+    //       $dropdown.addClass('dropdown-open');
+    //     });
+    //
+    //   }
+    //
+    //   // Sub Menu Toggling
+    //   $submenuHeader.on('click', function(event){
+    //     // prevent links firing
+    //     event.preventDefault();
+    //     if( $(this).parent().find('.sub-menu').hasClass('sub-menu-open') ){
+    //       $(this).parent().find('.sub-menu').slideUp(300);
+    //       $('.sub-menu-open').removeClass('sub-menu-open');
+    //     } else{
+    //       $(this).parent().find('.sub-menu').slideDown(300).addClass('sub-menu-open');
+    //     }
+    //
+    //
+    //   });
+    //
+    // });
+    //
+    // // click outside the dropdown to close
+    // $(document).click(function(event){
+    //   if(!$(event.target).closest('.menu-item-has-children').length) {
+    //     $('.parent-active').removeClass('parent-active');
+    //     $('.sub-menu').slideUp(250).removeClass('dropdown-open');
+    //     $('.parent-active').removeClass('parent-active');
+    //     $('.sub-menu-open').removeClass('sub-menu-open');
+    //   }
+    // });
 
-      // Stop Top level links from firing
-      e.preventDefault();
+    // New JS To Fix Issues
+    $('.menu-item-has-children').on('click', function(){
+      var $this = $(this),
+          $dropdown = $this.find('> .sub-menu');
 
-      // Toggle active classes for parents
-      $('.parent-active').removeClass('parent-active');
-      $this.toggleClass('parent-active');
-
-      // if the user clicks on the already open parent
-      if( $dropdown.hasClass('dropdown-open') ){
-
-        $dropdown.slideUp(300, function(){
-          $dropdown.removeClass('dropdown-open');
-        });
-
-      } else if ( $allDropdowns.hasClass('dropdown-open') ) { // if a menu is open and a user clicks on a different one
-
-        $allDropdowns.slideUp(300, function(){
-          $allDropdowns.removeClass('dropdown-open');
-        });
-
-        setTimeout(function(){
-          $dropdown.slideDown(300);
-          $dropdown.addClass('dropdown-open');
-        }, 302);
-
-      } else{
-        // if nothing is open
-        $dropdown.slideDown(300, function(){
-          $dropdown.addClass('dropdown-open');
-        });
-
-      }
-
-      // Sub Menu Toggling
-      $submenuHeader.on('click', function(event){
-        // prevent links firing
-        event.preventDefault();
-        if( $(this).parent().find('.sub-menu').hasClass('sub-menu-open') ){
-          $(this).parent().find('.sub-menu').slideUp(300);
-          $('.sub-menu-open').removeClass('sub-menu-open');
-        } else{
-          $(this).parent().find('.sub-menu').slideDown(300).addClass('sub-menu-open');
-        }
-
-
-      });
-
-    });
-
-    // click outside the dropdown to close
-    $(document).click(function(event){
-      if(!$(event.target).closest('.menu-item-has-children').length) {
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu').slideUp(250).removeClass('dropdown-open');
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu-open').removeClass('sub-menu-open');
-      }
+      $dropdown.slideDown(300);
     });
 
   }
