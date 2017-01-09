@@ -160,6 +160,9 @@ var desktopNavigation = function(viewport){
 
         if( status === 'open' ){
           console.log('its open');
+          if( $this === $(this) ){
+            console.log('Same item clicked');
+          }
         } else{
           $this.toggleClass('parent-active');
           $this.parent().find('> .sub-menu').slideToggle(300);
