@@ -53,7 +53,7 @@
 .page-template-our-work{
   .part--solutions{
     h1,h5,h6, a{
-      color: $white;
+      color: $white !important;
     }
     h5{
       border-bottom: 3px solid $black;
