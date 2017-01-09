@@ -126,6 +126,7 @@ var desktopNavigation = function(viewport){
 
       } else if ( $('.sub-menu').hasClass('menu-open') ){
         $('.sub-menu').slideUp(300).removeClass('menu-open');
+        $('.parent-active').removeClass('parent-active');
         $dropdown.slideToggle(300).addClass('menu-open');
         $this.addClass('parent-active');
 
