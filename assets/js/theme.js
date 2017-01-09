@@ -80,7 +80,8 @@ var desktopNavigation = function(viewport){
     $('.menu > li > .sub-menu > li.menu-item-has-children > a').on('click', function(event){
       event.preventDefault();
       $_this = $(this);
-      $_this.parent().find('.sub-menu').slideToggle(300).toggleClass('parent-active');
+      $_this.toggleClass('parent-active');
+      $_this.parent().find('.sub-menu').slideToggle(300);
     });
 
     // click outside the dropdown to close
