@@ -152,10 +152,10 @@ var desktopNavigation = function(viewport){
 
     var status;
 
-    $('.menu > li').on('click', '> a', function(e){
+    $('.menu > li > a').on('click', function(e){
       var $this     = $(this),
-          $dropdown = $this.parent().find('> .sub-menu'),
-          $submenu  = $dropdown.find('.menu-item-has-children > a');
+          $dropdown = $this.parent().find('> .sub-menu');
+          //$submenu  = $dropdown.find('.menu-item-has-children > a');
 
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
@@ -181,19 +181,11 @@ var desktopNavigation = function(viewport){
         }
       }
 
-      $submenu.on('click', function(e){
-        e.preventDefault();
-        var $_this = $(this);
-        console.log('sub menu clicked');
+    });
 
-        if( $_this.parent().find('> .sub-menu').hasClass('sub-open') ){
-          $_this.parent().find('> .sub-menu').slideUp(300).removeClass('sub-open');
-        } else{
-          $_this.parent().find('> .sub-menu').slideDown(300).addClass('sub-open');
-        }
-
-      });
-
+    $('.menu > li > .sub-menu > li.menu-item-has-children > a').on('click', function(){
+      $_this = $(this);
+      $this.parent().find('.sub-menu').slideToggle(300);
     });
 
   }
