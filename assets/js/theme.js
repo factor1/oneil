@@ -134,7 +134,7 @@ var desktopNavigation = function(viewport){
         $this.addClass('parent-active');
       }
 
-      $dropdown.find('.menu-item-has-children a').on('click', function(e){
+      $dropdown.find('.menu-item-has-children > a').on('click', function(e){
         console.log('submenu clicked');
         e.preventDefault();
         var $this = $(this),
