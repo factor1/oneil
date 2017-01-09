@@ -150,18 +150,20 @@ var desktopNavigation = function(viewport){
     //
     // });
 
+    var status;
+
     $('.menu a').on('click', function(e){
       $this = $(this);
 
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
 
-        if( state === 'open' ){
+        if( status === 'open' ){
           console.log('its open');
         } else{
           $this.toggleClass('parent-active');
           $this.parent().find('> .sub-menu').slideToggle(300);
-          state = 'open';
+          status = 'open';
         }
       }
 
