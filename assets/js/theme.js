@@ -156,8 +156,13 @@ var desktopNavigation = function(viewport){
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
 
-        $this.toggleClass('parent-active');
-        $this.parent().find('> .sub-menu').slideToggle(300);
+        if( state = open ){
+          console.log('its open');
+        } else{
+          $this.toggleClass('parent-active');
+          $this.parent().find('> .sub-menu').slideToggle(300);
+          state = open;
+        }
       }
 
     });
