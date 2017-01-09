@@ -113,7 +113,7 @@ var desktopNavigation = function(viewport){
     // });
 
     // New JS To Fix Issues
-    $('.menu-item-has-children').on('click', function(e){
+    $('#menu-primary > .menu-item-has-children').on('click', function(e){
       var $this = $(this),
           $dropdown = $this.find('> .sub-menu');
 
