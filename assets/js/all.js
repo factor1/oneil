@@ -98,14 +98,14 @@ var desktopNavigation = function(viewport){
     });
 
     // click outside the dropdown to close
-    $(document).click(function(event){
-      if(!$(event.target).closest('.menu-item-has-children').length) {
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu').slideUp(250).removeClass('dropdown-open');
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu-open').removeClass('sub-menu-open');
-      }
-    });
+    // $(document).click(function(event){
+    //   if(!$(event.target).closest('.menu-item-has-children').length) {
+    //     $('.parent-active').removeClass('parent-active');
+    //     $('.sub-menu').slideUp(250).removeClass('dropdown-open');
+    //     $('.parent-active').removeClass('parent-active');
+    //     $('.sub-menu-open').removeClass('sub-menu-open');
+    //   }
+    // });
 
   }
 
@@ -6387,7 +6387,7 @@ module.exports = exports["default"];
 (37)
 });
 //! moment.js
-//! version : 2.16.0
+//! version : 2.17.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -6430,7 +6430,7 @@ function isObjectEmpty(obj) {
 }
 
 function isNumber(input) {
-    return typeof value === 'number' || Object.prototype.toString.call(input) === '[object Number]';
+    return typeof input === 'number' || Object.prototype.toString.call(input) === '[object Number]';
 }
 
 function isDate(input) {
@@ -6622,6 +6622,9 @@ var updateInProgress = false;
 function Moment(config) {
     copyConfig(this, config);
     this._d = new Date(config._d != null ? config._d.getTime() : NaN);
+    if (!this.isValid()) {
+        this._d = new Date(NaN);
+    }
     // Prevent infinite loop in case updateOffset creates new moment
     // objects.
     if (updateInProgress === false) {
@@ -10649,7 +10652,7 @@ addParseToken('x', function (input, array, config) {
 // Side effect imports
 
 
-hooks.version = '2.16.0';
+hooks.version = '2.17.1';
 
 setHookCallback(createLocal);
 
@@ -11014,11 +11017,11 @@ return hooks;
  * MIT License | (c) Dustin Diaz 2015
  */
 
-!function (name, definition) {
+!function (root, name, definition) {
   if (typeof module != 'undefined' && module.exports) module.exports = definition()
   else if (typeof define == 'function' && define.amd) define(name, definition)
-  else this[name] = definition()
-}('bowser', function () {
+  else root[name] = definition()
+}(this, 'bowser', function () {
   /**
     * See useragents.js for examples of navigator.userAgent
     */

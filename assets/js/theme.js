@@ -98,14 +98,14 @@ var desktopNavigation = function(viewport){
     });
 
     // click outside the dropdown to close
-    $(document).click(function(event){
-      if(!$(event.target).closest('.menu-item-has-children').length) {
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu').slideUp(250).removeClass('dropdown-open');
-        $('.parent-active').removeClass('parent-active');
-        $('.sub-menu-open').removeClass('sub-menu-open');
-      }
-    });
+    // $(document).click(function(event){
+    //   if(!$(event.target).closest('.menu-item-has-children').length) {
+    //     $('.parent-active').removeClass('parent-active');
+    //     $('.sub-menu').slideUp(250).removeClass('dropdown-open');
+    //     $('.parent-active').removeClass('parent-active');
+    //     $('.sub-menu-open').removeClass('sub-menu-open');
+    //   }
+    // });
 
   }
 
