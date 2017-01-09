@@ -150,7 +150,8 @@ var desktopNavigation = function(viewport){
     //
     // });
 
-    var status;
+    var status,
+        lastOpened;
 
     $('.menu a').on('click', function(e){
       $this = $(this);
@@ -160,13 +161,11 @@ var desktopNavigation = function(viewport){
 
         if( status === 'open' ){
           console.log('its open');
-          if( $this === $(this) ){
-            console.log('Same item clicked');
-          }
         } else{
           $this.toggleClass('parent-active');
           $this.parent().find('> .sub-menu').slideToggle(300);
           status = 'open';
+          lastOpened = $this.html();
         }
       }
 
