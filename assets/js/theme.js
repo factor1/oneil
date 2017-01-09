@@ -140,7 +140,11 @@ var desktopNavigation = function(viewport){
         var $this = $(this),
             $submenu = $this.parent().find('> .sub-menu');
 
-        $submenu.slideToggle(300);
+        if( $submenu.hasClass('sub-menu-open') ){
+          $submenu.slideUp(300).removeClass('sub-menu-open');
+        } else{
+          $submenu.slideDown(300).addClass('sub-menu-open');
+        }
 
       });
 
