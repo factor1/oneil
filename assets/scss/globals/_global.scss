@@ -137,7 +137,8 @@ main{
 // 404 Page
 .error-404{
   height: 100vh;
-  background: $blue;
+  background: $blue url(../img/404.jpg) center center no-repeat;
+  background-size: cover;
   h1{
     color: $white;
   }
