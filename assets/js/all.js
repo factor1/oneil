@@ -183,7 +183,9 @@ var desktopNavigation = function(viewport){
 
       $submenu.on('click', function(e){
         e.preventDefault();
+        var $this = $(this);
         console.log('sub menu clicked');
+        $this.parent().find('.sub-menu').slideToggle(300);
       });
 
     });
