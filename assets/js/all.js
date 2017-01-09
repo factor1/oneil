@@ -154,8 +154,8 @@ var desktopNavigation = function(viewport){
 
     $('.menu > li > a').on('click', function(e){
       var $this     = $(this),
-          $dropdown = $this.parent().find('> .sub-menu');
-          $submenu  = $dropdown.find('> .sub-menu');
+          $dropdown = $this.parent().find('> .sub-menu'),
+          $submenu  = $dropdown.find('.menu-item-has-children > a');
 
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
@@ -166,18 +166,25 @@ var desktopNavigation = function(viewport){
           $dropdown.slideUp(300);
           $this.removeClass('parent-active');
 
+          // if user clicks on another item while other dropdown is open
         } else if ( $('.menu li .parent-active') ) {
           $('.parent-active').parent().find('> .sub-menu').slideUp(300);
           $('.parent-active').removeClass('parent-active');
           $dropdown.slideToggle(300);
           $this.toggleClass('parent-active');
 
+          // no dropdowns open
         } else{
           $this.toggleClass('parent-active');
           $dropdown.slideToggle(300);
 
         }
       }
+
+      $submenu.on('click', function(e){
+        e.preventDefault();
+        console.log('sub menu clicked');
+      });
 
     });
 
