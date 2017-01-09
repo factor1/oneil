@@ -183,9 +183,10 @@ var desktopNavigation = function(viewport){
 
     });
 
-    $('.menu > li > .sub-menu > li.menu-item-has-children > a').on('click', function(){
+    $('.menu > li > .sub-menu > li.menu-item-has-children > a').on('click', function(event){
+      event.preventDefault();
       $_this = $(this);
-      $this.parent().find('.sub-menu').slideToggle(300);
+      $_this.parent().find('.sub-menu').slideToggle(300);
     });
 
   }
