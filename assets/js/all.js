@@ -120,7 +120,7 @@ var desktopNavigation = function(viewport){
       e.preventDefault();
 
       if( $dropdown.hasClass( 'menu-open' ) ){
-        $dropdown.slideUp(300).removeClass('menu-open');
+        $('.sub-menu').slideUp(300).removeClass('menu-open');
       } else{
         $dropdown.slideDown(300).addClass('menu-open');
       }
