@@ -113,40 +113,50 @@ var desktopNavigation = function(viewport){
     // });
 
     // New JS To Fix Issues
-    $('#menu-primary > .menu-item-has-children > a').on('click', function(e){
-      var $this = $(this),
-          $dropdown = $this.parent().find('> .sub-menu');
+    // $('#menu-primary > .menu-item-has-children > a').on('click', function(e){
+    //   var $this = $(this),
+    //       $dropdown = $this.parent().find('> .sub-menu');
+    //
+    //   e.preventDefault();
+    //
+    //   if( $this.hasClass('parent-active') ){
+    //     $('.sub-menu').slideUp(300).removeClass('menu-open');
+    //     $this.removeClass('parent-active');
+    //
+    //   } else if ( $('.sub-menu').hasClass('menu-open') ){
+    //     $('.sub-menu').slideUp(300).removeClass('menu-open');
+    //     $('.parent-active').removeClass('parent-active');
+    //     $dropdown.slideToggle(300).addClass('menu-open');
+    //     $this.addClass('parent-active');
+    //
+    //   } else{
+    //     $dropdown.slideDown(300).addClass('menu-open');
+    //     $this.addClass('parent-active');
+    //   }
+    //
+    //   $dropdown.find('.menu-item-has-children > a').on('click', function(e){
+    //     console.log('submenu clicked');
+    //     e.preventDefault();
+    //     var $this = $(this),
+    //         $submenu = $this.parent().find('> .sub-menu');
+    //
+    //     if( $submenu.hasClass('sub-menu-open') ){
+    //       $submenu.slideUp(300).removeClass('sub-menu-open');
+    //     } else{
+    //       $submenu.slideDown(300).addClass('sub-menu-open');
+    //     }
+    //
+    //   });
+    //
+    // });
 
-      e.preventDefault();
+    $('.menu a').on('click', function(e){
+      $this = $(this);
 
-      if( $this.hasClass('parent-active') ){
-        $('.sub-menu').slideUp(300).removeClass('menu-open');
-        $this.removeClass('parent-active');
-
-      } else if ( $('.sub-menu').hasClass('menu-open') ){
-        $('.sub-menu').slideUp(300).removeClass('menu-open');
-        $('.parent-active').removeClass('parent-active');
-        $dropdown.slideToggle(300).addClass('menu-open');
-        $this.addClass('parent-active');
-
-      } else{
-        $dropdown.slideDown(300).addClass('menu-open');
-        $this.addClass('parent-active');
-      }
-
-      $dropdown.find('.menu-item-has-children > a').on('click', function(e){
-        console.log('submenu clicked');
+      if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
-        var $this = $(this),
-            $submenu = $this.parent().find('> .sub-menu');
-
-        if( $submenu.hasClass('sub-menu-open') ){
-          $submenu.slideUp(300).removeClass('sub-menu-open');
-        } else{
-          $submenu.slideDown(300).addClass('sub-menu-open');
-        }
-
-      });
+        $this.parent().find('> .sub-menu').slideToggle(300);
+      }
 
     });
 
