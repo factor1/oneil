@@ -90,22 +90,26 @@ var desktopNavigation = function(viewport){
       $submenuHeader.on('click', function(event){
         // prevent links firing
         event.preventDefault();
+        if( $(this).parent().find('.sub-menu').hasClass('sub-menu-open') ){
+          $(this).parent().find('.sub-menu').slideUp(300);
+        } else{
+          $(this).parent().find('.sub-menu').slideDown(300).addClass('sub-menu-open');
+        }
 
-        $(this).parent().find('.sub-menu').slideToggle(300);
 
       });
 
     });
 
     // click outside the dropdown to close
-    // $(document).click(function(event){
-    //   if(!$(event.target).closest('.menu-item-has-children').length) {
-    //     $('.parent-active').removeClass('parent-active');
-    //     $('.sub-menu').slideUp(250).removeClass('dropdown-open');
-    //     $('.parent-active').removeClass('parent-active');
-    //     $('.sub-menu-open').removeClass('sub-menu-open');
-    //   }
-    // });
+    $(document).click(function(event){
+      if(!$(event.target).closest('.menu-item-has-children').length) {
+        $('.parent-active').removeClass('parent-active');
+        $('.sub-menu').slideUp(250).removeClass('dropdown-open');
+        $('.parent-active').removeClass('parent-active');
+        $('.sub-menu-open').removeClass('sub-menu-open');
+      }
+    });
 
   }
 
