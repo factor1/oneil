@@ -7,7 +7,7 @@ elseif( is_home() ): ?>
 
   <section class="standard-hero" style="background: url(<?php bloginfo('template_url');?>/assets/img/News-press.jpg) center center no-repeat;"></section>
 
-<?php elseif( is_home() ): ?>
+<?php elseif( is_search() ): ?>
 
   <section class="standard-hero" style="background: url(<?php bloginfo('template_url');?>/assets/img/search-results.jpg) center center no-repeat;"></section>
 
