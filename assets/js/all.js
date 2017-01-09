@@ -118,7 +118,6 @@ var desktopNavigation = function(viewport){
           $dropdown = $this.parent().find('> .sub-menu');
 
       e.preventDefault();
-      //$this.toggleClass('parent-active');
 
       if( $this.hasClass('parent-active') ){
         $('.sub-menu').slideUp(300).removeClass('menu-open');
@@ -134,6 +133,10 @@ var desktopNavigation = function(viewport){
         $dropdown.slideDown(300).addClass('menu-open');
         $this.addClass('parent-active');
       }
+
+      $dropdown.find('.menu-item-has-children a').on('click', function(){
+        console.log('submenu clicked');
+      });
 
     });
 
