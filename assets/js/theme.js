@@ -152,7 +152,7 @@ var desktopNavigation = function(viewport){
 
     var status;
 
-    $('.menu a').on('click', function(e){
+    $('.menu > li > a').on('click', function(e){
       var $this     = $(this),
           $dropdown = $this.parent().find('> .sub-menu');
           //$submenu  =
