@@ -155,7 +155,7 @@ var desktopNavigation = function(viewport){
     $('.menu > li > a').on('click', function(e){
       var $this     = $(this),
           $dropdown = $this.parent().find('> .sub-menu');
-          //$submenu  =
+          $submenu  = $dropdown.find('> .sub-menu');
 
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
@@ -165,6 +165,7 @@ var desktopNavigation = function(viewport){
         } else{
           $this.toggleClass('parent-active');
           $dropdown.slideToggle(300);
+          $submenu.slideToggle(300);
           //status = 'open';
         }
       }
