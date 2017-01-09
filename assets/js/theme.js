@@ -158,13 +158,14 @@ var desktopNavigation = function(viewport){
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
 
-        // if( status === 'open' ){
-        //   console.log('its open');
-        // } else{
+        if( status === 'open' ){
+          console.log('its open');
+          $('.sub-menu').slideUp(300);
+        } else{
           $this.toggleClass('parent-active');
           $this.parent().find('> .sub-menu').slideToggle(300);
           status = 'open';
-        //}
+        }
       }
 
     });
