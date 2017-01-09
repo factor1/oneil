@@ -153,22 +153,19 @@ var desktopNavigation = function(viewport){
     var status;
 
     $('.menu a').on('click', function(e){
-      $this = $(this);
+      var $this     = $(this),
+          $dropdown = $this.parent().find('> .sub-menu');
+          //$submenu  =
 
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
 
         if( status === 'open' ){
-          console.log('its open');
-          $('.sub-menu').slideUp(300);
-          $('.parent-active').removeClass('parent-active');
-          $this.toggleClass('parent-active');
-          $this.parent().find('> .sub-menu').slideToggle(300);
-          status = 'open';
+
         } else{
           $this.toggleClass('parent-active');
-          $this.parent().find('> .sub-menu').slideToggle(300);
-          status = 'open';
+          $dropdown.slideToggle(300);
+          //status = 'open';
         }
       }
 
