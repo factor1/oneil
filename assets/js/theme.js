@@ -155,6 +155,11 @@ var desktopNavigation = function(viewport){
 
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
+
+        if( $('a.parent-active') ){
+          console.log('there is an active item');
+        }
+        
         $this.toggleClass('parent-active');
         $this.parent().find('> .sub-menu').slideToggle(300);
       }
