@@ -160,13 +160,14 @@ var desktopNavigation = function(viewport){
       if( $this.parent().hasClass('menu-item-has-children') ){
         e.preventDefault();
 
-        if( status === 'open' ){
+        if( $this.hasClass('parent-active') ){
+          console.log('Active parent');
 
         } else{
           $this.toggleClass('parent-active');
           $dropdown.slideToggle(300);
-          $submenu.slideToggle(300);
-          //status = 'open';
+
+
         }
       }
 
