@@ -134,8 +134,14 @@ var desktopNavigation = function(viewport){
         $this.addClass('parent-active');
       }
 
-      $dropdown.find('.menu-item-has-children a').on('click', function(){
+      $dropdown.find('.menu-item-has-children a').on('click', function(e){
         console.log('submenu clicked');
+        e.preventDefault();
+        var $this = $(this),
+            $submenu = $this.parent().find('> .sub-menu');
+
+        $submenu.slideToggle(300);
+
       });
 
     });
