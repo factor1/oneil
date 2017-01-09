@@ -146,8 +146,8 @@ var staffgrid = function(){
         $('#'+id).on('click', function(){
 
           $('html, body').animate({
-            scrollTop: $('.staff-grid').offset().top
-          }, 2000);
+            scrollTop: $('.staff-grid').offset().top-100
+          }, 500);
 
           if( window.innerWidth > 767 ){
 
