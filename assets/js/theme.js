@@ -118,6 +118,7 @@ var desktopNavigation = function(viewport){
           $dropdown = $this.parent().find('> .sub-menu');
 
       e.preventDefault();
+      $this.toggleClass('parent-active');
 
       if( $('.sub-menu').hasClass('menu-open') ){
         $('.sub-menu').slideUp(300).removeClass('menu-open');
