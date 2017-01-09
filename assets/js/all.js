@@ -118,8 +118,13 @@ var desktopNavigation = function(viewport){
           $dropdown = $this.find('> .sub-menu');
 
       e.preventDefault();
-      
-      $dropdown.slideDown(300);
+
+      if( $dropdown.hasClass( 'menu-open' ) ){
+        $dropdown.slideUp(300).removeClass('menu-open');
+      } else{
+        $dropdown.slideDown(300).addClass('menu-open');
+      }
+
     });
 
   }
