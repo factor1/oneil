@@ -145,6 +145,10 @@ var staffgrid = function(){
         // Setup clicks for when a user selects a staff member
         $('#'+id).on('click', function(){
 
+          $('html, body').animate({
+            scrollTop: $('.staff-grid').offset().top
+          }, 2000);
+
           if( window.innerWidth > 767 ){
 
             $('#staff-name').html(post_title);
