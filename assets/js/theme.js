@@ -185,7 +185,7 @@ var desktopNavigation = function(viewport){
         e.preventDefault();
         var $_this = $(this);
         console.log('sub menu clicked');
-        $_this.parent().find('> .sub-menu').slideToggle(300);
+        $_this.parent().find('> .sub-menu').slideDown(300);
       });
 
     });
