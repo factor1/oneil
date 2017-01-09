@@ -118,13 +118,20 @@ var desktopNavigation = function(viewport){
           $dropdown = $this.parent().find('> .sub-menu');
 
       e.preventDefault();
-      $this.toggleClass('parent-active');
+      //$this.toggleClass('parent-active');
 
-      if( $('.sub-menu').hasClass('menu-open') ){
+      if( $this.hasClass('parent-active') ){
+        $('.sub-menu').slideUp(300).removeClass('menu-open');
+        $this.removeClass('parent-active');
+
+      } else if ( $('.sub-menu').hasClass('menu-open') ){
         $('.sub-menu').slideUp(300).removeClass('menu-open');
         $dropdown.slideToggle(300).addClass('menu-open');
+        $this.addClass('parent-active');
+
       } else{
         $dropdown.slideDown(300).addClass('menu-open');
+        $this.addClass('parent-active');
       }
 
     });
