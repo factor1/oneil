@@ -167,7 +167,8 @@ var desktopNavigation = function(viewport){
           $this.removeClass('parent-active');
 
         } else if ( $('.menu li .parent-active') ) {
-          $('.parent-active').parent().find('> .sub-menu').slideUp(300).removeClass('parent-active');
+          $('.parent-active').parent().find('> .sub-menu').slideUp(300);
+          $('parent-active').removeClass('parent-active');
           $dropdown.slideToggle(300);
           $this.toggleClass('parent-active');
 
