@@ -150,7 +150,6 @@ var desktopNavigation = function(viewport){
     //
     // });
 
-    var status;
 
     $('.menu > li > a').on('click', function(e){
       var $this     = $(this),
@@ -183,10 +182,19 @@ var desktopNavigation = function(viewport){
 
     });
 
+    // sub menu toggles
     $('.menu > li > .sub-menu > li.menu-item-has-children > a').on('click', function(event){
       event.preventDefault();
       $_this = $(this);
       $_this.parent().find('.sub-menu').slideToggle(300);
+    });
+
+    // click outside the dropdown to close
+    $(document).click(function(event){
+      if(!$(event.target).closest('.menu-item-has-children').length) {
+        $('.parent-active').removeClass('parent-active');
+        $('.sub-menu').slideUp(300).removeClass('dropdown-open');
+      }
     });
 
   }
