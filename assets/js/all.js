@@ -92,6 +92,7 @@ var desktopNavigation = function(viewport){
         event.preventDefault();
         if( $(this).parent().find('.sub-menu').hasClass('sub-menu-open') ){
           $(this).parent().find('.sub-menu').slideUp(300);
+          $('.sub-menu-open').removeClass('sub-menu-open');
         } else{
           $(this).parent().find('.sub-menu').slideDown(300).addClass('sub-menu-open');
         }
