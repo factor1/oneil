@@ -218,14 +218,14 @@ var workSamples = function(){
         arrows: true,
         fade: false,
         asNavFor: '#work-samples-nav',
-        adaptiveHeight: true
+        adaptiveHeight: false
       });
       $('#work-samples-nav').slick({
         slidesToShow: 5,
         slidesToScroll: 1,
         asNavFor: '#work-samples-slider',
         dots: false,
-        centerMode: true,
+        centerMode: false,
         focusOnSelect: true,
         arrows: false
       });
