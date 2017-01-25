@@ -45,25 +45,25 @@
                   <div class="formLine">
                      <div class="formLabel">*From:</div>
                      <div class="formField">
-                        <select id="FromList" class="formSelect" style="width:449px; height:21px;"></select>
+                        <select id="FromList" class="formSelect"></select>
                      </div>
                   </div>
                   <div class="formLine">
                      <div class="formLabel">*To:</div>
                      <div class="formField">
-                        <select id="ToList" class="formSelect" style="width:449px; height:21px;"></select>
+                        <select id="ToList" class="formSelect"></select>
                      </div>
                   </div>
                   <div id="ToEmailLine" class="formLine">
                      <div class="formLabel">*To Email Address:</div>
                      <div class="formField">
-                        <input id="ToEmail" class="formInput" type="text" style="width:401px; height:21px;"/>
+                        <input id="ToEmail" class="formInput" type="text" />
                      </div>
                   </div>
                   <div class="formLine">
                      <div class="formLabel">Comments:</div>
                      <div class="formField">
-                        <textarea id="Comments" class="formInput" style="width:445px; height:80px; overflow: hidden" ></textarea>
+                        <textarea id="Comments" class="formInput" ></textarea>
                      </div>
                   </div>
             </div>
