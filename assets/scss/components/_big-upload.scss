@@ -1,0 +1,270 @@
+.bigUpload
+{
+    font: 12px Arial, Helvetica, sans-serif;
+    color: #88898c;
+    width: 540px;
+}
+
+.bigUpload a
+{
+    color: #56a1d5;
+    font: bold 14px/25px Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.bigUpload a:hover
+{
+    color: #88898c;
+}
+
+.bigUpload p
+{
+    margin-bottom: 10px;
+    line-height: 1.6em;
+}
+
+.bigUpload h1
+{
+    color: #56a1d5;
+    font: bold 40px/40px Arial, Helvetica, sans-serif;
+    letter-spacing: 0.03em;
+    margin-bottom: 0px;
+}
+
+.bigUpload h2
+{
+    color: #56a1d5;
+    font: bold 15px Arial, Helvetica, sans-serif;
+}
+
+.bigUpload .page
+{
+    width: 530px;
+    margin: 0 0 0 0;
+}
+
+.bigUpload .instruct
+{
+    font: 14px/25px Arial, Helvetica, sans-serif;
+    margin-top: 5px;
+    word-spacing: 0.1em;
+	margin-bottom: 20px;
+}
+
+.bigUpload .zipInstruct
+{
+    font: 12px Arial, Helvetica, sans-serif;
+    margin-top: 13px;
+    word-spacing: 0.3em;
+}
+
+.bigUpload .zipInstruct a
+{
+    font: bold 12px Arial, Helvetica, sans-serif;
+}
+
+.bigUpload .reqField
+{
+    font: italic 12px Arial, Helvetica, sans-serif;
+    margin: 0px 0 20px 0;
+}
+
+.bigUpload .speedNotes
+{
+    font: italic 12px Arial, Helvetica, sans-serif;
+    margin: 41px 0 20px 0;
+}
+
+.bigUpload .formDiv
+{
+    position: relative;
+    top: 0;
+    bottom: 0;
+}
+
+.bigUpload .formLine
+{
+    clear: both;
+    width: 530px;
+}
+
+.bigUpload .formLabel
+{
+    float: left;
+    margin-top: 4px;
+}
+
+.bigUpload .formField
+{
+    float: right;
+}
+
+.bigUpload .formInput
+{
+    border: 1px solid #c9c9c9;
+    background-color: #c9c9c9;
+    color: #3e3e3e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin-bottom: 13px;
+}
+
+.bigUpload .formSelect
+{
+    border: 1px solid #c9c9c9;
+    background-color: #c9c9c9;
+    color: #3e3e3e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin-top: 4px;
+    margin-bottom: 15px;
+}
+
+.bigUpload .validationSummary
+{
+    margin-top: 0px;
+    margin-left: 17px;
+    float: left;
+}
+
+.bigUpload .clear
+{
+    clear: both;
+}
+
+.bigUpload .noFile
+{
+    margin-left: 17px;
+    margin-bottom: 2px;
+}
+
+.bigUpload .cancelButton
+{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background: #c9c9c9;
+    border: 1px solid #c9c9c9;
+    width: 94px;
+    height: 30px;
+    float: left;
+}
+
+.bigUpload .cancelButton:hover
+{
+    background: #56a1d5;
+    border: 1px solid #56a1d5;
+}
+
+.bigUpload .uploadButton
+{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background: #56a1d5;
+    border: 1px solid #56a1d5;
+    width: 130px;
+    height: 30px;
+    float: left;
+	margin-top: 5px;
+	margin-bottom: 25px;
+}
+
+.bigUpload .uploadButton:hover
+{
+    border: 1px solid #c9c9c9;
+}
+
+.bigUpload .moreButton
+{
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    background: #88898c;
+    border: 1px solid #88898c;
+    width: 130px;
+    height: 30px;
+    float: left;
+    margin-left: 15px;
+	margin-top: 5px;
+}
+
+.bigUpload .moreButton:hover
+{
+    border: 1px solid #c9c9c9;
+}
+
+.bigUpload .uploadDiv
+{
+    margin-top: 33px;
+}
+
+.bigUpload .fileSelectWrapper
+{
+   margin-top: 14px;
+}
+
+.bigUpload .fileSelect
+{
+    float: left;
+}
+
+.bigUpload .fileButton
+{
+    background: url('../img/fileupload.gif') no-repeat top left;
+    border: none;
+    width: 82px;
+    height: 22px;
+}
+
+.bigUpload .fileButton:hover
+{
+    background: url('../img/fileupload_hover.gif') no-repeat top left;
+}
+
+.bigUpload .uploadProgress
+{
+    text-align:center;
+    position:absolute;
+    top:.15em;
+    width:100%;
+}
+
+.bigUpload .percentCompleteText
+{
+    color: #fff;
+}
+
+.bigUpload .uploadProgressBar
+{
+    border:1px solid #c9c9c9;
+    background-color:#c9c9c9;
+    height:21px;
+    position:relative;
+    margin-top: 13px;
+}
+
+.bigUpload .uploadProgressBarFull
+{
+    background-color:#56a1d5;
+    width:0;
+    height:21px;
+}
+
+.bigUpload .uploadResult
+{
+    float:left;
+    margin-top: 17px;
+    display: none;
+}
+
+#ConfirmPanel, #WaitPanel
+{
+   display: none;
+}
+
+.bigUpload .validationError
+{
+   display: none;
+   color: #bb1e25;
+}
