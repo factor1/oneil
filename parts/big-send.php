@@ -8,7 +8,7 @@
 
 ?>
 
-<link href="//oneil-bigupload.s3.amazonaws.com/css/bigupload.css" rel="stylesheet" type="text/css" />
+<!-- <link href="//oneil-bigupload.s3.amazonaws.com/css/bigupload.css" rel="stylesheet" type="text/css" /> -->
 <!-- <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
 <script type="text/javascript" src="//oneil-bigupload.s3.amazonaws.com/js/jquery.xdomainrequest.min.js"></script>
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
