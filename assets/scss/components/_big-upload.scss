@@ -28,13 +28,12 @@
 
 .bigUpload .formLabel
 {
-    float: left;
-    margin-top: 4px;
+    @extend label;
 }
 
 .bigUpload .formField
 {
-    float: right;
+    //float: right;
 }
 
 .bigUpload .formInput
