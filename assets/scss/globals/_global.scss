@@ -65,6 +65,11 @@ img{
   }
 }
 
+// Remove highlighting of slick slides
+.slick-slide:focus, .slick-slide:active{
+  outline: none !important;
+}
+
 // Styleguide Styles
 .sg{
   margin-top: 20px;
