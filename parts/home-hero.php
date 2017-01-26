@@ -9,7 +9,7 @@
       <h2 class="subhead">
         <?php the_field('home_hero_subheadline'); ?>
       </h2>
-      <a href="<?php echo get_home_url();?>/request-a-quote/" class="button button--blue">
+      <a href="<?php the_field('hero_button_page_link');?>" class="button button--blue">
         Learn More
       </a>
     </div>

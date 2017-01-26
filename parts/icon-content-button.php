@@ -22,7 +22,7 @@
         $button_link = get_field('icb_button_external');
       }
       ?>
-      <a href="<?php echo $button_destination;?>" class="button button--white">
+      <a href="<?php echo $button_link;?>" class="button button--white">
         <?php the_field('icb_button_text'); ?>
       </a>
 
