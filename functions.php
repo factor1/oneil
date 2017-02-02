@@ -48,17 +48,15 @@
    * Defer jQuery Parsing using the HTML5 defer property
    */
 
-  //$excludes = ['jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js'];
-
-	// if (!(is_admin() )) {
-  //   function defer_parsing_of_js ( $url ) {
-  //     if ( FALSE === strpos( $url, '.js' ) ) return $url;
-  //     if ( strpos( $url, array('jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js') ) ) return $url;
-  //     // return "$url' defer ";
-  //     return "$url' defer onload='";
-  //   }
-  //   add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
-	// }
+   if (!is_admin() || !is_page_template('templates/big-send.php' || !is_page_template('templates/big-upload.php' ) {
+     function defer_parsing_of_js ( $url ) {
+       if ( FALSE === strpos( $url, '.js' ) ) return $url;
+       if ( strpos( $url, 'jquery.min.js' ) ) return $url;
+       // return "$url' defer ";
+       return "$url' defer onload='";
+     }
+     add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
+ 	}
 
   /**
    * Link to all theme CSS files.
@@ -77,7 +75,7 @@
    */
    function bigForms() {
      wp_enqueue_script('cross-domain-script', get_template_directory_uri() . '/assets/js/jquery.xdomainrequest.min.js', array(), '1.0.1', false);
-     wp_enqueue_script('filepicker', '//api.filepicker.io/v1/filepicker.js', array(), '1.0.0', false);
+     wp_enqueue_script('filepicker', 'https://api.filepicker.io/v1/filepicker.js', array(), '1.0.0', false);
 
      // if its big send
      if( is_page_template('templates/big-send.php') ){
