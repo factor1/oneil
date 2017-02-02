@@ -50,15 +50,15 @@
 
   //$excludes = ['jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js'];
 
-	if (!(is_admin() )) {
-    function defer_parsing_of_js ( $url ) {
-      if ( FALSE === strpos( $url, '.js' ) ) return $url;
-      if ( strpos( $url, array('jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js') ) ) return $url;
-      // return "$url' defer ";
-      return "$url' defer onload='";
-    }
-    add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
-	}
+	// if (!(is_admin() )) {
+  //   function defer_parsing_of_js ( $url ) {
+  //     if ( FALSE === strpos( $url, '.js' ) ) return $url;
+  //     if ( strpos( $url, array('jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js') ) ) return $url;
+  //     // return "$url' defer ";
+  //     return "$url' defer onload='";
+  //   }
+  //   add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
+	// }
 
   /**
    * Link to all theme CSS files.
