@@ -48,10 +48,12 @@
    * Defer jQuery Parsing using the HTML5 defer property
    */
 
+  $excludes = ['jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js'];
+
 	if (!(is_admin() )) {
-    function defer_parsing_of_js ( $url ) {
+    function defer_parsing_of_js ( $url, $excludes ) {
       if ( FALSE === strpos( $url, '.js' ) ) return $url;
-      if ( strpos( $url, 'jquery.min.js', 'bigupload_v1.2.js', 'bigdownload_v1.2.js', 'filepicker.js', 'jquery.xdomainrequest.min.js' ) ) return $url;
+      if ( strpos( $url, $excludes ) ) return $url;
       // return "$url' defer ";
       return "$url' defer onload='";
     }
