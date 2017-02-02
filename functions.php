@@ -53,7 +53,7 @@
 	if (!(is_admin() )) {
     function defer_parsing_of_js ( $url ) {
       if ( FALSE === strpos( $url, '.js' ) ) return $url;
-      if ( strpos( $url, $excludes ) ) return $url;
+      if ( strpos( $url, array($excludes) ) ) return $url;
       // return "$url' defer ";
       return "$url' defer onload='";
     }
