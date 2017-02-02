@@ -3,30 +3,24 @@
 get_header();
 ?>
 
-<!-- <link href="//oneil-bigupload.s3.amazonaws.com/css/bigupload.css" rel="stylesheet" type="text/css" /> -->
-<!-- <script type="text/javascript" src="//oneil-bigupload.s3.amazonaws.com/js/jquery.xdomainrequest.min.js"></script> -->
-<!-- <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
-<script type="text/javascript" src="//oneil-bigupload.s3.amazonaws.com/js/bigupload_v1.2.js"></script> -->
-<!--<script type="text/javascript" src="js/bigupload.js"></script>-->
 <script type="text/javascript">
    oneil.BigUpload.serviceUrl = "https://bigupload.oneilprint.com:446";
    oneil.BigUpload.salesRepUrl = "//oneil-bigupload.s3.amazonaws.com/email_rcv_distribution.json";
    oneil.BigUpload.bucket = "oneil-bigupload-received";
 </script>
 
-<div class="container">
+<?php
+// get template parts
+get_template_part('parts/standard-hero');
+get_template_part('parts/breadcrumbs');
+get_template_part('parts/intro-content');
+?>
+
+<div class="container bigUpload--container">
   <div class="row">
     <div class="col-8 col-centered">
       <div class="bigUpload">
         <div id="UploadPanel">
-          <br>
-          <h1>
-            O&#8217;Neil Printing BigUpload
-          </h1>
-          <div class="instruct">
-            Please use the handy form below to upload your files.  If you have any questions
-            along the way, feel free to <a href="http://www.oneilprint.com/contact" target="_blank">give us a call</a> or check out our <a href="http://www.oneilprint.com/all-about-you/client-resources/" target="_blank">FAQs</a> page.
-          </div>
           <form id="UploadFileForm" method="POST" autocomplete="on">
             <div>
               <div class="formLine">
