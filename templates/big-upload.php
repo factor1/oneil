@@ -3,16 +3,18 @@
 get_header();
 ?>
 
-<!-- <link href="//oneil-bigupload.s3.amazonaws.com/css/bigupload.css" rel="stylesheet" type="text/css" /> -->
-<!-- <script type="text/javascript" src="//oneil-bigupload.s3.amazonaws.com/js/jquery.xdomainrequest.min.js"></script> -->
-<!-- <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
-<script type="text/javascript" src="//oneil-bigupload.s3.amazonaws.com/js/bigupload_v1.2.js"></script> -->
-<!--<script type="text/javascript" src="js/bigupload.js"></script>-->
 <script type="text/javascript">
    oneil.BigUpload.serviceUrl = "https://bigupload.oneilprint.com:446";
    oneil.BigUpload.salesRepUrl = "//oneil-bigupload.s3.amazonaws.com/email_rcv_distribution.json";
    oneil.BigUpload.bucket = "oneil-bigupload-received";
 </script>
+
+<?php
+// get template parts
+get_template_part('parts/standard-hero');
+get_template_part('parts/breadcrumbs');
+get_template_part('parts/intro-content');
+?>
 
 <div class="container">
   <div class="row">
