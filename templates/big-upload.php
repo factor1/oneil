@@ -32,43 +32,43 @@ get_header();
               <div class="formLine">
                 <div class="formLabel">*Your Name:</div>
                 <div class="formField">
-                  <input id="name" class="formInput" type="text" style="width:445px; height:21px;" />
+                  <input id="name" class="formInput" type="text" />
                 </div>
               </div>
               <div class="formLine">
                 <div class="formLabel">*Company:</div>
                 <div class="formField">
-                  <input id="organization" class="formInput" type="text" style="width:445px; height:21px;"  />
+                  <input id="organization" class="formInput" type="text" />
                 </div>
               </div>
               <div class="formLine">
                 <div class="formLabel">Phone Number:</div>
                 <div class="formField">
-                  <input id="tel" class="formInput" type="text" style="width:421px; height:21px;" />
+                  <input id="tel" class="formInput" type="text" />
                 </div>
               </div>
               <div class="formLine">
                 <div class="formLabel">*Email Address:</div>
                 <div class="formField">
-                  <input id="email" class="formInput" type="text" style="width:421px; height:21px;"/>
+                  <input id="email" class="formInput" type="text" />
                 </div>
               </div>
               <div class="formLine">
                 <div class="formLabel">Your Sales Rep:</div>
                 <div class="formField">
-                  <select id="SalesRepList" class="formSelect" style="width:346px; height:21px;"></select>
+                  <select id="SalesRepList" class="formSelect" ></select>
                 </div>
               </div>
               <div class="formLine">
                 <div class="formLabel">*Job Name / Description:</div>
                 <div class="formField">
-                  <input id="JobNumber" class="formInput" type="text" style="width:344px; height:21px;" />
+                  <input id="JobNumber" class="formInput" type="text" />
                 </div>
               </div>
               <div class="formLine">
                 <div class="formLabel">Comments:</div>
                 <div class="formField">
-                  <textarea id="Comments" class="formInput" style="width:445px; height:80px; overflow: hidden" ></textarea>
+                  <textarea id="Comments" class="formInput" ></textarea>
                 </div>
               </div>
             </div>
