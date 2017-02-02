@@ -77,7 +77,7 @@
    */
    function bigForms() {
      wp_enqueue_script('cross-domain-script', get_template_directory_uri() . '/assets/js/jquery.xdomainrequest.min.js', array(), '1.0.1', false);
-     wp_enqueue_script('cross-domain-script', '//api.filepicker.io/v1/filepicker.js', array(), '1.0.0', false);
+     wp_enqueue_script('cross-domain-script', 'https://api.filepicker.io/v1/filepicker.js', array(), '1.0.0', false);
 
      // if its big send
      if( is_page_template('templates/big-send.php') ){
