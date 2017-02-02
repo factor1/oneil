@@ -21,14 +21,6 @@ get_template_part('parts/intro-content');
     <div class="col-8 col-centered">
       <div class="bigUpload">
         <div id="UploadPanel">
-          <br>
-          <h1>
-            O&#8217;Neil Printing BigUpload
-          </h1>
-          <div class="instruct">
-            Please use the handy form below to upload your files.  If you have any questions
-            along the way, feel free to <a href="http://www.oneilprint.com/contact" target="_blank">give us a call</a> or check out our <a href="http://www.oneilprint.com/all-about-you/client-resources/" target="_blank">FAQs</a> page.
-          </div>
           <form id="UploadFileForm" method="POST" autocomplete="on">
             <div>
               <div class="formLine">
