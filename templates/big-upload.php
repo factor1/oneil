@@ -9,7 +9,7 @@ get_header();
 <script type="text/javascript" src="//oneil-bigupload.s3.amazonaws.com/js/bigupload_v1.2.js"></script> -->
 <!--<script type="text/javascript" src="js/bigupload.js"></script>-->
 <script type="text/javascript">
-   oneil.BigUpload.serviceUrl = "<?php echo get_home_url();?>/big-upload/";
+   oneil.BigUpload.serviceUrl = "https://bigupload.oneilprint.com:446";
    oneil.BigUpload.salesRepUrl = "//oneil-bigupload.s3.amazonaws.com/email_rcv_distribution.json";
    oneil.BigUpload.bucket = "oneil-bigupload-received";
 </script>
