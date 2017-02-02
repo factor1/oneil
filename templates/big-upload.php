@@ -109,7 +109,7 @@ get_header();
             We're processing your files.  This should only take a few more seconds...
           </div>
         </div>
-        <div id="ConfirmPanel">
+        <div id="ConfirmPanel" class="text-center">
           <h1>
             Thank You!
           </h1>
