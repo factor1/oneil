@@ -16,7 +16,7 @@ get_header();
 
 <div class="container">
   <div class="row">
-    <div class="col-10 col-centered">
+    <div class="col-8 col-centered">
       <div class="bigUpload">
         <div id="UploadPanel">
           <br>
