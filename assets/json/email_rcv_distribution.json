@@ -1,0 +1,189 @@
+{
+	"list": [
+		{
+			"displayName": "Sales Reps",
+			"contacts": [
+				{
+					"id": "anarducci",
+					"external": "Anthony Narducci",
+					"internal": "Anthony Narducci",
+					"email": [ "anarducci@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "bgehre",
+					"external": "Brent Gehre",
+					"internal": "Brent Gehre",
+					"email": [ "brent@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "bvanderhaar",
+					"external": "Bruce VanderHaar",
+					"internal": "Bruce VanderHaar",
+					"email": [ "brucev@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "cbrussels",
+					"external": "Cynthia Brussels",
+					"internal": "Cynthia Brussels",
+					"email": [ "cynthia@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "cforney",
+					"external": "Connie Forney",
+					"internal": "Connie Forney",
+					"email": [ "connie@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "cscott",
+					"external": "Candice Scott",
+					"internal": "Candice Scott",
+					"email": [ "cscott@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "cyelton",
+					"external": "Chandler Yelton",
+					"internal": "Chandler Yelton",
+					"email": [ "cyelton@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "dkraft",
+					"external": "Dave Kraft",
+					"internal": "Dave Kraft",
+					"email": [ "dkraft@oneilprint.com" ]
+				},
+				{
+					"id": "jheiskell",
+					"external": "Jon Heiskell",
+					"internal": "Jon Heiskell",
+					"email": [ "jheiskell@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "jhogue",
+					"external": "Jason Hogue",
+					"internal": "Jason Hogue",
+					"email": [ "jhogue@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "jkulias",
+					"external": "John Kulias",
+					"internal": "John Kulias",
+					"email": [ "jkulias@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "llawrence",
+					"external": "Lucy Lawrence",
+					"internal": "Lucy Lawrence",
+					"email": [ "lucy@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "nrasmussen",
+					"external": "Norb Rasmussen",
+					"internal": "Norb Rasmussen",
+					"email": [ "norb@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "roshea",
+					"external": "Rhonda O&#39;Shea",
+					"internal": "Rhonda O&#39;Shea",
+					"email": [ "rhonda@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "smaines",
+					"external": "Scott Maines",
+					"internal": "Scott Maines",
+					"email": [ "smaines@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+                {
+					"id": "slaizure",
+					"external": "Sean Laizure",
+					"internal": "Sean Laizure",
+					"email": [ "slaizure@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				}
+			]
+		},
+
+		{
+			"displayName": "CSRs",
+			"contacts": [
+				{
+					"id": "balderson",
+					"external": "Bob Alderson",
+					"internal": "Bob Alderson",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "bshill",
+					"external": "Brandee Shill",
+					"internal": "Brandee Shill",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "dganzert",
+					"external": "Dick Ganzert",
+					"internal": "Dick Ganzert",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "kjackson",
+					"external": "Ken Jackson",
+					"internal": "Ken Jackson",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "lembry",
+					"external": "Lynn Embry",
+					"internal": "Lynn Embry",
+					"email": [ "lembry@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "nlozeau",
+					"external": "Nance Lozeau",
+					"internal": "Nance Lozeau",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "nkuszynski",
+					"external": "Nicole Kuszynski",
+					"internal": "Nicole Kuszynski",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "rthompson",
+					"external": "Renee Thompson",
+					"internal": "Renee Thompson",
+					"email": [ "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "none",
+					"external": "I don&apos;t have one",
+					"internal": "No Known Sales Rep",
+					"email": [ "o'neil-filenotification@oneilprint.com", "o'neil-sales@oneilprint.com" ]
+				}
+			]
+		},
+
+		{
+			"displayName": "CTS",
+			"contacts": [
+				{
+					"id": "kpeairs",
+					"external": "Katie Peairs",
+					"internal": "Katie Peairs",
+					"email": [ "kpearis@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "raparicio",
+					"external": "Rick Aparicio",
+					"internal": "Rick Aparicio",
+					"email": [ "raparicio@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				},
+				{
+					"id": "smiller",
+					"external": "Sam Miller",
+					"internal": "SAm Miller",
+					"email": [ "smiller@oneilprint.com", "o'neil-filenotification@oneilprint.com" ]
+				}
+			]
+		}
+	]
+}
