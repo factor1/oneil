@@ -16,7 +16,7 @@ get_template_part('parts/breadcrumbs');
 get_template_part('parts/intro-content');
 ?>
 
-<div class="container">
+<div class="container bigUpload--container">
   <div class="row">
     <div class="col-8 col-centered">
       <div class="bigUpload">

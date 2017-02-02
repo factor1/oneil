@@ -8,7 +8,7 @@ get_template_part('parts/breadcrumbs');
 get_template_part('parts/intro-content');
 ?>
 
-<section class="container">
+<section class="container bigUpload--container">
   <div class="row">
     <div class="col-8 col-centered">
       <?php get_template_part('parts/big-send'); ?>
