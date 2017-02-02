@@ -101,7 +101,7 @@ get_header();
             </div>
           </form>
         </div>
-        <div id="WaitPanel">
+        <div id="WaitPanel" class="text-center">
           <h1>
             Almost Done!
           </h1>
