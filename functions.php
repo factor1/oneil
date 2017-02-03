@@ -48,7 +48,7 @@
    * Defer jQuery Parsing using the HTML5 defer property
    */
 
-   if (!(is_admin()) || !(is_page_template('templates/big-send.php')) || !(is_page_template('templates/big-upload.php')) ) {
+   if (!is_admin() && !is_page_template('templates/big-send.php') || !is_admin() && !is_page_template('templates/big-upload.php') ) {
      function defer_parsing_of_js ( $url ) {
        if ( FALSE === strpos( $url, '.js' ) ) return $url;
        if ( strpos( $url, 'jquery.min.js' ) ) return $url;
