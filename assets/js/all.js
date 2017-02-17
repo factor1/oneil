@@ -939,7 +939,7 @@ var getGallerySlider = function(){
         if( slides[i].icons !== false ){
 
           $.each( slides[i].icons, function(index,value){
-            $(slide_id + '.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
+            $('#'+slide_id).find('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
 
