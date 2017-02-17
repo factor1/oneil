@@ -28,7 +28,7 @@ if( $query->have_posts() ):
       </h5>
     </div>
   </div>
-  <div class="row latest-case-study--row">
+  <div class="row row--justify-content-start latest-case-study--row">
     <?php while( $query->have_posts() ): $query->the_post(); ?>
       <div class="col-4 stretch">
         <a href="<?php the_permalink();?>">
