@@ -17,9 +17,6 @@
       <div class="col-10 col-centered text-center">
         <img src="<?php bloginfo('template_url');?>/assets/img/line-black.svg" alt="" role="presentation" class="slant">
         <br>
-        <span class="post-data">
-          <?php the_time('F d, Y'); ?>
-        </span>
         <h1>
           <?php the_title(); ?>
         </h1>

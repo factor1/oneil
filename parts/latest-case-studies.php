@@ -35,9 +35,6 @@ if( $query->have_posts() ):
           <div class="case-study--image" style="background: url(<?php featuredURL('latest-case-study');?>) center center no-repeat;"></div>
         </a>
         <div class="case-study--content">
-          <span class="post-data">
-            <?php the_time('F d, Y'); ?>
-          </span>
           <h4>
             <a href="<?php the_permalink();?>">
               <?php the_title();?>
