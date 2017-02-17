@@ -435,10 +435,11 @@ var getGallerySlider = function(){
 
         var title   = slides[i].title,
             content = slides[i].content,
+            slide_id = 'slide-'+i,
             image   = slides[i].image;
 
         // Append to main Slider
-        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
+        $('#gallery-top-slider').append('<div id="'+ slide_id +'" class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
 
         // Append to Nav Slider
         $('#gallery-navigation').append('<div class="nav-slide"><div style="background: url('+image+') center center no-repeat;"></div></div>');
@@ -447,7 +448,7 @@ var getGallerySlider = function(){
         if( slides[i].icons !== false ){
 
           $.each( slides[i].icons, function(index,value){
-            $('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
+            $(slide_id + '.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
 

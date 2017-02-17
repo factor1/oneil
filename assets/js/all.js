@@ -1,3 +1,494 @@
+//Copyright 2014 O'Neil Printing.  All rights reserved.
+
+// namespace:
+this.oneil = this.oneil || {};
+
+(function () {
+   //------------------------------------------------------------------------------------
+   // BigDownload
+   //------------------------------------------------------------------------------------
+   var BigDownload = {
+
+      init: function () {
+
+         this.serviceUrl = this.serviceUrl || '';
+         this.salesRepUrl = this.salesRepUrl || '';
+
+         this.routes = {
+            complete: '/picker/send'
+         }
+
+         //Register the API key for the file picker
+         filepicker.setKey('Am2o1bkgzSAmThV3fSfi2z');
+
+         //Listen for button clicks on the upload button
+         $('.uploadButton').on('click', function () {
+            BigDownload.pickFiles();
+         });
+
+         //Listen for button clicks on the more button
+         $('.moreButton').on('click', function () {
+            $('#UploadPanel').show();
+            $('#WaitPanel').hide();
+            $('#ConfirmPanel').hide();
+            $('.uploadResult').hide();
+         });
+
+         //Listen for button clicks on the more button
+         $('#ToList').on('change', function () {
+            if ($('#ToList').val().toLowerCase() == 'external') {
+               $('#ToEmailLine').show();
+            }
+            else {
+               $('#ToEmailLine').hide();
+            }
+         });
+
+         //Populate the TO sales reps
+         BigDownload.populateSalesReps('#ToList', BigDownload.salesRepUrlTo);
+
+         //Populate the FROM sales reps
+         BigDownload.populateSalesReps('#FromList', BigDownload.salesRepUrlFrom);
+      },
+
+      populateSalesReps: function (id, url) {
+
+         $.support.cors = true;
+
+         //Pull the sales rep list from S3
+         $.ajax({
+            url: url,
+            type: "GET",
+            dataType: "json",
+            crossDomain: true
+         }).done(function (data, textStatus, jqXHR) {
+
+            if (data && data.list) {
+               var selectEl = $(id);
+
+               var groups = data.list;
+               for (var g = 0; g < groups.length; g++) {
+
+                  var group = groups[g];
+                  var optGroup = $("<optgroup label='" + group.displayName + "' />");
+                  selectEl.append(optGroup);
+
+                  var contacts = group.contacts;
+
+                  //Populate the sales rep list html dropdown 
+                  for (var i = 0; i < contacts.length; i++) {
+                     var rep = contacts[i];
+                     optGroup.append($("<option value='" + rep.id + "'>" + rep.external + "</option>"));
+                  }
+               }
+            }
+
+         })
+         .fail(function (jqXHR, textStatus, errorThrown) {
+            //alert("fail");
+         })
+         .always(function (data_jqXHR, textStatus, jqXHR_errorThrown) { });
+      },
+
+      pickFiles: function () {
+
+         //Serialize the form
+         var formData = BigDownload.jsonForm();
+
+         //Validate the form
+         if (BigDownload.validateForm(formData)) {
+
+            //Sanatize the filename so that we know it's safe for S3
+            //var fileSafeName = formData.company.toLowerCase();
+            //fileSafeName = fileSafeName.replace(/[^a-z0-9_\-]/gi, '_');
+
+            //Sanatize the rep name so that we know it's safe for S3
+            //var repSafeName = formData.salesRepID.toLowerCase();
+            //repSafeName = repSafeName.replace(/[^a-z0-9_\-]/gi, '_');
+
+
+            //Set the file picker options
+            var pickerOptions = {
+               multiple: true,
+               folders: false,
+               service: 'COMPUTER'
+            };
+
+            //Set the file picker storage options
+            var storeOptions = {
+               location: 'S3',
+               container: BigDownload.bucket,
+               //path: '/' + repSafeName + '/' + fileSafeName + '/'
+            };
+
+            //Launch the file picker
+            filepicker.pickAndStore(pickerOptions, storeOptions, function (inkBlobs) {
+               //console.log(JSON.stringify(inkBlobs));
+
+               var fileList = new Array();
+               for (var i = 0; i < inkBlobs.length; i++) {
+                  fileList[i] = {
+                     filename: inkBlobs[i].filename,
+                     key: inkBlobs[i].key
+                  };
+               }
+
+               BigDownload.onUploadComplete(fileList);
+            },
+            function (FPError) {
+               //console.log(FPError);
+            }
+            );
+         }
+      },
+
+      jsonForm: function () {
+
+         var form = $('#UploadFileForm');
+
+         return {
+            fromID: $('#FromList', form).val(),
+            toID: $('#ToList', form).val(),
+            email: $('#ToEmail', form).val(),
+            comments: $('#Comments', form).val(),
+         };
+      },
+
+      validateForm: function (formData) {
+
+         var result = true;
+
+         $('.errorFile').hide();
+         $('.errorName').hide();
+         $('.errorCompany').hide();
+         $('.errorEmail').hide();
+         $('.errorJob').hide();
+         $('.uploadResult').hide();
+
+         if ($('#ToList').val().toLowerCase() == 'external') {
+            if (formData.email.length <= 0 || !BigDownload.isValidEmail(formData.email)) {
+               $('.errorEmail').show();
+               result = false;
+            }
+         }
+
+         return result;
+      },
+
+      isValidEmail: function (email) {
+
+         var trimmed = email.replace(/\s/g, '');
+         var emails = trimmed.split(';');
+         for (var i = 0; i < emails.length; i++) {
+            var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+            if (!re.test(emails[i])) {
+               return false;
+            }
+         }
+
+         return true;
+      },
+
+      onUploadComplete: function (fileList) {
+
+         $('#UploadPanel').hide();
+         $('#WaitPanel').show();
+         $('#ConfirmPanel').hide();
+         $('.uploadResult').hide();
+
+         //Serialize the form
+         var formData = BigDownload.jsonForm();
+         formData.fileList = fileList;
+
+         //Make the ajax call to the server
+         $.ajax(BigDownload.serviceUrl + BigDownload.routes.complete, {
+            type: "POST",
+            dataType: "json",
+            data: formData
+         })
+         .done(function (data) {
+            if (data && data.opStatus == 200) {
+               $('#UploadPanel').hide();
+               $('#WaitPanel').hide();
+               $('#ConfirmPanel').show();
+            }
+            else {
+               $('#UploadPanel').show();
+               $('#WaitPanel').hide();
+               $('#ConfirmPanel').hide();
+               $('.uploadResult').show();
+            }
+         })
+         .fail(function (jqXHR, textStatus) {
+            $('#UploadPanel').show();
+            $('#WaitPanel').hide();
+            $('#ConfirmPanel').hide();
+            $('.uploadResult').show();
+         })
+         .always(function () { });
+
+      }
+   };
+
+   oneil.BigDownload = BigDownload;
+
+   $(document).ready(function () {
+      BigDownload.init();
+   });
+
+}());
+
+
+
+//Copyright 2014 O'Neil Printing.  All rights reserved.
+
+// namespace:
+this.oneil = this.oneil || {};
+
+(function () {
+   //------------------------------------------------------------------------------------
+   // BigUpload
+   //------------------------------------------------------------------------------------
+   var BigUpload = {
+
+      init: function () {
+
+         this.serviceUrl = this.serviceUrl || '';
+         this.salesRepUrl = this.salesRepUrl || '';
+
+         this.routes = {
+            complete: '/picker/complete'
+         }
+
+         //Register the API key for the file picker
+         filepicker.setKey('Am2o1bkgzSAmThV3fSfi2z');
+
+         //Listen for button clicks on the upload button
+         $('.uploadButton').on('click', function () {
+            BigUpload.pickFiles();
+         });
+
+         //Listen for button clicks on the more button
+         $('.moreButton').on('click', function () {
+            $('#UploadPanel').show();
+            $('#WaitPanel').hide();
+            $('#ConfirmPanel').hide();
+            $('.uploadResult').hide();
+         });
+
+         //Populate the sales reps
+         BigUpload.populateSalesReps();
+      },
+
+      populateSalesReps: function () {
+
+         $.support.cors = true;
+
+         //Pull the sales rep list from S3
+         $.ajax({
+            url: BigUpload.salesRepUrl,
+            type: "GET",
+            dataType: "json",
+            crossDomain: true
+         }).done(function (data, textStatus, jqXHR) {
+
+            if (data && data.list) {
+               var selectEl = $('#SalesRepList');
+
+               var groups = data.list;
+               for (var g = 0; g < groups.length; g++) {
+
+                  var group = groups[g];
+                  var optGroup = $("<optgroup label='" + group.displayName + "' />");
+                  selectEl.append(optGroup);
+
+                  var contacts = group.contacts;
+
+                  //Populate the sales rep list html dropdown 
+                  for (var i = 0; i < contacts.length; i++) {
+                     var rep = contacts[i];
+                     optGroup.append($("<option value='" + rep.id + "'>" + rep.external + "</option>"));
+                  }
+               }
+            }
+
+         })
+         .fail(function (jqXHR, textStatus, errorThrown) {
+            //alert("fail");
+         })
+         .always(function (data_jqXHR, textStatus, jqXHR_errorThrown) { });
+      },
+
+      pickFiles: function () {
+
+         //Serialize the form
+         var formData = BigUpload.jsonForm();
+
+         //Validate the form
+         if (BigUpload.validateForm(formData)) {
+
+            //Sanatize the filename so that we know it's safe for S3
+            //var fileSafeName = formData.company.toLowerCase();
+            //fileSafeName = fileSafeName.replace(/[^a-z0-9_\-]/gi, '_');
+
+            //Sanatize the rep name so that we know it's safe for S3
+            //var repSafeName = formData.salesRepID.toLowerCase();
+            //repSafeName = repSafeName.replace(/[^a-z0-9_\-]/gi, '_');
+
+
+            //Set the file picker options
+            var pickerOptions = {
+               multiple: true,
+               folders: false,
+               service: 'COMPUTER'
+            };
+
+            //Set the file picker storage options
+            var storeOptions = {
+               location: 'S3',
+               container: BigUpload.bucket,
+               //path: '/' + repSafeName + '/' + fileSafeName + '/'
+            };
+
+            //Launch the file picker
+            filepicker.pickAndStore(pickerOptions, storeOptions, function (inkBlobs) {
+               //console.log(JSON.stringify(inkBlobs));
+
+               var fileList = new Array();
+               for (var i = 0; i < inkBlobs.length; i++) {
+                  fileList[i] = {
+                     filename: inkBlobs[i].filename,
+                     key: inkBlobs[i].key
+                  };
+               }
+
+               BigUpload.onUploadComplete(fileList);
+            },
+            function (FPError) {
+               //console.log(FPError);
+            }
+            );
+         }
+      },
+
+      jsonForm: function () {
+
+         var form = $('#UploadFileForm');
+
+         return {
+            clientName: $('#name', form).val(),
+            company: $('#organization', form).val(),
+            phone: $('#tel', form).val(),
+            email: $('#email', form).val(),
+            salesRepID: $('#SalesRepList', form).val(),
+            jobNumber: $('#JobNumber', form).val(),
+            comments: $('#Comments', form).val(),
+         };
+      },
+
+
+      validateForm: function (formData) {
+
+         var result = true;
+
+         $('.errorFile').hide();
+         $('.errorName').hide();
+         $('.errorCompany').hide();
+         $('.errorEmail').hide();
+         $('.errorJob').hide();
+         $('.uploadResult').hide();
+
+         if (false) {
+            $('.errorFile').show();
+            result = false;
+         }
+
+         if (formData.clientName.length <= 0) {
+            $('.errorName').show();
+            result = false;
+         }
+
+         if (formData.company.length <= 0) {
+            $('.errorCompany').show();
+            result = false;
+         }
+
+         if (formData.email.length <= 0 || !BigUpload.isValidEmail(formData.email)) {
+            $('.errorEmail').show();
+            result = false;
+         }
+
+         if (formData.jobNumber.length <= 0) {
+            $('.errorJob').show();
+            result = false;
+         }
+
+         return result;
+      },
+
+      isValidEmail: function (email) {
+         var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+         return re.test(email);
+      },
+
+      onUploadComplete: function (fileList) {
+
+         $('#UploadPanel').hide();
+         $('#WaitPanel').show();
+         $('#ConfirmPanel').hide();
+         $('.uploadResult').hide();
+
+         //Serialize the form
+         var formData = BigUpload.jsonForm();
+         formData.fileList = fileList;
+
+         //Make the ajax call to the server
+         $.ajax(BigUpload.serviceUrl + BigUpload.routes.complete, {
+            type: "POST",
+            dataType: "json",
+            data: formData
+         })
+         .done(function (data) {
+            if (data && data.opStatus == 200) {
+               $('#UploadPanel').hide();
+               $('#WaitPanel').hide();
+               $('#ConfirmPanel').show();
+            }
+            else {
+               $('#UploadPanel').show();
+               $('#WaitPanel').hide();
+               $('#ConfirmPanel').hide();
+               $('.uploadResult').show();
+            }
+         })
+         .fail(function (jqXHR, textStatus) {
+            $('#UploadPanel').show();
+            $('#WaitPanel').hide();
+            $('#ConfirmPanel').hide();
+            $('.uploadResult').show();
+         })
+         .always(function () { });
+
+      }
+   };
+
+   oneil.BigUpload = BigUpload;
+
+   $(document).ready(function () {
+      BigUpload.init();
+   });
+
+}());
+
+
+
+/*!
+ * jQuery-ajaxTransport-XDomainRequest - v1.0.1 - 2013-10-17
+ * https://github.com/MoonScript/jQuery-ajaxTransport-XDomainRequest
+ * Copyright (c) 2013 Jason Moon (@JSONMOON)
+ * Licensed MIT (/blob/master/LICENSE.txt)
+ */
+(function ($) { if (!$.support.cors && $.ajaxTransport && window.XDomainRequest) { var n = /^https?:\/\//i; var o = /^get|post$/i; var p = new RegExp('^' + location.protocol, 'i'); var q = /text\/html/i; var r = /\/json/i; var s = /\/xml/i; $.ajaxTransport('* text html xml json', function (i, j, k) { if (i.crossDomain && i.async && o.test(i.type) && n.test(i.url) && p.test(i.url)) { var l = null; var m = (j.dataType || '').toLowerCase(); return { send: function (f, g) { l = new XDomainRequest(); if (/^\d+$/.test(j.timeout)) { l.timeout = j.timeout } l.ontimeout = function () { g(500, 'timeout') }; l.onload = function () { var a = 'Content-Length: ' + l.responseText.length + '\r\nContent-Type: ' + l.contentType; var b = { code: 200, message: 'success' }; var c = { text: l.responseText }; try { if (m === 'html' || q.test(l.contentType)) { c.html = l.responseText } else if (m === 'json' || (m !== 'text' && r.test(l.contentType))) { try { c.json = $.parseJSON(l.responseText) } catch (e) { b.code = 500; b.message = 'parseerror' } } else if (m === 'xml' || (m !== 'text' && s.test(l.contentType))) { var d = new ActiveXObject('Microsoft.XMLDOM'); d.async = false; try { d.loadXML(l.responseText) } catch (e) { d = undefined } if (!d || !d.documentElement || d.getElementsByTagName('parsererror').length) { b.code = 500; b.message = 'parseerror'; throw 'Invalid XML: ' + l.responseText; } c.xml = d } } catch (parseMessage) { throw parseMessage; } finally { g(b.code, b.message, c, a) } }; l.onprogress = function () { }; l.onerror = function () { g(500, 'error', { text: l.responseText }) }; var h = ''; if (j.data) { h = ($.type(j.data) === 'string') ? j.data : $.param(j.data) } l.open(i.type, i.url); l.send(h) }, abort: function () { if (l) { l.abort() } } } } }) } })(jQuery);
 var stagingURL = 'http://ther29.com/2016/oneil';
 
 // Get Viewport Width
@@ -435,10 +926,11 @@ var getGallerySlider = function(){
 
         var title   = slides[i].title,
             content = slides[i].content,
+            slide_id = 'slide-'+i,
             image   = slides[i].image;
 
         // Append to main Slider
-        $('#gallery-top-slider').append('<div class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
+        $('#gallery-top-slider').append('<div id="'+ slide_id +'" class="gallery-slide"><div class="gallery-slide-image" style="background: url('+image+') center center no-repeat;"></div><div class="gallery-slide-content container"><div class="row"><div class="col-6"><h4>'+title+'</h4><img src="'+stagingURL+'/wp-content/themes/oneil/assets/img/line-black.svg" alt="" role="presentation" class="slant">'+content+'</div><div class="col-6 text-right slide-icon-container"></div></div></div></div>');
 
         // Append to Nav Slider
         $('#gallery-navigation').append('<div class="nav-slide"><div style="background: url('+image+') center center no-repeat;"></div></div>');
@@ -447,7 +939,7 @@ var getGallerySlider = function(){
         if( slides[i].icons !== false ){
 
           $.each( slides[i].icons, function(index,value){
-            $('.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
+            $(slide_id + '.slide-icon-container').append('<img src="'+slides[i].icons[index].icon+'" alt="">');
           });
         }
 
