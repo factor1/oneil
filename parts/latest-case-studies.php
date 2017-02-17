@@ -28,16 +28,13 @@ if( $query->have_posts() ):
       </h5>
     </div>
   </div>
-  <div class="row latest-case-study--row">
+  <div class="row row--justify-content-start latest-case-study--row">
     <?php while( $query->have_posts() ): $query->the_post(); ?>
       <div class="col-4 stretch">
         <a href="<?php the_permalink();?>">
           <div class="case-study--image" style="background: url(<?php featuredURL('latest-case-study');?>) center center no-repeat;"></div>
         </a>
         <div class="case-study--content">
-          <span class="post-data">
-            <?php the_time('F d, Y'); ?>
-          </span>
           <h4>
             <a href="<?php the_permalink();?>">
               <?php the_title();?>
