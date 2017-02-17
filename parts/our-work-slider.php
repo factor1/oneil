@@ -3,9 +3,6 @@
 <section class="container our-work--slider-container">
   <div class="row row--full-width">
     <div class="col-4 stretch">
-      <span class="post-data">
-        <?php the_time('F d, Y'); ?>
-      </span>
       <h4>
         <a href="<?php the_permalink();?>">
           <?php the_title();?>

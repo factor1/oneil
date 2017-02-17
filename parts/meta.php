@@ -5,7 +5,6 @@
 ?>
 
 <div class="meta">
-  <span><?php the_time( 'F jS, Y' ); ?></span>
   <?php
     if ( comments_open() ) :
       echo '|' . ' ';
