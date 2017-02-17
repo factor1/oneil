@@ -6,6 +6,10 @@ get_header();
   <div class="staff-loader"><img src="<?php bloginfo('template_url');?>/assets/img/loading.svg" alt="Loading..."></div>
 </section>
 
+<?php // get breadcrumbs
+get_template_part('parts/breadcrumbs');
+?>
+
 <section class="container">
   <div class="row">
     <div class="col-10 col-centered text-center">
