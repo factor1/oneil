@@ -11,3 +11,8 @@ you go to the Gallery page in WordPress and add images/items as you see fit.
 ## Our Work Sliders
 Per our pre-project planning, Our Work sliders are also individually managed and adding items
 to each page/slider as needed.
+
+## Solutions Single Grid
+On the solutions single page, the grid is populated by slug, matching posts from
+"Our Work" matching that category. For instance: /printing/ matches to Our Work posts
+categorized as 'printing'.
