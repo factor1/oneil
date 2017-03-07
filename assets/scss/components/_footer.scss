@@ -24,12 +24,13 @@ footer.container{
           text-decoration: underline;
         }
       }
-      .google-map-link{
-        &:hover{
-          text-decoration: none;
-        }
-      }
     }
+  }
+}
+
+.google-map-link{
+  &:hover{
+    text-decoration: none;
   }
 }
 
