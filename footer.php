@@ -43,14 +43,16 @@
         </div>
         <div class="col-4 sm-col-6 footer--address sm-text-left">
 
-          <div itemscope itemtype="http://schema.org/ContactPoint">
-             <div itemscope itemtype="schema.org/PostalAddress">
-                <span itemprop="streetAddress"><?php the_field('street_address', 'option');?></span>
-                <span itemprop="addressLocality"><?php the_field('city', 'option');?>,</span>
-                <span itemprop="addressRegion"> <?php the_field('state', 'option');?></span>
-                <span itemprop="postalCode"><?php the_field('zip_code', 'option');?></span>
-             </div>
-          </div>
+          <a href="<?php the_field('google_maps_link', 'option');?>" class="google-map-link">
+            <div itemscope itemtype="http://schema.org/ContactPoint">
+               <div itemscope itemtype="schema.org/PostalAddress">
+                  <span itemprop="streetAddress"><?php the_field('street_address', 'option');?></span>
+                  <span itemprop="addressLocality"><?php the_field('city', 'option');?>,</span>
+                  <span itemprop="addressRegion"> <?php the_field('state', 'option');?></span>
+                  <span itemprop="postalCode"><?php the_field('zip_code', 'option');?></span>
+               </div>
+            </div>
+          </a>
 
           <span>
             <strong>

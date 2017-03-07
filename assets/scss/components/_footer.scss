@@ -28,6 +28,12 @@ footer.container{
   }
 }
 
+.google-map-link{
+  &:hover{
+    text-decoration: none;
+  }
+}
+
 .footer--social-icons{
   a{
     display: inline-block;
