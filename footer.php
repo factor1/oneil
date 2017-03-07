@@ -43,7 +43,7 @@
         </div>
         <div class="col-4 sm-col-6 footer--address sm-text-left">
 
-          <a href="<?php the_field('google_maps_link', 'option');?>">
+          <a href="<?php the_field('google_maps_link', 'option');?>" class="google-map-link">
             <div itemscope itemtype="http://schema.org/ContactPoint">
                <div itemscope itemtype="schema.org/PostalAddress">
                   <span itemprop="streetAddress"><?php the_field('street_address', 'option');?></span>
