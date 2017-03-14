@@ -91,7 +91,7 @@
               </div>
               <span>Upload a File</span>
             </a>
-            <a href="#">
+            <a href="<?php echo get_home_url();?>/contact/">
               <div>
                 <img src="<?php bloginfo('template_url');?>/assets/img/contact.svg" alt="Contact">
               </div>
