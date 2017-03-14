@@ -54,4 +54,8 @@ if( $query->have_posts() ):
     </div>
   </section>
 
+<?php else: ?>
+
+	<div style="width:100%;height:60px;"></div>
+
 <?php endif; wp_reset_postdata();
