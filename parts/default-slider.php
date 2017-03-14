@@ -25,9 +25,6 @@ if( have_rows('default_slider') ):
             <?php // Work Content Container ?>
             <div class="work-content">
 
-              <span class="post-data">
-                <?php the_field('date'); ?>
-              </span>
               <h4>
                 <a href="<?php echo $permalink;?>">
                   <?php the_sub_field('headline');?>
