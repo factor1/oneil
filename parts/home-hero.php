@@ -10,7 +10,7 @@
         <?php the_field('home_hero_subheadline'); ?>
       </h2>
       <a href="<?php the_field('hero_button_page_link');?>" class="button button--blue">
-        Learn More
+        <?php the_field('hero_button_text'); ?>
       </a>
     </div>
   </div>

@@ -43,9 +43,6 @@ if( $query-> have_posts() ):
             <?php // Work Content Container ?>
             <div class="work-content">
 
-              <span class="post-data">
-                <?php the_time('F d, Y'); ?>
-              </span>
               <h4>
                 <a href="<?php the_permalink();?>">
                   <?php the_title();?>

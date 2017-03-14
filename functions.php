@@ -1,6 +1,6 @@
 <?php
 
-  define('PRELUDE_VERSION', '0.1.11');
+  define('PRELUDE_VERSION', '0.1.16');
 
   if ( !function_exists( 'prelude_features' ) ) {
 
@@ -48,15 +48,15 @@
    * Defer jQuery Parsing using the HTML5 defer property
    */
 
-	if (!(is_admin() )) {
-    function defer_parsing_of_js ( $url ) {
-      if ( FALSE === strpos( $url, '.js' ) ) return $url;
-      if ( strpos( $url, 'jquery.min.js' ) ) return $url;
-      // return "$url' defer ";
-      return "$url' defer onload='";
-    }
-    add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
-	}
+   if (!is_admin() && !is_page_template('templates/big-send.php') || !is_admin() && !is_page_template('templates/big-upload.php') ) {
+     function defer_parsing_of_js ( $url ) {
+       if ( FALSE === strpos( $url, '.js' ) ) return $url;
+       if ( strpos( $url, 'jquery.min.js' ) ) return $url;
+       // return "$url' defer ";
+       return "$url' defer onload='";
+     }
+     add_filter( 'clean_url', 'defer_parsing_of_js', 11, 1 );
+ 	}
 
   /**
    * Link to all theme CSS files.
@@ -69,6 +69,22 @@
     wp_enqueue_script('prelude-js', get_template_directory_uri() . '/assets/js/theme.min.js', array(), PRELUDE_VERSION, true );
   }
   add_action( 'wp_enqueue_scripts', 'prelude_theme_scripts' );
+
+  /**
+   * Load BigUpload and Download.
+   */
+   function bigForms() {
+     wp_enqueue_script('cross-domain-script', get_template_directory_uri() . '/assets/js/jquery.xdomainrequest.min.js', array(), '1.0.1', false);
+     wp_enqueue_script('filepicker', 'https://api.filepicker.io/v1/filepicker.js', array(), '1.0.0', false);
+
+     // if its big send
+     if( is_page_template('templates/big-send.php') ){
+       wp_enqueue_script('big-send-js', get_template_directory_uri() . '/assets/js/bigdownload_v1.2.js', array(), '1.2', false);
+     } elseif ( is_page_template('templates/big-upload.php') ) {
+       wp_enqueue_script('big-upload-js', get_template_directory_uri() . '/assets/js/bigupload_v1.2.js', array(), '1.2', false);
+     }
+   }
+   add_action('wp_enqueue_scripts', 'bigForms');
 
   /**
    * Load menus
