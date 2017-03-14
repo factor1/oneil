@@ -1,6 +1,6 @@
 {
   "name": "oneil",
-  "version": "0.1.16",
+  "version": "0.1.17",
   "description": "A custom WordPress theme for O'neil Printing",
   "main": "index.php",
   "scripts": {
