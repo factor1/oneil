@@ -7,7 +7,7 @@
     </div>
     <div class="col-4 stretch contact--info">
       <h3>
-        Headquarters
+        Office
       </h3>
       <div itemscope itemtype="http://schema.org/ContactPoint">
          <div itemscope itemtype="schema.org/PostalAddress">
