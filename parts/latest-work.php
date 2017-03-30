@@ -8,7 +8,7 @@
         Our Latest Work
       </h2>
       <h5 class="white">
-        <a href="#" class="white">
+        <a href="<?php echo get_home_url();?>/our-work/case-studies/" class="white">
           View All Past Work
         </a>
       </h5>
