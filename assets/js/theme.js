@@ -119,9 +119,9 @@ var staffgrid = function(){
 
 
             // Get Thumbnail thats cropped, if it doesn't exist fall back to full size as a last resort
-            if( staff_post._embedded['wp:featuredmedia'] && staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'] ){
+            if( staff_post._embedded && staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'] ){
               featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes['profile-image'].source_url;
-            } else if( staff_post._embedded['wp:featuredmedia'] ) {
+            } else if( staff_post._embedded ) {
               featured_img = staff_post._embedded['wp:featuredmedia'][0].media_details.sizes.full.source_url;
             } else{
               featured_img = '';
