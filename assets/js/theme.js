@@ -537,7 +537,7 @@ jQuery( document ).ready(function( $ ) {
 
 
   // Fire Nifty Nav
-  niftyNav({
+  $('#nifty-nav-toggle').niftyNav({
     subMenus: true,
     panelPosition: 'fixed'
   });
