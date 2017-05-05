@@ -1,4 +1,4 @@
-var stagingURL = 'http://oneilprint.flywheelsites.com';
+var stagingURL = 'https://oneilprint.com';
 
 // Get Viewport Width
 $viewport = $(window).innerWidth();
