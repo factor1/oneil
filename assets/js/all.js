@@ -489,7 +489,7 @@ this.oneil = this.oneil || {};
  * Licensed MIT (/blob/master/LICENSE.txt)
  */
 (function ($) { if (!$.support.cors && $.ajaxTransport && window.XDomainRequest) { var n = /^https?:\/\//i; var o = /^get|post$/i; var p = new RegExp('^' + location.protocol, 'i'); var q = /text\/html/i; var r = /\/json/i; var s = /\/xml/i; $.ajaxTransport('* text html xml json', function (i, j, k) { if (i.crossDomain && i.async && o.test(i.type) && n.test(i.url) && p.test(i.url)) { var l = null; var m = (j.dataType || '').toLowerCase(); return { send: function (f, g) { l = new XDomainRequest(); if (/^\d+$/.test(j.timeout)) { l.timeout = j.timeout } l.ontimeout = function () { g(500, 'timeout') }; l.onload = function () { var a = 'Content-Length: ' + l.responseText.length + '\r\nContent-Type: ' + l.contentType; var b = { code: 200, message: 'success' }; var c = { text: l.responseText }; try { if (m === 'html' || q.test(l.contentType)) { c.html = l.responseText } else if (m === 'json' || (m !== 'text' && r.test(l.contentType))) { try { c.json = $.parseJSON(l.responseText) } catch (e) { b.code = 500; b.message = 'parseerror' } } else if (m === 'xml' || (m !== 'text' && s.test(l.contentType))) { var d = new ActiveXObject('Microsoft.XMLDOM'); d.async = false; try { d.loadXML(l.responseText) } catch (e) { d = undefined } if (!d || !d.documentElement || d.getElementsByTagName('parsererror').length) { b.code = 500; b.message = 'parseerror'; throw 'Invalid XML: ' + l.responseText; } c.xml = d } } catch (parseMessage) { throw parseMessage; } finally { g(b.code, b.message, c, a) } }; l.onprogress = function () { }; l.onerror = function () { g(500, 'error', { text: l.responseText }) }; var h = ''; if (j.data) { h = ($.type(j.data) === 'string') ? j.data : $.param(j.data) } l.open(i.type, i.url); l.send(h) }, abort: function () { if (l) { l.abort() } } } } }) } })(jQuery);
-var stagingURL = 'http://oneilprint.flywheelsites.com';
+var stagingURL = 'https://oneilprint.com';
 
 // Get Viewport Width
 $viewport = $(window).innerWidth();
@@ -1171,109 +1171,113 @@ jQuery( document ).ready(function( $ ) {
 * Author: Eric Stout / Factor1
 * http://factor1studios.com
 * Repo: https://github.com/factor1/nifty-nav
-* Version: 2.2.0
+* Version: 2.3.1
 */
 
-var niftyNav = function(options){
-  $nifty_toggle = $('#nifty-nav-toggle');
-  $nifty_panel = $('.nifty-panel');
-  $nifty_nav_item = $('.nifty-nav-item');
-  $nifty_parent = $('.nifty-panel ul li');
+(function ($) {
 
-  var settings = $.extend({
-    // These are the defaults.
-    subMenus: false,
-    mask: true,
-    itemClickClose: true,
-    panelPosition:  'absolute',
-    subMenuParentLink:  false
-  }, options );
+  $.fn.niftyNav = function(options){
+    $nifty_toggle = $('#nifty-nav-toggle');
+    $nifty_panel = $('.nifty-panel');
+    $nifty_nav_item = $('.nifty-nav-item');
+    $nifty_parent = $('.nifty-panel ul li');
 
-  subMenus          = settings.subMenus;
-  mask              = settings.mask;
-  itemClickClose    = settings.itemClickClose;
-  panelPosition     = settings.panelPosition;
-  subMenuParentLink = settings.subMenuParentLink;
+    var settings = $.extend({
+      // These are the defaults.
+      subMenus: false,
+      mask: true,
+      itemClickClose: true,
+      panelPosition:  'absolute',
+      subMenuParentLink:  false
+    }, options );
+
+    subMenus          = settings.subMenus;
+    mask              = settings.mask;
+    itemClickClose    = settings.itemClickClose;
+    panelPosition     = settings.panelPosition;
+    subMenuParentLink = settings.subMenuParentLink;
 
 
-  // Core Nifty Nav Functions
-  niftyRemove = function(){
-    $('.nifty-mask').remove();
-  };
+    // Core Nifty Nav Functions
+    niftyRemove = function(){
+      $('.nifty-mask').remove();
+    };
 
-  niftyUnmask = function(){
-    $('.nifty-mask').animate({opacity: 0.0});
-    setTimeout(niftyRemove, 800);
-  };
+    niftyUnmask = function(){
+      $('.nifty-mask').animate({opacity: 0.0});
+      setTimeout(niftyRemove, 800);
+    };
 
-  // on nifty nav toggle click
-  $nifty_toggle.click(function(){
-    var $this = $(this);
-    $this.toggleClass('nifty-active');
-    $nifty_panel.slideToggle(500).css('position',panelPosition);
-
-    // if panelPosition is fixed
-    if( panelPosition == 'fixed' ){
-      $('body').toggleClass('nifty-lock');
-    }
-
-    if( mask === true){
-      // if a mask exists
-      if( $('.nifty-mask').length > 0 ){
-        niftyUnmask();
-      } else{
-        // if no mask exists
-        $('body').append('<div class="nifty-mask"></div>');
-        $('.nifty-mask').animate({opacity: 1.0});
-
-        // if a user clicks on the mask
-        $('.nifty-mask').click(function(){
-          $nifty_panel.slideUp(500);
-          niftyUnmask();
-          $nifty_toggle.removeClass('nifty-active');
-
-          // if panelPosition is fixed
-          if( panelPosition == 'fixed' ){
-            $('body').removeClass('nifty-lock');
-          }
-        });
-      }
-    }
-  });
-
-  // close nifty nav on nav item click
-  if( itemClickClose === true ){
-    $nifty_nav_item.click(function(){
-      $nifty_panel.slideUp(500);
-      niftyUnmask();
-      $nifty_toggle.removeClass('nifty-active');
+    // on nifty nav toggle click
+    $nifty_toggle.click(function(){
+      var $this = $(this);
+      $this.toggleClass('nifty-active');
+      $nifty_panel.slideToggle(500).css('position',panelPosition);
 
       // if panelPosition is fixed
       if( panelPosition == 'fixed' ){
-        $('body').removeClass('nifty-lock');
+        $('body').toggleClass('nifty-lock');
       }
 
-    });
-  }
+      if( mask === true){
+        // if a mask exists
+        if( $('.nifty-mask').length > 0 ){
+          niftyUnmask();
+        } else{
+          // if no mask exists
+          $('body').append('<div class="nifty-mask"></div>');
+          $('.nifty-mask').animate({opacity: 1.0});
 
-  // if sub menus are enabled
-  if( subMenus === true ){
-    var $nifty_parent_active;
-    // if subMenuParentLink is false
-    if( subMenuParentLink === false ){
-      $('.nifty-panel .menu-item-has-children > a').click(function(event){
-        event.preventDefault();
+          // if a user clicks on the mask
+          $('.nifty-mask').click(function(){
+            $nifty_panel.slideUp(500);
+            niftyUnmask();
+            $nifty_toggle.removeClass('nifty-active');
+
+            // if panelPosition is fixed
+            if( panelPosition == 'fixed' ){
+              $('body').removeClass('nifty-lock');
+            }
+          });
+        }
+      }
+    });
+
+    // close nifty nav on nav item click
+    if( itemClickClose === true ){
+      $nifty_nav_item.click(function(){
+        $nifty_panel.slideUp(500);
+        niftyUnmask();
+        $nifty_toggle.removeClass('nifty-active');
+
+        // if panelPosition is fixed
+        if( panelPosition == 'fixed' ){
+          $('body').removeClass('nifty-lock');
+        }
+
       });
     }
 
-    $nifty_parent.click(function(){
-      $nifty_parent_active = $(this);
-      $nifty_parent_active.find('.sub-menu').slideToggle();
-      $nifty_parent_active.find('a').toggleClass('nifty-menu-opened');
-    });
-  }
+    // if sub menus are enabled
+    if( subMenus === true ){
+      var $nifty_parent_active;
+      // if subMenuParentLink is false
+      if( subMenuParentLink === false ){
+        $('.nifty-panel .menu-item-has-children > a').click(function(event){
+          event.preventDefault();
+        });
+      }
 
-};
+      $nifty_parent.click(function(){
+        $nifty_parent_active = $(this);
+        $nifty_parent_active.find('.sub-menu').slideToggle();
+        $nifty_parent_active.toggleClass('nifty-menu-opened');
+      });
+    }
+
+  };
+
+}( jQuery ));
 
 /*
      _ _      _       _
