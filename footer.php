@@ -4,16 +4,16 @@
 <footer class="container">
   <div class="row row--justify-content-start">
     <div class="col-2 footer--social-icons">
-      <a href="#">
+      <a href="https://www.facebook.com/ONeilPrinting" title="Find us on Facebook" role="link">
         <i class="fa fa-facebook"></i>
       </a>
-      <a href="#">
+      <a href="https://twitter.com/ONeilPrinting" title="Find us on Twitter" role="link">
         <i class="fa fa-twitter"></i>
       </a>
-      <a href="#">
+      <a href="https://www.instagram.com/oneilprinting/" title="Find us on Instagram" role="link">
         <i class="fa fa-instagram"></i>
       </a>
-      <a href="#">
+      <a href="https://www.linkedin.com/company-beta/105821/" title="View us on LinkedIn" role="link">
         <i class="fa fa-linkedin"></i>
       </a>
     </div>
