@@ -30,6 +30,49 @@
   <script src="https://use.typekit.net/eji2vat.js"></script>
   <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
+
+<?php // Google analytics   
+<script type="text/javascript"> 
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-21945953-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = google-analytics.com/ga.js;
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>	
+
+
+<?php // Facebook Pixel Code ?>
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1570702509923370'); // Insert your pixel ID here.
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1570702509923370&ev=PageView&noscript=1"
+/></noscript>
+
+<?php // Linkedin tracking ?>
+<script type="text/javascript">
+_linkedin_data_partner_id = "46375";
+</script><script type="text/javascript">
+(function(){var s = document.getElementsByTagName("script")[0];
+var b = document.createElement("script");
+b.type = "text/javascript";b.async = true;
+b.src = "https://snap.licdn.com/li.lms-analytics/insight.min.js";
+s.parentNode.insertBefore(b, s);})();
+</script>
+<noscript>
+<img height="1" width="1" style="display:none;" alt="" src="https://dc.ads.linkedin.com/collect/?pid=46375&fmt=gif" />
+</noscript>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -79,13 +122,13 @@
           <?php wp_nav_menu(array('theme_location' => 'mobile'));?>
 
           <div class="mobile-icon-items">
-            <a href="#">
+            <a href="<?php echo get_home_url();?>/request-a-quote/">
               <div>
                 <img src="<?php bloginfo('template_url');?>/assets/img/quote.svg" alt="Request a Quote">
               </div>
               <span>Request A Quote</span>
             </a>
-            <a href="#">
+            <a href="<?php echo get_home_url();?>/big-upload/">
               <div>
                 <img src="<?php bloginfo('template_url');?>/assets/img/upload.svg" alt="Upload a File">
               </div>
