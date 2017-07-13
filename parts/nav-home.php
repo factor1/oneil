@@ -9,7 +9,7 @@
     <div class="col-9 text-right header--top-icons sm-hide">
       <ul>
         <li>
-          <a href="#">
+          <a href="<?php echo get_home_url();?>/request-a-quote/">
             <div>
               <img src="<?php bloginfo('template_url');?>/assets/img/quote.svg" alt="Request a Quote">
             </div>
@@ -17,7 +17,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="<?php echo get_home_url();?>/upload/">
             <div>
               <img src="<?php bloginfo('template_url');?>/assets/img/upload.svg" alt="Upload a File">
             </div>
@@ -25,7 +25,7 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="<?php echo get_home_url();?>/contact/">
             <div>
               <img src="<?php bloginfo('template_url');?>/assets/img/contact.svg" alt="Contact">
             </div>
