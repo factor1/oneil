@@ -26,9 +26,6 @@ if( $query->have_posts() ):
             <div class="col">
               <div class="solution-work-container" style="background: url(<?php featuredURL('profile-image');?>) center center no-repeat;">
                 <div class="solution-overlay">
-                  <span class="post-data">
-                    <?php the_time('F d, Y'); ?>
-                  </span>
                   <h4>
                     <a href="<?php the_permalink();?>">
                       <?php the_title();?>
