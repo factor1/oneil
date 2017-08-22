@@ -120,7 +120,7 @@ gulp.task('minify-css', ['sass'], function() {
       zindex: false
     }))
     .pipe(gulp.dest( './assets/css' ))
-    .pipe(exec('styledown assets/scss/**/*.scss config.md > styleguide.html'))
+    //.pipe(exec('styledown assets/scss/**/*.scss config.md > styleguide.html')) - styleguide generation, removed post launch 
     .pipe(browserSync.reload({
       stream: true
     }));
