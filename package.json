@@ -18,6 +18,7 @@
   "homepage": "https://github.com/factor1/oneil#readme",
   "dependencies": {
     "ginger-grid": "^2.0.1",
+    "gulp": "^3.9.1",
     "gulp-exec": "^2.1.2",
     "prelude-wp": "^3.3.10"
   }
