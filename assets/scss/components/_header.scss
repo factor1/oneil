@@ -425,6 +425,12 @@ header{
   header, .home header{
     height: rem(111px);
   }
+  
+  //This class is specifically handling a bug on the home page.
+  .mobile-static{
+    position:static;
+  }
+
   #global-nav{
     > .container {
       > .sm-only{

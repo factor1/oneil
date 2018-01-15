@@ -535,12 +535,17 @@ jQuery( document ).ready(function( $ ) {
     getGallerySlider();
   }
 
-
   // Fire Nifty Nav
-  $('#nifty-nav-toggle').niftyNav({
+  // $('#nifty-nav-toggle').niftyNav({
+  //   subMenus: true,
+  //   panelPosition: 'fixed'
+  // });
+
+  niftyNav({
     subMenus: true,
     panelPosition: 'fixed'
   });
+
 
   // hook into nifty nav and lock body when opened
   $('#nifty-nav-toggle').on('click', function(){
@@ -792,7 +797,7 @@ var niftyNav = function(options){
 |___/_|_|\___|_|\_(_)/ |___/
                    |__/
 
- Version: 1.8.0
+ Version: 1.7.1
   Author: Ken Wheeler
  Website: http://kenwheeler.github.io
     Docs: http://kenwheeler.github.io/slick
@@ -847,7 +852,6 @@ var niftyNav = function(options){
                 edgeFriction: 0.35,
                 fade: false,
                 focusOnSelect: false,
-                focusOnChange: false,
                 infinite: true,
                 initialSlide: 0,
                 lazyLoad: 'ondemand',
@@ -1270,7 +1274,7 @@ var niftyNav = function(options){
         var _ = this,
             i, dot;
 
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+        if (_.options.dots === true) {
 
             _.$slider.addClass('slick-dotted');
 
@@ -1345,7 +1349,7 @@ var niftyNav = function(options){
         newSlides = document.createDocumentFragment();
         originalSlides = _.$slider.children();
 
-        if(_.options.rows > 0) {
+        if(_.options.rows > 1) {
 
             slidesPerSection = _.options.slidesPerRow * _.options.rows;
             numOfSlides = Math.ceil(
@@ -1560,8 +1564,8 @@ var niftyNav = function(options){
             _.$nextArrow && _.$nextArrow.off('click.slick', _.changeSlide);
 
             if (_.options.accessibility === true) {
-                _.$prevArrow && _.$prevArrow.off('keydown.slick', _.keyHandler);
-                _.$nextArrow && _.$nextArrow.off('keydown.slick', _.keyHandler);
+                _.$prevArrow.off('keydown.slick', _.keyHandler);
+                _.$nextArrow.off('keydown.slick', _.keyHandler);
             }
         }
 
@@ -1607,7 +1611,7 @@ var niftyNav = function(options){
 
         var _ = this, originalSlides;
 
-        if(_.options.rows > 0) {
+        if(_.options.rows > 1) {
             originalSlides = _.$slides.children().children();
             originalSlides.removeAttr('style');
             _.$slider.empty().append(originalSlides);
@@ -1866,8 +1870,7 @@ var niftyNav = function(options){
             targetLeft,
             verticalHeight,
             verticalOffset = 0,
-            targetSlide,
-            coef;
+            targetSlide;
 
         _.slideOffset = 0;
         verticalHeight = _.$slides.first().outerHeight(true);
@@ -1875,16 +1878,7 @@ var niftyNav = function(options){
         if (_.options.infinite === true) {
             if (_.slideCount > _.options.slidesToShow) {
                 _.slideOffset = (_.slideWidth * _.options.slidesToShow) * -1;
-                coef = -1
-
-                if (_.options.vertical === true && _.options.centerMode === true) {
-                    if (_.options.slidesToShow === 2) {
-                        coef = -1.5;
-                    } else if (_.options.slidesToShow === 1) {
-                        coef = -2
-                    }
-                }
-                verticalOffset = (verticalHeight * _.options.slidesToShow) * coef;
+                verticalOffset = (verticalHeight * _.options.slidesToShow) * -1;
             }
             if (_.slideCount % _.options.slidesToScroll !== 0) {
                 if (slideIndex + _.options.slidesToScroll > _.slideCount && _.slideCount > _.options.slidesToShow) {
@@ -2105,21 +2099,18 @@ var niftyNav = function(options){
                     'role': 'tabpanel',
                     'id': 'slick-slide' + _.instanceUid + i,
                     'tabindex': -1
-                });
+                });            
 
                 if (slideControlIndex !== -1) {
-                   var ariaButtonControl = 'slick-slide-control' + _.instanceUid + slideControlIndex
-                   if ($('#' + ariaButtonControl).length) {
-                     $(this).attr({
-                         'aria-describedby': ariaButtonControl
-                     });
-                   }
+                    $(this).attr({
+                        'aria-describedby': 'slick-slide-control' + _.instanceUid + slideControlIndex
+                    });
                 }
             });
 
             _.$dots.attr('role', 'tablist').find('li').each(function(i) {
                 var mappedSlideIndex = tabControlIndexes[i];
-
+        
                 $(this).attr({
                     'role': 'presentation'
                 });
@@ -2140,11 +2131,7 @@ var niftyNav = function(options){
         }
 
         for (var i=_.currentSlide, max=i+_.options.slidesToShow; i < max; i++) {
-          if (_.options.focusOnChange) {
-            _.$slides.eq(i).attr({'tabindex': '0'});
-          } else {
-            _.$slides.eq(i).removeAttr('tabindex');
-          }
+            _.$slides.eq(i).attr('tabindex', 0);
         }
 
         _.activateADA();
@@ -2170,7 +2157,7 @@ var niftyNav = function(options){
             if (_.options.accessibility === true) {
                 _.$prevArrow.on('keydown.slick', _.keyHandler);
                 _.$nextArrow.on('keydown.slick', _.keyHandler);
-            }
+            }   
         }
 
     };
@@ -2179,7 +2166,7 @@ var niftyNav = function(options){
 
         var _ = this;
 
-        if (_.options.dots === true && _.slideCount > _.options.slidesToShow) {
+        if (_.options.dots === true) {
             $('li', _.$dots).on('click.slick', {
                 message: 'index'
             }, _.changeSlide);
@@ -2189,7 +2176,7 @@ var niftyNav = function(options){
             }
         }
 
-        if (_.options.dots === true && _.options.pauseOnDotsHover === true && _.slideCount > _.options.slidesToShow) {
+        if ( _.options.dots === true && _.options.pauseOnDotsHover === true ) {
 
             $('li', _.$dots)
                 .on('mouseenter.slick', $.proxy(_.interrupt, _, true))
@@ -2490,8 +2477,8 @@ var niftyNav = function(options){
 
             if (_.options.accessibility === true) {
                 _.initADA();
-
-                if (_.options.focusOnChange) {
+                // for non-autoplay: once active slide (group) has updated, set focus on first newly showing slide 
+                if (!_.options.autoplay) {
                     var $currentSlide = $(_.$slides.get(_.currentSlide));
                     $currentSlide.attr('tabindex', 0).focus();
                 }
@@ -3089,15 +3076,14 @@ var niftyNav = function(options){
 
         if (_.options.centerMode === true) {
 
-            var evenCoef = _.options.slidesToShow % 2 === 0 ? 1 : 0;
-
             centerOffset = Math.floor(_.options.slidesToShow / 2);
 
             if (_.options.infinite === true) {
 
                 if (index >= centerOffset && index <= (_.slideCount - 1) - centerOffset) {
+
                     _.$slides
-                        .slice(index - centerOffset + evenCoef, index + centerOffset + 1)
+                        .slice(index - centerOffset, index + centerOffset + 1)
                         .addClass('slick-active')
                         .attr('aria-hidden', 'false');
 
@@ -3105,7 +3091,7 @@ var niftyNav = function(options){
 
                     indexOffset = _.options.slidesToShow + index;
                     allSlides
-                        .slice(indexOffset - centerOffset + 1 + evenCoef, indexOffset + centerOffset + 2)
+                        .slice(indexOffset - centerOffset + 1, indexOffset + centerOffset + 2)
                         .addClass('slick-active')
                         .attr('aria-hidden', 'false');
 
@@ -3283,7 +3269,7 @@ var niftyNav = function(options){
         if (_.options.infinite === false && _.options.centerMode === false && (index < 0 || index > _.getDotCount() * _.options.slidesToScroll)) {
             if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+                if (dontAnimate !== true) {
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -3295,7 +3281,7 @@ var niftyNav = function(options){
         } else if (_.options.infinite === false && _.options.centerMode === true && (index < 0 || index > (_.slideCount - _.options.slidesToScroll))) {
             if (_.options.fade === false) {
                 targetSlide = _.currentSlide;
-                if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+                if (dontAnimate !== true) {
                     _.animateSlide(slideLeft, function() {
                         _.postSlide(targetSlide);
                     });
@@ -3365,7 +3351,7 @@ var niftyNav = function(options){
             return;
         }
 
-        if (dontAnimate !== true && _.slideCount > _.options.slidesToShow) {
+        if (dontAnimate !== true) {
             _.animateSlide(targetLeft, function() {
                 _.postSlide(animSlide);
             });
@@ -6862,7 +6848,7 @@ module.exports = exports["default"];
       , windows = !windowsphone && /windows/i.test(ua)
       , mac = !iosdevice && !silk && /macintosh/i.test(ua)
       , linux = !android && !sailfish && !tizen && !webos && /linux/i.test(ua)
-      , edgeVersion = getSecondMatch(/edg([ea]|ios)\/(\d+(\.\d+)?)/i)
+      , edgeVersion = getFirstMatch(/edge\/(\d+(\.\d+)?)/i)
       , versionIdentifier = getFirstMatch(/version\/(\d+(\.\d+)?)/i)
       , tablet = /tablet/i.test(ua) && !/tablet pc/i.test(ua)
       , mobile = !tablet && /[^-]mobi/i.test(ua)
@@ -6876,7 +6862,7 @@ module.exports = exports["default"];
       , opera: t
       , version: versionIdentifier || getFirstMatch(/(?:opera|opr|opios)[\s\/](\d+(\.\d+)?)/i)
       }
-    } else if (/opr\/|opios/i.test(ua)) {
+    } else if (/opr|opios/i.test(ua)) {
       // a new Opera
       result = {
         name: 'Opera'
@@ -6950,7 +6936,6 @@ module.exports = exports["default"];
     else if (windowsphone) {
       result = {
         name: 'Windows Phone'
-      , osname: 'Windows Phone'
       , windowsphone: t
       }
       if (edgeVersion) {
@@ -6971,13 +6956,12 @@ module.exports = exports["default"];
     } else if (chromeos) {
       result = {
         name: 'Chrome'
-      , osname: 'Chrome OS'
       , chromeos: t
       , chromeBook: t
       , chrome: t
       , version: getFirstMatch(/(?:chrome|crios|crmo)\/(\d+(\.\d+)?)/i)
       }
-    } else if (/edg([ea]|ios)/i.test(ua)) {
+    } else if (/chrome.+? edge/i.test(ua)) {
       result = {
         name: 'Microsoft Edge'
       , msedge: t
@@ -6994,7 +6978,6 @@ module.exports = exports["default"];
     else if (sailfish) {
       result = {
         name: 'Sailfish'
-      , osname: 'Sailfish OS'
       , sailfish: t
       , version: getFirstMatch(/sailfish\s?browser\/(\d+(\.\d+)?)/i)
       }
@@ -7014,7 +6997,6 @@ module.exports = exports["default"];
       }
       if (/\((mobile|tablet);[^\)]*rv:[\d\.]+\)/i.test(ua)) {
         result.firefoxos = t
-        result.osname = 'Firefox OS'
       }
     }
     else if (silk) {
@@ -7041,7 +7023,6 @@ module.exports = exports["default"];
     else if (/blackberry|\bbb\d+/i.test(ua) || /rim\stablet/i.test(ua)) {
       result = {
         name: 'BlackBerry'
-      , osname: 'BlackBerry OS'
       , blackberry: t
       , version: versionIdentifier || getFirstMatch(/blackberry[\d]+\/(\d+(\.\d+)?)/i)
       }
@@ -7049,7 +7030,6 @@ module.exports = exports["default"];
     else if (webos) {
       result = {
         name: 'WebOS'
-      , osname: 'WebOS'
       , webos: t
       , version: versionIdentifier || getFirstMatch(/w(?:eb)?osbrowser\/(\d+(\.\d+)?)/i)
       };
@@ -7058,7 +7038,6 @@ module.exports = exports["default"];
     else if (/bada/i.test(ua)) {
       result = {
         name: 'Bada'
-      , osname: 'Bada'
       , bada: t
       , version: getFirstMatch(/dolfin\/(\d+(\.\d+)?)/i)
       };
@@ -7066,7 +7045,6 @@ module.exports = exports["default"];
     else if (tizen) {
       result = {
         name: 'Tizen'
-      , osname: 'Tizen'
       , tizen: t
       , version: getFirstMatch(/(?:tizen\s?)?browser\/(\d+(\.\d+)?)/i) || versionIdentifier
       };
@@ -7149,25 +7127,19 @@ module.exports = exports["default"];
     }
 
     // set OS flags for platforms that have multiple browsers
-    if (!result.windowsphone && (android || result.silk)) {
+    if (!result.windowsphone && !result.msedge && (android || result.silk)) {
       result.android = t
-      result.osname = 'Android'
-    } else if (!result.windowsphone && iosdevice) {
+    } else if (!result.windowsphone && !result.msedge && iosdevice) {
       result[iosdevice] = t
       result.ios = t
-      result.osname = 'iOS'
     } else if (mac) {
       result.mac = t
-      result.osname = 'macOS'
     } else if (xbox) {
       result.xbox = t
-      result.osname = 'Xbox'
     } else if (windows) {
       result.windows = t
-      result.osname = 'Windows'
     } else if (linux) {
       result.linux = t
-      result.osname = 'Linux'
     }
 
     function getWindowsVersion (s) {
@@ -7185,7 +7157,7 @@ module.exports = exports["default"];
         default: return undefined
       }
     }
-
+    
     // OS version extraction
     var osVersion = '';
     if (result.windows) {

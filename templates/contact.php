@@ -1,12 +1,13 @@
-<?php /* Template Name: Contact Us */
-get_header();
+<?php
+/* Template Name: Contact Us */
+?>
 
-get_template_part('parts/standard-hero');
+<?php get_header(); ?>
 
-get_template_part('parts/breadcrumbs');
+<?php get_template_part( 'parts/breadcrumbs' ); ?>
 
-get_template_part('parts/intro-content');
+<?php get_template_part( 'parts/intro-content' ); ?>
 
-get_template_part('parts/contact-form');
+<?php get_template_part( 'parts/contact-form' ); ?>
 
-get_footer();
+<?php get_footer(); ?>

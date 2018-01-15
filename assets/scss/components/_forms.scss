@@ -23,67 +23,69 @@
  *         input(type="submit", value="Submit")
  */
 
-form{
-  ul{
-    margin: 0;
-    padding: 0;
-    li{
-      padding: 0 0 rem(30px);
-      margin: 0;
-      &:before{
-        display: none;
-      }
-    }
-  }
-  label{
-    display: block;
-    margin-bottom: rem(5px);
-    font-family: $franklin-comp;
-    font-weight: $demi;
-    text-transform: uppercase;
-    color: $black;
-  }
-  input[type=text], input[type=email], input[type=password],input[type=tel]{
-    position: relative;
-    height: rem(40px);
-    width: 100%;
-    border: 4px solid $ltGrey60;
-    font-size: rem(16px);
-    font-weight: $book;
-    line-height: rem(24px);
-    letter-spacing: 0;
-    color: $black;
-    background: none;
-  }
-  textarea{
-    position: relative;
-    border: 4px solid $ltGrey60;
-    font-size: rem(16px);
-    font-weight: $book;
-    line-height: rem(24px);
-    letter-spacing: 0;
-    color: $black;
-    background: none;
-    max-width: 100%;
-  }
-  select{
-    width: 100%;
-    background: transparent url(../img/arrow-down.svg) 98% center no-repeat;
-    background-size: 15px;
-    padding-left: rem(10px);
-    font: rem(16px) $franklin;
-    border: 4px solid $ltGrey60;
-    border-radius: 0;
-    height: rem(40px);
-    font-size: rem(16px);
-    font-weight: $book;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-  input[type=submit]{
-    @extend .button;
-    @extend .button--blue;
-    outline: none;
-    background: none;
-  }
+form {
+	ul {
+		margin:0;
+		padding:0;
+		li {
+			padding:0 0 rem(30px);
+			margin:0;
+			&:before {
+				display:none;
+			}
+		}
+	}
+	label {
+		display:block;
+		margin-bottom:rem(5px);
+		font-family:$franklin-comp;
+		font-weight:$demi;
+		text-transform:uppercase;
+		color:$black;
+	}
+	input[type=text], input[type=email], input[type=password], input[type=tel] {
+		position:relative;
+		height:rem(40px);
+		width:100%;
+		border:4px solid $ltGrey60;
+		font-size:rem(16px);
+		font-weight:$book;
+		line-height:rem(24px);
+		letter-spacing:0;
+		color:$black;
+		background:none;
+	}
+	textarea {
+		position:relative;
+		border:4px solid $ltGrey60;
+		font-size:rem(16px);
+		font-weight:$book;
+		line-height:rem(24px);
+		letter-spacing:0;
+		color:$black;
+		background:none;
+		max-width:100%;
+		width:100%;
+		height:125px;
+	}
+	select {
+		width:100%;
+		background:transparent url(../img/arrow-down.svg) 98% center no-repeat;
+		background-size:15px;
+		padding-left:rem(10px);
+		font:rem(16px) $franklin;
+		border:4px solid $ltGrey60;
+		border-radius:0;
+		height:rem(40px);
+		font-size:rem(16px);
+		font-weight:$book;
+		-webkit-appearance:none;
+		-moz-appearance:none;
+	}
+	input[type=submit] {
+		@extend .button;
+		@extend .button--blue;
+		outline:none;
+		background:none;
+	}
 }

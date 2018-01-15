@@ -535,12 +535,17 @@ jQuery( document ).ready(function( $ ) {
     getGallerySlider();
   }
 
-
   // Fire Nifty Nav
-  $('#nifty-nav-toggle').niftyNav({
+  // $('#nifty-nav-toggle').niftyNav({
+  //   subMenus: true,
+  //   panelPosition: 'fixed'
+  // });
+
+  niftyNav({
     subMenus: true,
     panelPosition: 'fixed'
   });
+
 
   // hook into nifty nav and lock body when opened
   $('#nifty-nav-toggle').on('click', function(){
