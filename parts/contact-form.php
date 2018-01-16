@@ -40,11 +40,11 @@ $query = new WP_Query( $args );
 	</div>
 </section>
 <section class="contact-info container">
-	<h2>Contact Info</h2>
+	<h1>Contact Info</h1>
 	<div class="row row--justify-content-center">
 		<div class="col-4 text-center">
 			<h3>Office</h3>
-			<div itemscope itemtype="http://schema.org/ContactPoint">
+			<div itemscope itemtype="http://schema.org/ContactPoint" class="info-item">
 				<div itemscope itemtype="schema.org/PostalAddress">
 					<span itemprop="streetAddress"><?php the_field( 'street_address', 'option' ); ?><br></span>
 					<span itemprop="addressLocality"><?php the_field( 'city', 'option' ); ?>,</span>
@@ -54,12 +54,16 @@ $query = new WP_Query( $args );
 			</div>
 		</div>
 		<div class="col-4 text-center">
-			<h3>Contact</h3>
-			<span><?php the_field( 'office_phone_number', 'option' ); ?></span>
+			<h3>Phone</h3>
+			<div class="info-item">
+				<span><?php the_field( 'office_phone_number', 'option' ); ?></span>
+			</div>
 		</div>
 		<div class="col-4 text-center">
 			<h3>Fax</h3>
-			<span><?php the_field( 'fax_phone_number', 'option' ); ?></span>
+			<div class="info-item">
+				<span><?php the_field( 'fax_phone_number', 'option' ); ?></span>
+			</div>
 		</div>
 	</div>
 </section>

@@ -1,457 +1,473 @@
 /*------------------------------------------------------------------------------
   Header
 ------------------------------------------------------------------------------*/
-header{
-  z-index: 9999 !important;
-  background: $white;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  box-shadow: 0 0 28px -10px rgba(0,0,0,0.4);
-  nav{
-    ul{
-      display: flex;
-      width: 100%;
-      margin: 0;
-      padding: 0;
-      justify-content: flex-end;
-      align-items: center;
-      flex-flow: row wrap;
-      li{
-        flex: 0 1 auto;
-        position: relative;
-        &:before{
-          display: none;
-        }
-        a{
-          display: block;
-          position: relative;
-          padding: 0 rem(17px);
-          font-size: rem(16px);
-          font-weight: $demi;
-          color: $ltGrey;
-          text-transform: uppercase;
-          text-decoration: none;
-          transition: all .2s ease-out;
-          &:hover{
-            color: $white;
-            text-decoration: none;
-          }
-        }
+header {
+	z-index:9999 !important;
+	background:$white;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	box-shadow:0 0 28px -10px rgba(0, 0, 0, 0.4);
+	nav {
+		ul {
+			display:flex;
+			width:100%;
+			margin:0;
+			padding:0;
+			justify-content:flex-end;
+			align-items:center;
+			flex-flow:row wrap;
+			li {
+				flex:0 1 auto;
+				position:relative;
+				&:before {
+					display:none;
+				}
+				a {
+					display:block;
+					position:relative;
+					padding:0 rem(17px);
+					font-size:rem(16px);
+					font-weight:$demi;
+					color:$ltGrey;
+					text-transform:uppercase;
+					text-decoration:none;
+					transition:all .2s ease-out;
+					&:hover {
+						color:$white;
+						text-decoration:none;
+					}
+				}
 
-        //active parent
-        .parent-active{
-          color: $white;
-        }
+				//active parent
+				.parent-active {
+					color:$white;
+				}
 
-        // desktop dropdowns
-        ul{
-          display: none;
-          position: absolute;
-          width: rem(230px);
-          top: rem(35px);
-          background: $ltGrey30;
-          padding: 0 rem(15px) rem(17px);
+				// desktop dropdowns
+				ul {
+					display:none;
+					position:absolute;
+					width:rem(230px);
+					top:rem(35px);
+					background:$ltGrey30;
+					padding:0 rem(15px) rem(17px);
 
-          // items that have children
-          .menu-item-has-children > a{
-            &:after{
-              content: '+';
-              display: inline-block;
-              position: relative;
-              margin-left: rem(5px);
-            }
-          }
+					// items that have children
+					.menu-item-has-children > a {
+						&:after {
+							content:'+';
+							display:inline-block;
+							position:relative;
+							margin-left:rem(5px);
+						}
+					}
 
-          // active items
-          .parent-active{
-            color: $blue;
-            &:after{
-              content: '-' !important;
-              display: inline-block;
-              position: relative;
-              margin-left: rem(5px);
-            }
-          }
+					// active items
+					.parent-active {
+						color:$blue;
+						&:after {
+							content:'-' !important;
+							display:inline-block;
+							position:relative;
+							margin-left:rem(5px);
+						}
+					}
 
-          li{
-            width: 100%;
-            position: relative;
-            border-bottom: 1px solid $ltGrey60;
-            a{
-              display: block;
-              font: rem(14px) $franklin;
-              font-weight: $demi;
-              text-transform: none;
-              padding: rem(10px) 0;
-            }
-            // submenu inside submenu
-            ul{
-              display: none;
-              position: relative;
-              top: 0;
-              padding: 0;
-              width: 100%;
-              li{
-                border-bottom: none;
-                a{
-                  font: rem(14px) $franklin;
-                  font-weight: $book;
-                  font-style: italic;
-                  color: $blue;
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+					li {
+						width:100%;
+						position:relative;
+						border-bottom:1px solid $ltGrey60;
+						a {
+							display:block;
+							font:rem(14px) $franklin;
+							font-weight:$demi;
+							text-transform:none;
+							padding:rem(10px) 0;
+						}
+						// submenu inside submenu
+						ul {
+							display:none;
+							position:relative;
+							top:0;
+							padding:0;
+							width:100%;
+							li {
+								border-bottom:none;
+								a {
+									font:rem(14px) $franklin;
+									font-weight:$book;
+									font-style:italic;
+									color:$blue;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 }
 
-.home header{
-  height: rem(198px);
+.home header {
+	height:rem(198px);
 }
 
-header{
-  height: rem(100px);
+header {
+	height:rem(100px);
 }
 
-.home-nav{
-  padding: rem(20px) 0;
-  height: rem(148px);
-  // Top Icon Row
-  .header--top-icons{
-    ul{
-      list-style: none;
-      width: 100%;
-      display: flex;
-      position: relative;
-      justify-content: space-between;
-      flex-flow: row nowrap;
-      align-items: center;
-      padding-left: rem(187px);
-      li:before{
-        display: none;
-      }
-      li{
-        flex: 0 1 auto;
-        position: relative;
-        min-width: 0;
-        a{
-          text-decoration: none;
-          text-transform: uppercase;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-flow: row nowrap;
-          // hover states
-          &:hover{
-            div,span{
-              opacity: 0.65;
-            }
-          }
-        }
-        div{
-          width: 40px;
-          max-width: 100%;
-          flex: 0 1 auto;
-          height: auto;
-          opacity: 1;
-          transition: all .2s ease-out;
-          img{
-            max-width: 40px;
-            display: block;
-          }
-        }
-        span{
-          flex: 0 1 auto;
-          font: rem(14px) $franklin;
-          font-weight: $heavy;
-          color: $ltGrey;
-          display: block;
-          margin: 0 15px;
-          white-space: nowrap;
-          opacity: 1;
-          transition: all .2s ease-out;
-        }
-        // last li
-        &:last-of-type{
-          span{
-            margin-right: 0;
-          }
-        }
-      }
-    }
-  }
+.home-nav {
+	padding:rem(20px) 0;
+	height:rem(148px);
+	// Top Icon Row
+	.header--top-icons {
+		ul {
+			list-style:none;
+			width:100%;
+			display:flex;
+			position:relative;
+			justify-content:space-between;
+			flex-flow:row nowrap;
+			align-items:center;
+			padding-left:rem(187px);
+			li:before {
+				display:none;
+			}
+			li {
+				flex:0 1 auto;
+				position:relative;
+				min-width:0;
+				a {
+					text-decoration:none;
+					text-transform:uppercase;
+					width:100%;
+					display:flex;
+					justify-content:center;
+					align-items:center;
+					flex-flow:row nowrap;
+					// hover states
+					&:hover {
+						div, span {
+							opacity:0.65;
+						}
+					}
+				}
+				div {
+					width:40px;
+					max-width:100%;
+					flex:0 1 auto;
+					height:auto;
+					opacity:1;
+					transition:all .2s ease-out;
+					img {
+						max-width:40px;
+						display:block;
+					}
+				}
+				span {
+					flex:0 1 auto;
+					font:rem(14px) $franklin;
+					font-weight:$heavy;
+					color:$ltGrey;
+					display:block;
+					margin:0 15px;
+					white-space:nowrap;
+					opacity:1;
+					transition:all .2s ease-out;
+				}
+				// last li
+				&:last-of-type {
+					span {
+						margin-right:0;
+					}
+				}
+			}
+		}
+	}
 }
 
-.home-nav--bottom{
-  padding: rem(15px) 0;
-  background: $ltGrey30;
-  img{
-    max-height: rem(17px);
-  }
+.home-nav--bottom {
+	padding:rem(15px) 0;
+	background:$ltGrey30;
+	img {
+		max-height:rem(17px);
+	}
 }
 
 // Global Navigation Found after scroll and on all Pages
-.home #global-nav{
-  display: none;
+.home #global-nav {
+	display:none;
 }
 
-#global-nav{
+#global-nav {
 
-  .logo-simple{
-    width: rem(42px);
-  }
+	.logo-simple {
+		width:rem(42px);
+	}
 
-  > .container{
-    height: rem(100px);
+	> .container {
+		height:rem(100px);
 
-    > .row{
-      // icon column
-      > .col-3{
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        flex-flow: row nowrap;
+		> .row {
+			// icon column
+			> .col-3 {
+				display:flex;
+				justify-content:flex-end;
+				align-items:center;
+				flex-flow:row nowrap;
 
-        div{
-          flex: 0 1 auto;
-          padding-right: rem(50px);
-          a:hover{
-            img{
-              opacity: 0.8;
-            }
-          }
-          img{
-            display: block;
-            width: 20px;
-            max-width: 100%;
-            transition: all .2s ease-out;
-          }
-          &:last-of-type{
-            padding-right: 0;
-          }
-        } // end div
+				div {
+					flex:0 1 auto;
+					padding-right:rem(50px);
+					a:hover {
+						img {
+							opacity:0.8;
+						}
+					}
+					img {
+						display:block;
+						width:20px;
+						max-width:100%;
+						transition:all .2s ease-out;
+					}
+					&:last-of-type {
+						padding-right:0;
+					}
+				}
+				// end div
 
-      } // end col-3
+			}
+			// end col-3
 
-      > .col-8{
-        nav{
-          > div > ul{
-            > li{
-              .parent-active{
-                color: $ltGrey60;
-              }
-              > ul{
-                top: rem(60px);
-              }
-              > a{
-                &:hover{
-                  color: $ltGrey60;
-                }
-              } // end a
-            } // end LI
-          } // end div > ul
-        } // end nav
-      } // end col-8
+			> .col-8 {
+				nav {
+					> div > ul {
+						> li {
+							.parent-active {
+								color:$ltGrey60;
+							}
+							> ul {
+								top:rem(60px);
+							}
+							> a {
+								&:hover {
+									color:$ltGrey60;
+								}
+							}
+							// end a
+						}
+						// end LI
+					}
+					// end div > ul
+				}
+				// end nav
+			}
+			// end col-8
 
-    } // end row
+		}
+		// end row
 
-  } // end container
-} // end global nav
+	}
+	// end container
+}
 
+// end global nav
 
 // search icon
-.search-icon{
-  text-align: right;
-  cursor: pointer;
-  img{
-    max-width: rem(17px);
-    display: block;
-    margin: 0 0 0 auto;
-    transition: all .2s ease-out;
-  }
-  &:hover{
-    img{
-      filter: brightness(200%);
-    }
-  }
+.search-icon {
+	text-align:right;
+	cursor:pointer;
+	img {
+		max-width:rem(17px);
+		display:block;
+		margin:0 0 0 auto;
+		transition:all .2s ease-out;
+	}
+	&:hover {
+		img {
+			filter:brightness(200%);
+		}
+	}
 }
 
 // Nifty Nav Panel Styles
-.nifty-panel{
-  height: 100vh;
-  overflow-y: scroll;
-  padding-bottom: rem(111px);
-  ul{
-    width: 100%;
-    padding: rem(15px) 0;
-    margin: 0;
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
-    flex-flow: column nowrap;
-    // top level nav
-    li{
-      flex: 1 1 100%;
-      width: 100%;
-      position: relative;
-      border-bottom: 1px solid $ltGrey60;
-      &:before{
-        display: none;
-      }
-      a{
-        display: block;
-        //width: 100%;
-        position: relative;
-        padding: rem(10px) rem(5px);
-        font: rem(18px) $franklin;
-        font-weight: $demi;
-        text-transform: uppercase;
-        color: $ltGrey;
-        // border-bottom: 1px solid $ltGrey60;
-        &:hover{
-          text-decoration: none;
-        }
-      }
-      // sub menu items
-      ul{
-        padding: 0;
-        display: none;
-        li{
-          border-bottom: none;
-          a{
-            color: $blue;
-          }
-        }
-      }
-      // opened class on nav item
-      .nifty-menu-opened{
-        color: $blue;
-        &:after{
-          content: ' -' !important;
-          display: inline-block;
-          position: relative;
-          margin-left: rem(7px);
-        }
-      }
-    }
-  }
-  // Classes for open/close icons
-  .menu-item-has-children{
-    > a{
-      &:after{
-        content: ' +';
-        display: inline-block;
-        position: relative;
-        margin-left: rem(7px);
-      }
-    }
-    // hide sub menu icons (nifty nav bug)
-    ul{
-      li{
-        a:after{
-          display: none !important;
-        }
-      }
-    }
-  }
+.nifty-panel {
+	height:100vh;
+	overflow-y:scroll;
+	padding-bottom:rem(111px);
+	ul {
+		width:100%;
+		padding:rem(15px) 0;
+		margin:0;
+		display:flex;
+		justify-content:flex-start;
+		align-items:flex-start;
+		flex-flow:column nowrap;
+		// top level nav
+		li {
+			flex:1 1 100%;
+			width:100%;
+			position:relative;
+			border-bottom:1px solid $ltGrey60;
+			&:before {
+				display:none;
+			}
+			a {
+				display:block;
+				//width: 100%;
+				position:relative;
+				padding:rem(10px) rem(5px);
+				font:rem(18px) $franklin;
+				font-weight:$demi;
+				text-transform:uppercase;
+				color:$ltGrey;
+				// border-bottom: 1px solid $ltGrey60;
+				&:hover {
+					text-decoration:none;
+				}
+			}
+			// sub menu items
+			ul {
+				padding:0;
+				display:none;
+				li {
+					border-bottom:none;
+					a {
+						color:$blue;
+					}
+				}
+			}
+			// opened class on nav item
+			.nifty-menu-opened {
+				color:$blue;
+				&:after {
+					content:' -' !important;
+					display:inline-block;
+					position:relative;
+					margin-left:rem(7px);
+				}
+			}
+		}
+	}
+	// Classes for open/close icons
+	.menu-item-has-children {
+		> a {
+			&:after {
+				content:' +';
+				display:inline-block;
+				position:relative;
+				margin-left:rem(7px);
+			}
+		}
+		// hide sub menu icons (nifty nav bug)
+		ul {
+			li {
+				a:after {
+					display:none !important;
+				}
+			}
+		}
+	}
 }
 
 // Mobile Icons for Uploads, quotes, etc
-.mobile-icon-items{
-  a{
-    display: block;
-    position: relative;
-    margin-bottom: rem(15px);
-  }
-  a:hover{
-    text-decoration: none;
-  }
-  div{
-    width: rem(25px);
-    display: inline-block;
-    position: relative;
-    vertical-align: middle;
-  }
-  span{
-    display: inline-block;
-    position: relative;
-    margin-left: rem(10px);
-    vertical-align: middle;
-    font: rem(15px) $franklin;
-    font-weight: $heavy;
-    color: $ltGrey;
-    text-transform: uppercase;
-  }
+.mobile-icon-items {
+	a {
+		display:block;
+		position:relative;
+		margin-bottom:rem(15px);
+	}
+	a:hover {
+		text-decoration:none;
+	}
+	div {
+		width:rem(25px);
+		display:inline-block;
+		position:relative;
+		vertical-align:middle;
+	}
+	span {
+		display:inline-block;
+		position:relative;
+		margin-left:rem(10px);
+		vertical-align:middle;
+		font:rem(15px) $franklin;
+		font-weight:$heavy;
+		color:$ltGrey;
+		text-transform:uppercase;
+	}
 }
 
 // Mobile Contact Items
-.mobile-contact-items{
-  margin-bottom: rem(30px);
-  span{
-    display: inline-block;
-    font: rem(15px) $franklin;
-    font-weight: $heavy;
-    color: $ltGrey;
-  }
-  .contact-item{
-    font: rem(15px) $franklin;
-    font-weight: $book;
-    color: $ltGrey;
-  }
+.mobile-contact-items {
+	margin-bottom:rem(30px);
+	span {
+		display:inline-block;
+		font:rem(15px) $franklin;
+		font-weight:$heavy;
+		color:$ltGrey;
+	}
+	.contact-item {
+		font:rem(15px) $franklin;
+		font-weight:$book;
+		color:$ltGrey;
+	}
 }
 
 // Locking of Body Classes when mobile nav is opened
-.nifty-locked{
-  overflow: hidden;
-  height: 100vh;
+.nifty-locked {
+	overflow:hidden;
+	height:100vh;
 }
 
 // Media Queries
 
-@media screen and (max-width: 973px){
-  header nav ul li a{
-    font-size: 0.9rem;
-  }
+@media screen and (max-width:973px) {
+	header nav ul li a {
+		font-size:0.9rem;
+	}
+
+	.home {
+		#nifty-nav-toggle {
+			top:-25px;
+		}
+	}
+
 }
 
+@media screen and (max-width:$small-breakpoint) {
+	header, .home header {
+		height:rem(111px);
+	}
 
-@media screen and (max-width: $small-breakpoint){
-  header, .home header{
-    height: rem(111px);
-  }
-  
-  //This class is specifically handling a bug on the home page.
-  .mobile-static{
-    position:static;
-  }
+	//This class is specifically handling a bug on the home page.
+	.mobile-static {
+		position:static;
+	}
 
-  #global-nav{
-    > .container {
-      > .sm-only{
-        > .sm-col-6{
-          img{
-            padding-top: rem(17px);
-            height: rem(83px);
-          }
-        }
-      }
-    }
-  }
+	#global-nav {
+		> .container {
+			> .sm-only {
+				> .sm-col-6 {
+					img {
+						padding-top:rem(17px);
+						height:rem(83px);
+					}
+				}
+			}
+		}
+	}
 
-  // home navigation adjustments
-  #home-navigation--top{
-    .home-nav{
-      padding: rem(13px) 0;
-      height: auto;
-      img{
-        height: rem(83px);
-      }
-    }
-  }
+	// home navigation adjustments
+	#home-navigation--top {
+		.home-nav {
+			padding:rem(13px) 0;
+			height:auto;
+			img {
+				height:rem(83px);
+			}
+		}
+	}
 }

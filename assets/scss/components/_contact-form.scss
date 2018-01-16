@@ -1,23 +1,77 @@
-// Contact Form Styles
-.contact--form-container{
-  background: $ltGrey15;
-  padding: rem(97px) 0;
+.contact--form-container {
+	background:$ltGrey15;
+	padding:rem(50px) 0;
 }
 
-// contact form
-.contact--form{
-  padding-right: 8.3333%;
+.contact--benefits {
+	padding-right:5%;
+	ul {
+		padding-left:32px;
+		margin:0;
+	}
+	li {
+		font-size:1.5em;
+		line-height:1.5em;
+		margin-bottom:25px;
+		color:$black;
+		&:before {
+			content:'';
+			display:block;
+			background-image:url("../img/check.svg");
+			height:25px;
+			width:25px;
+			position:absolute;
+			top:0;
+			left:-35px;
+		}
+	}
+	h3 {
+		margin-top:0;
+		margin-bottom:25px;
+	}
+	.testimonials {
+		padding-top:25px;
+		.testimonial-wrap {
+			&:not(:last-child) {
+				margin-bottom:25px;
+			}
+		}
+		.testimonial {
+			margin-bottom:10px;
+			p {
+				font-size:1.5em;
+				line-height:1.5em;
+			}
+		}
+		p {
+			margin-top:0;
+			margin-bottom:0px;
+		}
+	}
 }
 
-// info column
-.contact--info{
-  padding-left: 8.3333%;
-  border-left: 4px solid $ltGrey30;
+.contact-info {
+	padding:25px 0 50px 0;
+	h1 {
+		margin-bottom:15px;
+	}
+	.info-item {
+		font-size:1.2em;
+	}
 }
 
-@media screen and (max-width: $small-breakpoint){
-  .contact--info{
-    border-left: none;
-    padding-left: rem(15px);
-  }
+.contact--form {
+	padding-left:5%;
+	border-left:4px solid $ltGrey30;
+}
+
+@media screen and (max-width:$small-breakpoint) {
+	.contact--info {
+		border-left:none;
+		padding-left:rem(15px);
+	}
+
+	.testimonials {
+		margin-bottom:50px;
+	}
 }
