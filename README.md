@@ -27,15 +27,16 @@ We use npm and gulp in addition to these dependencies:
 Both production and staging environments can be updated by using git. These hook
 directly into the `/themes/` folder.
 
-#### Production Repo
+#### Deployment
 ```sh
-## Coming Soon
+Deployment managed by DeployHQ.
+1. Push to Staging brach.
+2. Login to DepployHQ. Create new deployment.
+3. Verify changes on staging.
+4. Use Flywheel hosting to copy staging to live.
+
 ```
 
-#### Staging Repo
-```sh
-ssh://ther29@ther29.com:2222/home/ther29/repo/oneil.git
-```
 ## Questions / Issues / Access
 If you have any questions, issues, or need access to this repo please reach out to
 us at [factor1studios.com](http://factor1studios.com).
