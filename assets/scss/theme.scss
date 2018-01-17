@@ -8,9 +8,9 @@
   - Components
 -----------------------------------------------------------------------------*/
 // import the Sass partials in the order that you need here
-
 // vendor
 @import 'normalize';
+
 @include normalize();
 
 @import 'sugar';
@@ -79,3 +79,4 @@
 @import 'templates/gallery';
 @import 'templates/search-results';
 @import 'templates/signage-landing';
+@import 'templates/aob-landing';

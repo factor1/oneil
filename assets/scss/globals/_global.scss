@@ -3,177 +3,194 @@
 ------------------------------------------------------------------------------*/
 /* Set box sizing to elimate math in the padding */
 * {
-  -webkit-box-sizing : border-box;
-  -moz-box-sizing    : border-box;
-  box-sizing         : border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 }
 
 html,
 body {
-  border      : 0;
-  margin      : 0;
-  padding     : 0;
-  width       : 100%;
-  min-height  : 100%;
+	border:0;
+	margin:0;
+	padding:0;
+	width:100%;
+	min-height:100%;
 }
 
 html,
 html a {
-  -webkit-font-smoothing : antialiased !important;
-  text-shadow            : 1px 1px 1px rgba(0, 0, 0, 0.004);
+	-webkit-font-smoothing:antialiased !important;
+	text-shadow:1px 1px 1px rgba(0, 0, 0, 0.004);
 }
 
 body {
-  font                       : 100%/1.25 $franklin;
-  min-height                 : 100%;
-  overflow-y                 : scroll;
-  overflow-x: hidden;
-  /* has to be scroll, not auto */
-  -webkit-overflow-scrolling : touch;
+	font:100%/1.25 $franklin;
+	min-height:100%;
+	overflow-y:scroll;
+	overflow-x:hidden;
+	/* has to be scroll, not auto */
+	-webkit-overflow-scrolling:touch;
 }
 
 // Hide empty paragraphs
-p:empty{
-  display: none !important;
+p:empty {
+	display:none !important;
 }
 
 // Tables
 table {
-  margin  : 0 0 18px;
+	margin:0 0 18px;
 }
 
 /* keep images from spilling out of columns */
-img{
-  max-width: 100%;
-  height: auto;
+img {
+	max-width:100%;
+	height:auto;
 }
 
 // Flex Video Based on Zurb's Foundation Framework
 .flex-video {
-  position: relative;
-  height: 0;
-  padding-top: 0;
-  padding-bottom: 56.25%;
-  margin-bottom: 1rem;
-  overflow: hidden;
-  iframe, object, embed, video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
+	position:relative;
+	height:0;
+	padding-top:0;
+	padding-bottom:56.25%;
+	margin-bottom:1rem;
+	overflow:hidden;
+	iframe, object, embed, video {
+		position:absolute;
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
 }
 
 // Remove highlighting of slick slides
-.slick-slide:focus, .slick-slide:active{
-  outline: none !important;
+.slick-slide:focus, .slick-slide:active {
+	outline:none !important;
 }
 
 // Styleguide Styles
-.sg{
-  margin-top: 20px;
-}
-.sg-container{
-  @extend .container;
-  // make it visible
-  h4{background: black}
+.sg {
+	margin-top:20px;
 }
 
-.sg-block{
-  @extend .row;
-  border-bottom: 2px solid black;
+.sg-container {
+	@extend .container;
+	// make it visible
+	h4 {
+		background:black
+	}
 }
 
-.sg-text{
-  @extend .col-4;
+.sg-block {
+	@extend .row;
+	border-bottom:2px solid black;
 }
 
-.sg-example{
-  @extend .col-8;
+.sg-text {
+	@extend .col-4;
 }
 
-.sg-code{
-  display: none;
+.sg-example {
+	@extend .col-8;
 }
 
-.sg-section-forms{
-  div{
-    margin: 5px auto 10px;
-  }
+.sg-code {
+	display:none;
+}
+
+.sg-section-forms {
+	div {
+		margin:5px auto 10px;
+	}
 }
 
 // Visibility Classes
-.sm-only{
-  display: none !important;
+.sm-only {
+	display:none !important;
 }
 
-::selection{
-  background: $blue;
-  color: $white;
+::selection {
+	background:$blue;
+	color:$white;
 }
 
 // SVG Line Class
-.slant{
-  width: rem(60px);
+.slant {
+	width:rem(60px);
 }
 
 // Color Classes
-.white{
-  color: $white;
+.white {
+	color:$white;
 }
 
 // Post Meta Deta
-.post-data{
-  font: rem(20px) $franklin-comp;
-  font-weight: $demi;
-  text-transform: uppercase;
+.post-data {
+	font:rem(20px) $franklin-comp;
+	font-weight:$demi;
+	text-transform:uppercase;
 }
 
 // Main Content Container
-.home main{
-  margin-top: rem(198px);
+.home main {
+	margin-top:rem(198px);
 }
 
-main{
-  margin-top: rem(100px);
+main {
+	margin-top:rem(100px);
+}
+
+.background {
+	position:absolute;
+	top:0;
+	left:50%;
+	width:100%;
+	height:100%;
+	margin:0;
+	margin-left:-50%;
+	z-index:-1;
+	background-size:cover;
+	background-repeat:no-repeat;
+	background-position:center;
 }
 
 // 404 Page
-.error-404{
-  height: 100vh;
-  background: $blue url(../img/404.jpg) center center no-repeat;
-  background-size: cover;
-  h1{
-    color: $white;
-  }
-  p{
-    font: rem(24px) $franklin;
-    font-weight: $book;
-  }
-  a{
-    font-family: $franklin-comp;
-    font-weight: $demi;
-    text-transform: uppercase;
-  }
-  p, a{
-    color: $white;
-  }
+.error-404 {
+	height:100vh;
+	background:$blue url(../img/404.jpg) center center no-repeat;
+	background-size:cover;
+	h1 {
+		color:$white;
+	}
+	p {
+		font:rem(24px) $franklin;
+		font-weight:$book;
+	}
+	a {
+		font-family:$franklin-comp;
+		font-weight:$demi;
+		text-transform:uppercase;
+	}
+	p, a {
+		color:$white;
+	}
 }
 
 // Utility Classes
-.locked{
-  overflow: hidden !important;
+.locked {
+	overflow:hidden !important;
 }
 
-@media screen and (max-width: $small-breakpoint){
-  .sm-only{
-    display: flex !important;
-  }
-  .sm-hide{
-    display: none;
-  }
-  main, .home main{
-    margin-top: rem(111px);
-  }
+@media screen and (max-width:$small-breakpoint) {
+	.sm-only {
+		display:flex !important;
+	}
+	.sm-hide {
+		display:none;
+	}
+	main, .home main {
+		margin-top:rem(111px);
+	}
 }

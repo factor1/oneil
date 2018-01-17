@@ -88,4 +88,17 @@ form {
 		outline:none;
 		background:none;
 	}
+
+	.gfield_checkbox {
+		padding-top:15px;
+		li {
+			padding-bottom:10px;
+		}
+		input {
+			margin-right:10px;
+		}
+		label {
+			display:inline;
+		}
+	}
 }

@@ -1,0 +1,272 @@
+.page-template-aob-landing {
+
+	.part--intro-content {
+		padding:150px 0;
+		background-color:$blue;
+
+		h1, p {
+			color:$white;
+		}
+
+		h1 {
+			margin-bottom:15px;
+			text-transform:none;
+		}
+
+		.book-col {
+			position:relative;
+		}
+
+		.book-image {
+			position:absolute;
+			top:-150px;
+			width:125%;
+		}
+	}
+
+	.about-aob {
+		position:relative;
+		padding:125px 0;
+
+		h2 {
+			color:$blue;
+			text-transform:none;
+			margin-bottom:0;
+			margin-top:10px;
+		}
+
+		p {
+			color:$blue;
+		}
+
+		.video-col {
+			text-align:center;
+			img {
+				cursor:pointer;
+				transition:.2s;
+				&:hover {
+					transform:scale(1.01);
+				}
+			}
+		}
+	}
+
+	.past-work {
+		background-color:$red;
+		padding:100px 0;
+
+		h2 {
+			color:$white;
+			text-transform:none;
+			margin-bottom:0;
+			margin-top:10px;
+		}
+	}
+
+	.past-work-slider {
+		padding:50px 25px;
+
+		.slick-track {
+			display:flex;
+			justify-content:space-between;
+			align-items:center;
+			div {
+				flex:0 1 auto;
+			}
+			a {
+				display:block;
+				img {
+					display:block;
+					margin:0 auto;
+				}
+			}
+		}
+
+		.slick-next, .slick-prev {
+			width:33px;
+			height:62px;
+		}
+
+		.slick-prev:before {
+			content:url(../img/arrow-left-grey.png);
+		}
+
+		.slick-next:before {
+			content:url(../img/arrow-right-grey.png);
+		}
+
+	}
+
+	.aob-contact {
+		padding-top:100px;
+		/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#489fdf+0,ffffff+83 */
+		background:rgb(72, 159, 223); /* Old browsers */
+		background:-moz-linear-gradient(top, rgba(72, 159, 223, .4) 0%, rgba(255, 255, 255, .2) 25%); /* FF3.6-15 */
+		background:-webkit-linear-gradient(top, rgba(72, 159, 223, .4) 0%, rgba(255, 255, 255, .2) 25%); /* Chrome10-25,Safari5.1-6 */
+		background:linear-gradient(to bottom, rgba(72, 159, 223, .4) 0%, rgba(255, 255, 255, .2) 25%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+		filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#489fdf', endColorstr='#ffffff', GradientType=0); /* IE6-9 */
+	}
+
+	.form-wrap {
+		position:relative;
+		padding:100px 150px;
+		border:6px solid $blue;
+		border-bottom:none;
+		border-left:none;
+
+		&:before, &:after {
+			content:'';
+			display:block;
+			position:absolute;
+			width:6px;
+			left:0;
+			background-color:$blue;
+		}
+
+		&:before {
+			height:30px;
+			top:0;
+		}
+
+		&:after {
+			height:calc(100% - 145px);
+			top:145px;
+		}
+
+		.static-header {
+			display:none;
+		}
+
+		.floating-header {
+			position:absolute;
+			width:145px;
+			top:50px;
+			left:-60px;
+			h3 {
+				font-size:2.4em
+			}
+		}
+
+		h3 {
+			text-transform:none;
+			margin:0;
+		}
+	}
+
+	footer {
+		border-top:none;
+	}
+
+	.video-modal {
+		display:none;
+		position:fixed;
+		top:0;
+		left:0;
+		height:100%;
+		width:100%;
+		z-index:99999;
+
+		.overlay {
+			position:absolute;
+			top:0;
+			left:0;
+			height:100%;
+			width:100%;
+			background-color:rgba(0, 0, 0, .6);
+		}
+
+		.modal-inner {
+			position:absolute;
+			top:50%;
+			left:50%;
+			transform:translateY(-50%) translateX(-50%);
+			height:80vh;
+			width:80vw;
+			z-index:99999;
+			.close {
+				cursor:pointer;
+				position:absolute;
+				top:-25px;
+				right:-25px;
+				svg {
+					height:40px;
+					width:40px;
+					fill:$white;
+				}
+			}
+			iframe {
+				height:100%;
+				width:100%;
+			}
+		}
+	}
+
+}
+
+@media (max-width:1100px) {
+	.page-template-aob-landing {
+		.part--intro-content {
+			padding:75px 0;
+			.book-image {
+				top:-75px;
+			}
+		}
+	}
+}
+
+@media (max-width:900px) {
+	.page-template-aob-landing {
+		padding-bottom:25px;
+
+		.form-wrap {
+			padding:25px;
+			border:none;
+
+			&:before, &:after {
+				display:none;
+			}
+
+			.floating-header {
+				display:none;
+			}
+			.static-header {
+				display:block;
+				text-align:center;
+			}
+		}
+
+		.aob-contact {
+			padding-top:25px;
+		}
+	}
+}
+
+@media (max-width:$small-breakpoint) {
+	.page-template-aob-landing {
+		.flex-reverse-mobile {
+			display:flex;
+			flex-direction:column-reverse;
+		}
+		.part--intro-content {
+			.book-col {
+				display:none;
+			}
+		}
+
+		.about-aob {
+			padding:50px 0;
+			text-align:center;
+		}
+
+		.past-work {
+			padding:50px 0;
+		}
+
+		.video-modal {
+			.modal-inner {
+				height:230px;
+				width:300px;
+			}
+		}
+	}
+}
